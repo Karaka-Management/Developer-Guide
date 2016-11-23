@@ -56,13 +56,13 @@ Scripts and frames must be provided by the own server or google. This is importa
 The default CSP looks like the following:
 
 ```
-$response->getHeader()->set('content-security-policy', 'script-src \'self\'; frame-src \'self\'', true);
+$response->getHeader()->set('content-security-policy', 'script-src \'self\'; child-src \'self\'', true);
 ```
 
 In order to whitelist inline javascript you can use the following logic. This however requires you to know the inline script beforehand `$script`. After setting the CSP header they automatically get locked so that further changes are not possible. This is a security measure in order to prevent any malicious adjustments. 
 
 ```
-$response->getHeader()->set('content-security-policy', 'script-src \'self\' \'sha256-' . base64_encode(hash('sha256', $script, true)) . '\'; frame-src \'self\'', true);
+$response->getHeader()->set('content-security-policy', 'script-src \'self\' \'sha256-' . base64_encode(hash('sha256', $script, true)) . '\'; child-src \'self\'', true);
 ```
 
 ### X-XSS-Protection
