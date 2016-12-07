@@ -12,7 +12,7 @@ A file documentation MUST be implemented in the following form:
 /**
  * File description
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   Category name
  * @package    Package name
