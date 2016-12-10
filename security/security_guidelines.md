@@ -105,7 +105,7 @@ In some cases super globals will even be overwritten by values from these classe
 Input validation be implemented on multiple levels.
 
 1. Regex validation in html/javascript by using the `pattern=""` attribute
-2. Type hints for method parameters wherever possible.
+2. Type hints for method parameters and method returns wherever possible.
 3. Making use of the `Validation` classes as much as possible
 4. **Don't** sanitize at all! Accept or dismiss.
 
@@ -136,4 +136,4 @@ if(($pathNew = realpath($path)) === false || !Validator::startsWith($pathNew, RO
 }
 ```
 
-This example now is not only checking if the path exists and if it contains a path element, it also makes sure that the path is inside the application root path. You could as easily replace `ROOT_PATH` with `self::MODULE_PATH` and this validation would make sure `$path` only directs within a module.
+This example now is not only checking if the path exists and if it contains a path element, it also makes sure that the path is inside the application root path.
