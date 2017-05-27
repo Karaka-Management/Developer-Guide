@@ -40,6 +40,7 @@
 * [Logging](services/logging.md)
 * [Localization](services/localization.md)
 * [Events](services/events.md)
+* [Events](services/action_manager.md)
 * [Tasks](services/tasks.md)
 * [Queues](services/queues.md)
 * [Collection](services/collection.md)
