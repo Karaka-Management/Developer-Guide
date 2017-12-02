@@ -69,7 +69,7 @@ $matrix->mult($matrixB);
 
 ## Solve
 
-In order to solve `A x = b` the matrix implements `solve` which automatically selects an appropriate algorithm (LU or QR decomposition) to solve the equation.
+In order to solve `A x = b` the matrix implements `solve()` which automatically selects an appropriate algorithm (LU or QR decomposition) to solve the equation.
 
 ```php
 $matrix->solve($matrixB);
@@ -93,7 +93,7 @@ $matrix->transpose();
 
 ## Determinant
 
-The determinant of a matrix is calculated via the `det` function.
+The determinant of a matrix is calculated via the `det()` function.
 
 ```php
 $matrix->det();
@@ -111,7 +111,7 @@ $matrix->diagonalize();
 
 ### Upper Triangular
 
-The upper triangular of a matrix can be created via the `upperTriangular` function.
+The upper triangular of a matrix can be created via the `upperTriangular()` function.
 
 ```php
 $matrix->upperTriangular();
@@ -119,7 +119,7 @@ $matrix->upperTriangular();
 
 ### Lower Triangular
 
-The lower triangular of a matrix can be created via the `lowerTriangular` function.
+The lower triangular of a matrix can be created via the `lowerTriangular()` function.
 
 ```php
 $matrix->lowerTriangular();

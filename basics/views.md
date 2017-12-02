@@ -1,6 +1,6 @@
 # Views
 
-Views contain the raw information of a result which then depending on the template will be rendered. While it is possible to use the generic `View` class which provides the `addData()` `setData()` and `getData()` methods it is recommended to generate more specialized views for better variable handling as well as providing view logic. The template itself should not contain view logic and only representation logic. In some cases however it is required to modify/transform data which should be handled in the view.
+Views contain the raw information of a result which then depending on the template will be rendered. While it is possible to use the generic `View` class which provides the `addData()`, `setData()` and `getData()` methods it is recommended to generate more specialized views for better variable handling as well as providing view logic. The template itself should not contain view logic and only representation logic. In some cases however it is required to modify/transform data which should be handled in the view.
 
 ## Implementation
 

@@ -4,7 +4,11 @@ The user request gets passed through the entire application to all modules. The 
 
 The routes usually reference endpoints in the module `controllers` which collects the model data through the model `mapper` and creates a partial response `view` with an assigned `template` and the collected model data.
 
-<p align="center"><img alt="Application Flow" src="app_flow.svg"></p>
+<div align="center">
+
+![Application Flow](app_flow.svg)
+
+</div>
 
 In the following only the WebApplication and Application are mentioned as the other components are explained in detail in their respective documentation.
 

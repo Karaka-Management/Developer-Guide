@@ -16,7 +16,7 @@ Flexboxes are preferred for all content containers.
 </div>
 ```
 
-Available sizes are `xs`, `sm`, `md`, `lg` with a grid ranging from `1-12`.
+Available sizes are `xs-*`, `sm-*`, `md-*`, `lg-*` with a grid ranging from `1-12`.
 
 ## Sizes
 

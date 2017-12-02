@@ -33,7 +33,7 @@ $router->add('foo/bar', function() {
 
 Routes can have different verbs which are derived from the HTTP verbs. Routes that get assigned a verb will only be matched if the route and the routing verb match.
 
-```
+```php
 $this->router->add('foo/bar', function() { 
 	return 'Hellow World';
 }, RouteVerb::GET | RouteVerb::SET);
@@ -47,13 +47,13 @@ $this->router->add('foo/bar', function() {
 
 Instead of defining closures it's possible to define a string representation of the destination that should be called.
 
-```
+```php
 $this->router->add('foo/bar', '\foo\controller:barFunction');
 ```
 
 Static functions can be defined in the following fashion:
 
-```
+```php
 $this->router->add('foo/bar', '\foo\controller::barFunction');
 ```
 
@@ -61,13 +61,13 @@ $this->router->add('foo/bar', '\foo\controller::barFunction');
 
 While routes can be added manually to the router it's also possible to import a list of routes through the file import function.
 
-```
+```php
 $this->router->importFromFile($path);
 ```
 
 The routing file must have the folloing structure:
 
-```
+```php
 <?php return [
 	'{ROUTE_STRING}' => [
 		[
