@@ -118,6 +118,19 @@ if (...) {
 $result = condition ? expr1 : expr2;
 ```
 
+Multiline `if` statements must begin with a logical opperator `or`/`and`.
+
+```php
+if (isTrue == true
+    || isFalse === false
+    && isNotTrue !== true
+) {
+
+}
+```
+
+Switch statements must have a `default` case.
+
 ## Constants
 
 Constants must be written with capital letters and snake case.

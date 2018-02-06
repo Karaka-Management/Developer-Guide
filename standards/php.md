@@ -10,6 +10,14 @@ PHP code MUST use the long `<?php ?>` tags or the short-echo `<?= ?>` tags; it M
 
 PHP code MUST use only UTF-8 without BOM
 
+## Line Ending
+
+Lines MUST end with `\n` (LF) and MUST NOT have a whitespace at the end.
+
+## File Ending
+
+Files must end with a new line element `\n`.
+
 ## Namespace and Class Names
 
 Namespaces and classes MUST follow an "autoloading" PSR: [PSR-0, PSR-4].
@@ -23,7 +31,7 @@ Class names MUST be declared in StudlyCaps.
 Php code embedded into template files SHOULD use the alternative syntax for control structures in order to improve the readability:
 
 ```php
-if($a === 5) : ?>
+<?php if ($a === 5) : ?>
     <p>This is html</p>
 <?php endif; ?>
 ```
@@ -35,6 +43,16 @@ when echoing multiple components, don't concat them but use `,`.
 ```php
 echo 'Hello' , 'World';
 ```
+
+## If
+
+#### Elseif
+
+Use `elseif` where possible instead of `else if`.
+
+## Namespace
+
+Namespaces must be surrounded with new line elements.
 
 ## Deprecated functions and variables
 
