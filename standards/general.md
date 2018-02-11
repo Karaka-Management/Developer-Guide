@@ -49,7 +49,7 @@ Never use spaces between variables and atomic operations (e.g. `!`, `++`, `--`)
 Don't use whitespace inside ANY parentheses (e.g. functions, loops, conditions, catch, closures).
 
 ```js
-for (let i = 1; i < 100; i++) { ... }
+for (let i = 1; i < 100; ++i) { ... }
 ``` 
 
 ```js
