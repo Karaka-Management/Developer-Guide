@@ -23,7 +23,7 @@ if($request->getData('CSRF') === null) {
     $response->setStatusCode(RequestStatus::R_403);
 
     /* optional */
-    $response->set($request->__toString(), new Notify('Unknown referrer!', NotifyType::INFO));
+    $response->set($request->getUri()->__toString(), new Notify('Unknown referrer!', NotifyType::INFO));
 
     return;
 }
