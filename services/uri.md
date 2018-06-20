@@ -35,7 +35,7 @@ Some default parameters can be used for easier use.
 * ?foo = value of the specified parameter
 * ? = current query
 * % = current uri
-* # = fragment
+* \# = fragment
 * / = root
 * :port = port
 * :user = user
@@ -45,7 +45,7 @@ Some default parameters can be used for easier use.
 
 While it's also possible to define parameters at the frontend and make use of the default values certain prefixes have a special meaning.
 
-* #somid = value of the element with the specified id
+* \#somid = value of the element with the specified id
 * .somclass = values of the elements with the specified class
 
 ### Dynamic Parameters

@@ -1,6 +1,6 @@
 # Tests
 
-The applications goal is to achive 90% code coverage, which applies for the core application as well as all modules. All unit tests are located in a separate repository `Tests`.
+The applications goal is to achive 90% code coverage, which applies for the core application as well as all modules. All unit tests are located in the corresponding `tests` directory.
 
 ## PHPUnit
 

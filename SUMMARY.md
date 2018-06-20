@@ -4,7 +4,7 @@
 
 ## Setup
 * [Installation](setup/installation.md)
-* [Dev Environment](setup/developer_environment.md)
+* [Developer Environment](setup/developer_environment.md)
 
 ## Standards
 * [General](standards/general.md)
@@ -59,4 +59,4 @@
 
 ## Components
 * [Modules](components/modules.md)
-* [Modules](components/packages.md)
+* [Packages](components/packages.md)
