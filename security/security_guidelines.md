@@ -12,7 +12,7 @@ Example usage:
 </form>
 ```
 
-Now the application will receive the automatically generated CSRF token as query parameter for further use. If the CSRF token is not the same as the one assoziated with the client on the server side the client will receive a 403 HTTP response. The CSRF however doesn't have be specified, if that's the case **every module itself must make sure wheter a valid CSRF token is required** or not. The reason for this is that third party requests are a possibility as well, and sharing the private CSRF token would render it useless.
+Now the application will receive the automatically generated CSRF token as query parameter for further use. If the CSRF token is not the same as the one assoziated with the client on the server side the client will receive a 403 HTTP response. The CSRF however doesn't have be specified, if that's the case **every module itself must make sure whether a valid CSRF token is required** or not. The reason for this is that third party requests are a possibility as well, and sharing the private CSRF token would render it useless.
 
 Since the validation of the CSRF token is performed automatically it is only necessary to check the existence, since if it exists it has to be valid.
 

@@ -118,7 +118,7 @@ if (...) {
 $result = condition ? expr1 : expr2;
 ```
 
-Multiline `if` statements must begin with a logical opperator `or`/`and`.
+Multiline `if` conditions should begin with a logical opperator `or`/`and`.
 
 ```php
 if (isTrue == true
@@ -147,9 +147,13 @@ Variables must be written in camel case.
 
 Boolean variable names should start with a boolean expression (e.g. is, has)
 
+#### Boolean return value
+
+Functions which return a boolean value should start with expressions such as is*, has* or similar expressions to indicate that the function returns a boolean value.
+
 ## Quotation
 
-All string representations should use single quotes `''`.
+All string representations should use single quotes `''` unless `""` provides significant benefits in a specific use case.
 
 ```js
 'This is a string'

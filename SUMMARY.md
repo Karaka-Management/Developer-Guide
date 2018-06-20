@@ -4,7 +4,7 @@
 
 ## Setup
 * [Installation](setup/installation.md)
-* [Dev Environment](setup/dev_environment.md)
+* [Dev Environment](setup/developer_environment.md)
 
 ## Standards
 * [General](standards/general.md)
@@ -13,7 +13,6 @@
 * [Php](standards/php.md)
 
 ## Basics
-
 * [Routing](basics/routing.md)
 * [Dispatching](basics/dispatching.md)
 * [Views](basics/views.md)
@@ -59,4 +58,5 @@
 * [Styles and Layout](frontend/styles_and_layout.md)
 
 ## Components
-* [Modules](components/datamapper.md)
+* [Modules](components/modules.md)
+* [Modules](components/packages.md)
