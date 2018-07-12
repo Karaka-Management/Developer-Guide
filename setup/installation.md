@@ -6,17 +6,27 @@ Installing the application as a developer can be achived by following one of the
 
 * PHP >= 7.2
 * PDO PHP Extension
+* mbstring
+* database such as mysql
 
 ### Recommended Extensions
 
-* Memcache
+The following extensions are recommended for tests and in some cases required by the build tools
+
+* ast
+* memcache
 * Sqlite
-* Socket
-* Curl
-* Imap
+* socket
+* curl
+* imap
 * bcmath
 * zip
-* mbstring
+* php*-dev
+* dom
+* xml
+* phar
+* opcache
+* gd / gd2
 
 ## Linux Shell Script
 
