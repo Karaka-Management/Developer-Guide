@@ -14,6 +14,7 @@ Installing the application as a developer can be achived by following one of the
 The following extensions are recommended for tests and in some cases required by the build tools
 
 * ast
+* phear
 * memcache
 * Sqlite
 * socket
