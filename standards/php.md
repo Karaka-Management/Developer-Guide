@@ -36,10 +36,6 @@ Php code embedded into template files SHOULD use the alternative syntax for cont
 <?php endif; ?>
 ```
 
-## Strings
-
-Strings must use single quotes `'` instead of `"` unless double quotes are required.
-
 ## Echo
 
 when echoing multiple components, don't concat them but use `,`.
