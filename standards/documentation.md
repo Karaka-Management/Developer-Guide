@@ -140,3 +140,9 @@ A function/method documentation MUST be implemented in the following form:
 Please also note the correct alignment of `@param` type, name and description
 
 ### Variable
+
+In some cases it may be required to type hint a variable in this case the following format MUST be used.
+
+```php
+/** @var {variable_type} varName {optional_description}
+```
