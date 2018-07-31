@@ -59,3 +59,7 @@ $eventManager->trigger('eventId', 'conditionName'); // No output (if remove = tr
 ```
 
 The order in which these conditions are triggered doesn't mapper. A multi condition event SHOULD be atteched with the optional boolean parameter `true`. These events can only be executed once and will be removed afterwards. In case the optional boolean parameter was not set to `true` the event will remain in the event manager and will be triggered whenever `trigger('eventId')` is called.
+
+## Frontend vs. Backend
+
+The only key difference between the frontend and backend implementation is that the frontend prevents runnning the same event in quick succession (less than 500 ms) in order to prevent undesired effects which can happen due to quick UI interaction.
