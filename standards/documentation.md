@@ -128,13 +128,15 @@ A function/method documentation MUST be implemented in the following form:
  *
  * Optional example or more detailed description.
  *
- * @param {variable_type} param1Name Parameter description
- * @param {variable_type} [optionalPara] Parameter description
+ * @param {variable_type_1} param1Name     Parameter description
+ * @param {variable_type}   [optionalPara] Parameter description
  *
  * @return {return_type}
  *
  * @since  1.0.0
  */
 ```
+
+Please also note the correct alignment of `@param` type, name and description
 
 ### Variable
