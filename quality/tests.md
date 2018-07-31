@@ -9,13 +9,13 @@ This application uses PHPUnit as unit testing framework. The PHPUnit directory i
 In order to run all tests and also creating the dummy data for UI tests, execute the following command:
 
 ```sh
-php phpunit.phar -c Tests/PHPUnit/phpunit_no_coverage.xml
+php phpunit.phar -c tests/PHPUnit/phpunit_no_coverage.xml
 ```
 
 In order to also create a code coverage report run:
 
 ```sh
-php phpunit.phar -c Tests/PHPUnit/phpunit_default.xml
+php phpunit.phar -c tests/PHPUnit/phpunit_default.xml
 ```
 
 ### Modules
