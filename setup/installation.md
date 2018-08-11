@@ -8,6 +8,8 @@ Installing the application as a developer can be achived by following one of the
 * PDO PHP Extension
 * mbstring
 * database such as mysql
+* apache2
+    * mod_headers
 
 ### Recommended Extensions
 
