@@ -54,6 +54,14 @@ Use `elseif` where possible instead of `else if`.
 
 Namespaces must be surrounded with new line elements.
 
+## Class Constants
+
+Class constants MUST have a access modifier
+
+```php
+public CONST_NAME = ...;
+```
+
 ## Deprecated functions and variables
 
 The following functions and (super-) global variables MUST NOT be used.

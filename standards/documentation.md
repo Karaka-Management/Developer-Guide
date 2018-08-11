@@ -128,8 +128,8 @@ A function/method documentation MUST be implemented in the following form:
  *
  * Optional example or more detailed description.
  *
- * @param {variable_type} param1Name Parameter description
- * @param {variable_type} [optionalPara] Parameter description
+ * @param {variable_type_1} param1Name     Parameter description
+ * @param {variable_type}   [optionalPara] Parameter description
  *
  * @return {return_type}
  *
@@ -137,4 +137,12 @@ A function/method documentation MUST be implemented in the following form:
  */
 ```
 
+Please also note the correct alignment of `@param` type, name and description
+
 ### Variable
+
+In some cases it may be required to type hint a variable in this case the following format MUST be used.
+
+```php
+/** @var variable_type varName {optional_description}
+```

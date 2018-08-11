@@ -16,7 +16,14 @@ With the rest implementation it's possible to make http requests and read the re
 
 ```php
 $request = new Request(new Http('http://your_request.com/url?to=call'));
-$result = Rest::request($request);
+$result  = Rest::request($request);
+```
+
+Alternatively it's also possible to make a rest request directly from the Http request object.
+
+```php
+$request = new Request(new Http('http://your_request.com/url?to=call'));
+$result  = $request->rest();
 ```
 
 The result contains the raw response text. By defining the request method it's also possible to make other requests such as `PUT` requests.
