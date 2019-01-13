@@ -88,7 +88,7 @@ Additional coloring of sections can be achieved by adding a coloring class.
 Tabs are a useful tool in order to display more information on one page.
 
 ```html
-<div class="tabular-2">
+<div class="tab tab-2">
     <ul class="tab-links">
         <li><label for="tab-1">Tab Title 1</label>
         <li><label for="tab-2">Tab Title 2</label>
