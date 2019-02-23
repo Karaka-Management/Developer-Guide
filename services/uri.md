@@ -1,6 +1,6 @@
 # Uri
 
-The `UriFactory` is used in order to build URIs. The factory generates the URIs based on a raw uri as well as defined parameters and placeholders. The uri factory is available for the backend as well as the frontend and operate mostly the same and provide similar functionlity.
+The `UriFactory` is used in order to build URIs. The factory generates the URIs based on a raw uri as well as defined parameters and placeholders. The uri factory is available for the backend as well as the frontend and operate mostly the same and provide similar functionality.
 
 ## Parameters
 
@@ -29,6 +29,7 @@ It is possible to simply use the current uri and simply append parameters if you
 Some default parameters can be used for easier use.
 
 * /base = base uri (e.g. http://www.yoururl.com/basepath)
+* /path = current uri path without base path (e.g. /your/current/path)
 * /scheme = current scheme (e.g. http)
 * /host = current host (e.g. www.yoururl.com)
 * /lang = current language (e.g. en)

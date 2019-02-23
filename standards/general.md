@@ -101,7 +101,9 @@ class Test
 Always use a whitespace before the parentheses.
 
 ```php
-while (true) { ... }
+while (true) {
+    ...
+}
 ``` 
 
 ## If, while, for, foreach, switch

@@ -66,7 +66,7 @@ The date/time is versatile and can have multiple formats. By default the localiz
 * long
 * very_long
 
-Other formats are beyond the scope of the localization and must be hard coded. Please be cautios when to hard code the formatting and pay attention to potential confusion for different localizations.
+Other formats are beyond the scope of the localization and must be hard coded. Please be cautious when to hard code the formatting and pay attention to potential confusion for different localizations.
 
 In the database only the ISO 8601 format will be used.
 

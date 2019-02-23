@@ -65,7 +65,7 @@ While routes can be added manually to the router it's also possible to import a 
 $this->router->importFromFile($path);
 ```
 
-The routing file must have the folloing structure:
+The routing file must have the following structure:
 
 ```php
 <?php return [
@@ -84,3 +84,46 @@ The routing file must have the folloing structure:
 ```
 
 In this schematic the first route has different destinations depending on the verb.
+
+## Permissions
+
+It's also possible to define permissions for a specific application, organization and account in the routes which are then checked if they are set. If they are not set no permissions are checked.
+
+```php
+$router->route('foo/bar', RouteVerb::GET, 'APP_NAME', ORG_ID, ACCOUNT);
+```
+
+```php
+<?php return [
+	'{ROUTE_STRING}' => [
+		[
+			'dest' => {CLOSURE/REFERENCE_STRING},
+			'verb' => {VERB_1 | VERB_2},
+			'permission' => [
+				'module' => {MODULE_NAME},
+				'type' => {CREATE | READ | UPDATE | DELETE | PERMISSION},
+				'state' => {MODULE_SPECIFIC_IDENTIFIER_FOR_THE_PERMISSION},
+			],
+		],
+		[
+			'dest' => {CLOSURE/REFERENCE_STRING},
+			'verb' => {VERB_3},
+		],
+	],
+	'{ANOTHER_ROUTE_STRING}' => [ ... ],
+];
+```
+
+### Module Name
+
+The module name has to be the name specified by the module. This can be found in the `info.json` or the `Controller` of the module.
+
+### Type
+
+The different permission types can be found in the `PermissionType` class/enum.
+
+### State
+
+This value is module specific and needs to be defined by every module individually.
+
+The state allows a module to have different permissions. E.g. a news module has permissions for managing news articles (CRUDP), at the same time it also has permissions for managing tags/badges (CRUDP). Just because a user has permissions for managing news articles this user may not need to have the same permissions for managing tags/badges.

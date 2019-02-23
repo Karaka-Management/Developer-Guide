@@ -33,7 +33,7 @@ The following extensions are recommended for tests and in some cases required by
 
 ## Linux Shell Script
 
-This is the prefered way to install the application since this also installs all required dev tools and sets up the direcetory structure by itself. Using this method also tears down previous installs for a fresh install perfect for re-installing from the current development version. Furthermore the use of phpUnit also makes sure that the application is working as intended. The phpUnit install also provides lots of dummy data for better integration and functionality testing of your own code/modules.
+This is the preferred way to install the application since this also installs all required dev tools and sets up the directory structure by itself. Using this method also tears down previous installs for a fresh install perfect for re-installing from the current development version. Furthermore the use of phpUnit also makes sure that the application is working as intended. The phpUnit install also provides lots of dummy data for better integration and functionality testing of your own code/modules.
 
 ### Steps
 

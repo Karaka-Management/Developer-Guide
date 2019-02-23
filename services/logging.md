@@ -22,7 +22,7 @@ $log->error(FileLogger::MSG_FULL, ['message' => 'Log me!']);
 
 ## File Logging
 
-The file logging should only be used for database and application problems. The file logging is part of the framework and is always available. The file logger implements the singleton pattern and can be aquired by calling the `getInstance()` function.
+The file logging should only be used for database and application problems. The file logging is part of the framework and is always available. The file logger implements the singleton pattern and can be acquired by calling the `getInstance()` function.
 
 ```php
 $log = FileLogger::getInstance('logging/path', false);

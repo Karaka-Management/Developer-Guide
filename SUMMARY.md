@@ -1,6 +1,7 @@
 # Summary
 * [Introduction]({%}?page=README)
 * [Application Structure]({%}?page=application/structure)
+* [Application Sample]({%}?page=application/sample)
 
 ## Setup
 * [Installation]({%}?page=setup/installation)
