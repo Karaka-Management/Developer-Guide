@@ -7,7 +7,7 @@ The tool to protect clients from CSRF is a randomly generated CSRF token, that c
 Example usage:
 
 ```html
-<form action="<?= UriFactory::build('/{/lang}/api/path?csrf={$CSRF}')" ...>
+<form action="<?= UriFactory::build('{/api}path?csrf={$CSRF}')" ...>
     ...
 </form>
 ```
