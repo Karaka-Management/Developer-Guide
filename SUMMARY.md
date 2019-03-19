@@ -1,61 +1,70 @@
 # Summary
-* [Introduction](README.md)
+* [Introduction]({%}?page=README)
+* [Application Structure]({%}?page=application/structure)
+* [Application Sample]({%}?page=application/sample)
 
 ## Setup
-* [Installation](setup/installation.md)
-* [Dev Environment](setup/dev_environment.md)
+* [Installation]({%}?page=setup/installation)
+* [Developer Environment]({%}?page=setup/developer_environment)
 
 ## Standards
-* [General](standards/general.md)
-* [Documentation](standards/documentation.md)
-* [Html](standards/html.md)
-* [Php](standards/php.md)
+* [General]({%}?page=standards/general)
+* [Documentation]({%}?page=standards/documentation)
+* [Html]({%}?page=standards/html)
+* [Php]({%}?page=standards/php)
 
 ## Basics
-
-* [Routing](basics/routing.md)
-* [Dispatching](basics/dispatching.md)
-* [Views](basics/views.md)
-* [Requests](basics/requests.md)
-* [Responses](basics/responses.md)
+* [Routing]({%}?page=basics/routing)
+* [Dispatching]({%}?page=basics/dispatching)
+* [Views]({%}?page=basics/views)
+* [Requests]({%}?page=basics/requests)
+* [Responses]({%}?page=basics/responses)
 
 ## Security
-* [Security Guidelines](security/security_guidelines.md)
+* [Security Guidelines]({%}?page=security/security_guidelines)
 
 ## DataStorage
-* [Cache](datastorage/cache.md)
-* [Session](datastorage/session.md)
-* [Cookie](datastorage/cookie.md)
-* [LocalStorage](datastorage/localstorage.md)
+* [Cache]({%}?page=datastorage/cache)
+* [Session]({%}?page=datastorage/session)
+* [Cookie]({%}?page=datastorage/cookie)
+* [LocalStorage]({%}?page=datastorage/localstorage)
 
 ### Database
-* [DataMapper](datastorage/database/datamapper.md)
-* [Queries](datastorage/database/queries.md)
-
-## Services
-* [Filesystem](services/filesystem.md)
-* [Mail](services/mail.md)
-* [Money](services/money.md)
-* [Uri](services/uri.md)
-* [Logging](services/logging.md)
-* [Localization](services/localization.md)
-* [Events](services/events.md)
-* [Tasks](services/tasks.md)
-* [Queues](services/queues.md)
-* [Collection](services/collection.md)
-* [Validation](services/validation.md)
-* [Charting](services/charting.md)
-* [Encoding](services/encoding.md)
-* [Encryption](services/encryption.md)
-* [Codes](services/codes.md)
+* [DataMapper]({%}?page=datastorage/database/datamapper)
+* [Queries]({%}?page=datastorage/database/queries)
 
 ## Code Quality
-* [Code Quality](quality/code_quality.md)
-* [Inspections](quality/inspections.md)
-* [Tests](quality/tests.md)
+* [Code Quality]({%}?page=quality/code_quality)
+* [Inspections]({%}?page=quality/inspections)
+* [Tests]({%}?page=quality/tests)
 
 ## Frontend
-* [Styles and Layout](frontend/styles_and_layout.md)
+* [Styles and Layout]({%}?page=frontend/styles_and_layout)
+* [Charting]({%}?page=services/charting)
+* [Codes]({%}?page=services/codes)
 
 ## Components
-* [Modules](components/datamapper.md)
+* [Modules]({%}?page=components/modules)
+* [Packages]({%}?page=components/packages)
+
+## Services
+### System
+* [Events]({%}?page=services/events)
+* [Filesystem]({%}?page=services/filesystem)
+* [Logging]({%}?page=services/logging)
+* [Tasks]({%}?page=services/tasks)
+
+### Messages
+* [Mail]({%}?page=services/mail)
+* [Money]({%}?page=services/money)
+* [Localization]({%}?page=services/localization)
+* [Uri]({%}?page=services/uri)
+* [Encryption]({%}?page=services/encryption)
+* [Encoding]({%}?page=services/encoding)
+
+### Stdl
+* [Queues]({%}?page=services/queues)
+* [Collection]({%}?page=services/collection)
+
+### Helper
+* [Validation]({%}?page=services/validation)
