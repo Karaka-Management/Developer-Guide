@@ -40,12 +40,12 @@
 
 ## Frontend
 * [Styles and Layout]({%}?page=frontend/styles_and_layout)
+* [Charting]({%}?page=services/charting)
+* [Codes]({%}?page=services/codes)
 
 ## Components
 * [Modules]({%}?page=components/modules)
 * [Packages]({%}?page=components/packages)
-* [Charting]({%}?page=services/charting)
-* [Codes]({%}?page=services/codes)
 
 ## System
 * [Events]({%}?page=services/events)
