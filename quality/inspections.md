@@ -8,7 +8,6 @@ Tools used for the code inspection are:
 
 * PhpLoc
 * PhpMetrics
-* PDepend
 * PhpUnit (see tests)
 * Jasmine (see tests)
 * Custom scripts/tools
@@ -23,6 +22,6 @@ As external tool scrutinizer is used to automate code inspection and provide ins
 
 For developers it is recommended to copy the contents of the `default.sh` file in the `Build` repository under `Hooks` to your `pre-commit` file in the `.git/hooks` directory. If the `pre-commit` file doesn't exist just create it.
 
-The same should be done with every module. Simply go to `.git/modules/**/hooks` and also add the content of the `default.sh` file to all `pre-commit` files. 
+The same should be done with every module. Simply go to `.git/modules/**/hooks` and also add the content of the `default.sh` file to all `pre-commit` files.
 
 By doing this every commit will be inspected and either pass without warnings, pass with warnings or stop with errors. This will allow you to fix code before committing it. Be aware only changed files will be inspected. Also make sure all `pre-commit` have `+x` permissions.
