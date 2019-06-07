@@ -12,13 +12,13 @@ $eventManager->attach('eventId', function() { echo 'Hello World'; });
 
 ### Repeating events
 
-If a event should only be able to be triggered once another boolean parameter has to be edded to the `attach()` function call. 
+If a event should only be able to be triggered once another boolean parameter has to be edded to the `attach()` function call.
 
 ```php
 $eventManager->attach('eventId', function() { echo 'Hello World'; }, true);
 ```
 
-Now the event will be removed from the event manager once executed. 
+Now the event will be removed from the event manager once executed.
 
 ### Resetting events
 

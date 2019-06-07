@@ -26,6 +26,17 @@ This means each class is in a file by itself, and is in a namespace of at least 
 
 Class names MUST be declared in StudlyCaps.
 
+### Default Functions
+
+Function calls to php internal function calls must use the root namespace `\`:
+
+```php
+\substr(...);
+\is_bool(...);
+\file_get_contents(...);
+....
+```
+
 ## Php in html
 
 Php code embedded into template files SHOULD use the alternative syntax for control structures in order to improve the readability:

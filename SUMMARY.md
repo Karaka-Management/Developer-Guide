@@ -30,6 +30,7 @@
 * [LocalStorage]({%}?page=datastorage/localstorage)
 
 ### Database
+* [Connection]({%}?page=datastorage/database/connection)
 * [DataMapper]({%}?page=datastorage/database/datamapper)
 * [Queries]({%}?page=datastorage/database/queries)
 

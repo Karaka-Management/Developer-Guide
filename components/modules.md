@@ -1,6 +1,6 @@
 # Modules
 
-The following directory structure should roughly visualize how modules are strucured. The purpose of the different sub-directories and their files will be covered in the following sections.
+The following directory structure should roughly visualize how modules are structured. The purpose of the different sub-directories and their files will be covered in the following sections.
 
 * {UniqueModuleName}
     * Admin
@@ -40,20 +40,20 @@ The following directory structure should roughly visualize how modules are struc
     * Controller.js
     * info.json
 
-All modules are located inside the `/Modules` directory and their directory name has to be the module name itself without whitespaces.
+All modules are located inside the `/Modules` directory and their directory name has to be the module name itself without whitespace.
 
 ## Admin
 
-The admin directory contains the install directory as well as the install, delete, update, activate and deactivate script assoziated with this module. The install directory contains installation files required for other modules. The above example contains the two required files for providing navigation information to the navigation module so that the navigation module can display this module in the navigation bar. The navigation installation file as well as all other module installation files must have the same name as the navigation module and will be automatically called on installation if defined in the info.json file. 
+The admin directory contains the install directory as well as the install, delete, update, activate and deactivate script associated with this module. The install directory contains installation files required for other modules. The above example contains the two required files for providing navigation information to the navigation module so that the navigation module can display this module in the navigation bar. The navigation installation file as well as all other module installation files must have the same name as the navigation module and will be automatically called on installation if defined in the info.json file.
 
 The content of the navigation install file highly depends on the module and should be documented in the according module. The additional json file is also required by the navigation module for the installation process. How many additional files and how they have to be structured/named should all be documented in the module documentation. If your module doesn't provide any navigation links or in general doesn't use any other modules, your install directory will be empty.
 
-Some modules can be used without requiring any additional installations it all depends on how the other modules got implemented. Thats also why many modules don't offer any integration at all and 
+Some modules can be used without requiring any additional installations it all depends on how the other modules got implemented. Thats also why many modules don't offer any integration at all and
 are almost stand-alone without the possibility to get extended.
 
 ### Installer.php
 
-In contrast to the install file for other moduels this file has to follow more strict standards. The following example shows you the bare minimum requirements of a installation file:
+In contrast to the install file for other modules this file has to follow more strict standards. The following example shows you the bare minimum requirements of a installation file:
 
 ```php
 <?php
@@ -100,7 +100,7 @@ public static function install(string $path, Pool $dbPool)
 }
 ```
 
-How the receiving module (e.g. Navigation) is accepting information depends on the module itself. The module documentation will also state how the content of the `install(...)` method has to look like. At the same time if you write a module and are accepting information from other modules during their installation you have to document very well how they have to provide these information. Very often however it will not be necessary to let other modules pass these information during installation and only do this during runtime. 
+How the receiving module (e.g. Navigation) is accepting information depends on the module itself. The module documentation will also state how the content of the `install(...)` method has to look like. At the same time if you write a module and are accepting information from other modules during their installation you have to document very well how they have to provide these information. Very often however it will not be necessary to let other modules pass these information during installation and only do this during runtime.
 
 The navigation module is a good example of passing navigation links during installation. The navigation module could request the link information during runtime this would mean that all modules would have to be initialized for every request since the navigation module doesn't know if these modules are providing links or not. By providing these information during the installation, the navigation module can store these information in a database table and query these information for every page request without initializing all modules or performing some file readings.
 
@@ -124,7 +124,7 @@ use phpOMS\Router\RouteVerb;
 return [
     '^.*/backend/admin/settings/general.*$' => [
         [
-            'dest' => '\Modules\Admin\Controller:viewSettingsGeneral', 
+            'dest' => '\Modules\Admin\Controller:viewSettingsGeneral',
             'verb' => RouteVerb::GET,
         ],
     ],
@@ -147,11 +147,11 @@ The routes are defined via regex. One uri can have multiple destinations dependi
 
 ## Img
 
-All module specific images (not theme specific images). E.g. Module preview images showing when searching for modules. 
+All module specific images (not theme specific images). E.g. Module preview images showing when searching for modules.
 
 ## Models
 
-All models and data mapper classes should be stored in here (PHP & JS). How to create a data mapper for a model is described in the data mapper chapter. All JavaScript files need to be provided unoptimized (not minified or concatenated).
+All models and data mapper classes should be stored in here (PHP & JS). How to create a data mapper for a model is described in the data mapper chapter. All JavaScript files need to be provided un-optimized (not minified or concatenated).
 
 ## Theme
 
@@ -172,12 +172,12 @@ The Lang directory contains all language files for this application. Usually the
 A language file should have the following naming convention:
 
     {ISO 639-1}.lang.php
-    {UniqueModuleName}.{ISO 639-1}.lang.php 
+    {UniqueModuleName}.{ISO 639-1}.lang.php
 
 The content of the language file is straight forward:
 
 ```php
-<?php return [ 
+<?php return [
     '{UniqueModuleName}' => [
         'StringID' => 'Your localized string',
         ...
@@ -195,7 +195,7 @@ All other language files are optional and usually are only required by other mod
 
 ## info.json
 
-The `info.json` file contains general module information used during installation as well for identification and display in the module database. 
+The `info.json` file contains general module information used during installation as well for identification and display in the module database.
 
 ```json
 {
@@ -254,7 +254,7 @@ The `info.json` file contains general module information used during installatio
 
 ### Name
 
-The name category contains the names used for internel as well as external identification. Both `id` and `internal` are globally unique between all modules and is assigned generated by Orange Management. The `id` can also be used by other modules which need integer identification of modules. The `id` has the form `xxxxx00000` which means, that modules don't only occupy a singl id but a range of ids. This can be usefull for other modules where additional module specifc information need to be assigned (e.g. `Navigation` module). The `external` name is the name the creator of the module can give the module. This is the name that will be used during searches for modules and shown to customers.
+The name category contains the names used for internal as well as external identification. Both `id` and `internal` are globally unique between all modules and is assigned generated by Orange Management. The `id` can also be used by other modules which need integer identification of modules. The `id` has the form `xxxxx00000` which means, that modules don't only occupy a single id but a range of ids. This can be useful for other modules where additional module specific information need to be assigned (e.g. `Navigation` module). The `external` name is the name the creator of the module can give the module. This is the name that will be used during searches for modules and shown to customers.
 
 ### Version
 
@@ -266,7 +266,7 @@ major.minor.build = 2.512.19857
 
 ### Requirements
 
-The `requirements` are used in order to specify core specific requirements such as the database requirements, framework requirements, third party library regirements as well as potential local software requirements.
+The `requirements` are used in order to specify core specific requirements such as the database requirements, framework requirements, third party library requirements as well as potential local software requirements.
 
 ### Creator
 
@@ -274,7 +274,7 @@ In the `creator` category it's possible to specify the `name` of the creator and
 
 ### Description
 
-In the `description` a markdown description can be specified which will be shown in the module overview. This can be used in order to describe the users what the purpose of this module is and how it workds.
+In the `description` a markdown description can be specified which will be shown in the module overview. This can be used in order to describe the users what the purpose of this module is and how it works.
 
 ### Directory
 
@@ -304,14 +304,14 @@ The result of the example would result in loading all specified resources for re
 
 #### Type
 
-The `type` contains the type of the file that needs to be loaded. 
+The `type` contains the type of the file that needs to be loaded.
 
 * 5 = Navigation language file
 * 4 = Module controller
 
 #### For
 
-The `for` contains the unique module string representation the file is loaded for. This could be the own module or a thrid party module.
+The `for` contains the unique module string representation the file is loaded for. This could be the own module or a third party module.
 
 #### From
 
@@ -319,4 +319,4 @@ The `from`contains the unique module string representation the file is loaded fr
 
 #### File
 
-The `file` contains the name of the file to be loaded. No path or extension is required nor allowed. 
+The `file` contains the name of the file to be loaded. No path or extension is required nor allowed.

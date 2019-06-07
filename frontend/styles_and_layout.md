@@ -34,10 +34,6 @@ This project uses font-awesome for its icons, the following example allows for s
 </i>
 ```
 
-## Colors
-
-Coloring can be added to many elements such as icons, sections etc. Available colors are `lightgreen`, `green`, `darkgreen`, `lightblue`, `blue`, `darkblue`, `lightred`, `red`, `darkred`, `lightyellow`, `yellow`, `lightorange`, `orange`, `white`, `lightgrey`, `grey`, `black`, `lightpurple`, `purple`, `darkpurple`, `lightteal`, `teal`, `darkteal`, `lightpink`, `pink`.
-
 ## Form Elements
 
 ### Input with button

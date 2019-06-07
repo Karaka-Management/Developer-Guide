@@ -12,7 +12,7 @@ The database query builder provides a uniform way to write default database quer
 
 ### Query Builder
 
-The query builder is used for regular CRUD opperations on the database.
+The query builder is used for regular CRUD operations on the database.
 
 #### Prefix
 
@@ -69,8 +69,8 @@ $query->prefix(...)->select(...)->from(...)->where('columnA', '=', 123)->where('
 
 For easier use additional `where` clauses are defined such as:
 
-* `orWhere()` - same as `where` with `or` as default boolean concatenater
-* `andWhere()` - same as `where` with `and` as default boolean concatenater
+* `orWhere()` - same as `where` with `or` as default boolean connector
+* `andWhere()` - same as `where` with `and` as default boolean connector
 * `whereIn()` - uses the sql `in(...)`
 * `whereNull()` - used for null condition
 * `whereNotNull()` - used for not null condition
@@ -99,7 +99,7 @@ The ordering is performed by `orderBy`.
 $query->prefix(...)->select(...)->from(...)->where(...)->orderBy('columnA', 'DESC');
 ```
 
-The `newest` and `oldest` operation are a small wrapper which automatically order by `DESC` and `ASC` respectively. 
+The `newest` and `oldest` operation are a small wrapper which automatically order by `DESC` and `ASC` respectively.
 
 #### Group By
 

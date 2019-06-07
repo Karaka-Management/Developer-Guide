@@ -89,16 +89,16 @@ The x-frame-options is providing the same protection for frames as the content-s
 $response->getHeader()->set('x-frame-options', 'SAMEORIGIN');
 ```
 
-## Super globals
+## Superglobals
 
-Super globals are not available throughout the application and the values can only be accessed through middleware classes like:
+Superglobals are not available throughout the application and the values can only be accessed through middleware classes like:
 
 * SessionManager
 * CookieJar
 * Request
 * Response
 
-In some cases super globals will even be overwritten by values from these classes before generating a response. Do not directly access super globals!
+In some cases superglobals will even be overwritten by values from these classes before generating a response. Do not directly access superglobals!
 
 ## Input validation
 

@@ -15,12 +15,12 @@ Desktop notifications make use of the `Notification` Api. These notifications al
 
 ```js
 notifyManager.send(
-    new jsOMS.Message.Notification.NotificationMessage(
-        jsOMS.Message.Notification.NotificationStatus.SUCCESS,
+    new NotificationMessage(
+        NotificationStatus.SUCCESS,
         'Title',
         'My Message'
     ),
-    jsOMS.Message.Notification.NotificationType.BROWSER_NOTIFICATION
+    NotificationType.BROWSER_NOTIFICATION
 );
 ```
 
@@ -30,11 +30,11 @@ App notifications are a custom notification implementation which can be themed a
 
 ```js
 notifyManager.send(
-    new jsOMS.Message.Notification.NotificationMessage(
-        jsOMS.Message.Notification.NotificationStatus.SUCCESS,
+    new NotificationMessage(
+        NotificationStatus.SUCCESS,
         'Title',
         'My Message'
     ),
-    jsOMS.Message.Notification.NotificationType.APP_NOTIFICATION
+    NotificationType.APP_NOTIFICATION
 );
 ```

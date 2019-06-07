@@ -2,7 +2,7 @@
 
 The dispatching is the follow up on the routing. In the dispatcher the route destination get resolved and executed. Dispatching can be performed on module instance methods, static functions and anonymous functions.
 
-The result of the `dispatch()` call is an array of renderable views which will be rendered at the end when the response object is finalized.
+The return of the `dispatch()` call is an array of all end point returns.
 
 ## Basic
 

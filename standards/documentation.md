@@ -14,7 +14,6 @@ A file documentation MUST be implemented in the following form:
  *
  * PHP Version 7.0
  *
- * @category   Category name
  * @package    Package name
  * @copyright  Orange Management
  * @license    OMS License 1.0
@@ -31,7 +30,6 @@ A class documentation MUST be implemented in the following form:
 /**
  * Class description.
  *
- * @category   Category name
  * @package    Package name
  * @license    OMS License 1.0
  * @link       http://your.url.com
@@ -91,7 +89,6 @@ The javascript documentation is based on JsDoc, therefore only valid JsDoc comme
 /**
  * File description
  *
- * @category   Category name
  * @package    Package name
  * @copyright  Orange Management
  * @license    OMS License 1.0
@@ -108,7 +105,6 @@ A class documentation MUST be implemented in the following form:
 /**
  * Class description.
  *
- * @category   Category name
  * @package    Package name
  * @license    OMS License 1.0
  * @link       http://your.url.com

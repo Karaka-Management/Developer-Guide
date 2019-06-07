@@ -30,6 +30,8 @@ The following tools are important to test the application and to ensure the code
 
 ## Git Hooks (Linux only)
 
+The git hooks perform various checks and validations during the `commit` and warn the developer about invalid code or code style/guideline violations.
+
 For developers it is recommended to copy the contents of the `default.sh` file in the `Build` repository under `Hooks` to your `pre-commit` file in the `.git/hooks` directory. If the `pre-commit` file doesn't exist just create it.
 
 The same should be done with every module. Simply go to `.git/modules/**/hooks` and also add the content of the `default.sh` file to all `pre-commit` files.
