@@ -14,7 +14,7 @@ The `$id` can be used as primary key. For this member variable no setter method 
 
 ## DataMapper
 
-The data mapper itself is where all the magic happens, from inserts, updates, to selects etc. 
+The data mapper itself is where all the magic happens, from inserts, updates, to selects etc.
 
 ### Primary key
 
@@ -37,7 +37,7 @@ One model can only be stored in one table. With the `$table` variable it's possi
 In the `$columns` array all columns, respective model variables and data types need to be specified.
 
 ```php
-protected static $columns = [
+protected static array $columns = [
     'db_field_name_1' => ['name' => 'db_field_name_1', 'type' => 'int', 'internal' => 'model_var_name_1'],
     'db_field_name_2' => ['name' => 'db_field_name_2', 'type' => 'string', 'internal' => 'model_var_name_2'],
 ];
@@ -62,7 +62,7 @@ Possible types are:
 With the `$hasMany` variable it's possible to specify other models that belong to this model.
 
 ```php
-protected static $hasMany = [
+protected static array $hasMany = [
     'model_var_name_3' => [
         'mapper'         => HasManyMapper::class,
         'table'          => 'relation_table_name',
@@ -77,7 +77,7 @@ The `mapper` contains the class name of the mapper responsible for the many mode
 A many to one or one to one relation would look like the following:
 
 ```php
-protected static $hasMany = [
+protected static array $hasMany = [
     'model_var_name_3' => [
         'mapper'         => HasManyMapper::class,
         'table'          => null,
@@ -90,7 +90,7 @@ protected static $hasMany = [
 A many to many relation which can only be defined in a relation table looks like the following:
 
 ```php
-protected static $hasMany = [
+protected static array $hasMany = [
     'model_var_name_3' => [
         'mapper'         => HasManyMapper::class,
         'table'          => 'relation_table_name',
@@ -105,7 +105,7 @@ protected static $hasMany = [
 It's possible to also define a relation in the source module itself. This can be acomplished by using the `$ownsOne` variable. In this case the model itself has to specify a field where the primary key of the source model is defined.
 
 ```php
-protected static $ownsOne = [
+protected static array $ownsOne = [
     'model_var_name_4' => [
         'mapper' => OwnsOneMapper::class,
         'src'    => 'relation_dest_name',
@@ -120,7 +120,7 @@ The `mapper` field contains the class name of the mapper of the source model. Th
 The reverse of a has one is a belongs to. This allows to also load models that a specific model belongs to. This can be acomplished by using the `$belongsTo` variable. In this case the model itself has to specify a field where the primary key of the source model is defined.
 
 ```php
-protected static $belongsTo = [
+protected static array $belongsTo = [
     'model_var_name_6' => [
         'mapper' => BelongsToMapper::class,
         'dest'   => 'relation_destination_name',
