@@ -12,7 +12,7 @@ $con = new MysqlConnection([
     'host'     => '127.0.0.1', /* db host address */
     'port'     => '3306', /* db host port */
     'login'    => 'root', /* db login name */
-    'password' => '', /* db login password */
+    'password' => 'root', /* db login password */
     'database' => 'oms', /* db name */
     'prefix'   => 'oms_', /* db table prefix */
 ]);
@@ -30,7 +30,7 @@ $con = ConnectionFactory::create([
     'host'     => '127.0.0.1',
     'port'     => '3306',
     'login'    => 'root',
-    'password' => '',
+    'password' => 'root',
     'database' => 'oms',
     'prefix'   => 'oms_',
 ]);
@@ -60,7 +60,7 @@ $dbPool->create('read',
         'host'     => '127.0.0.1',
         'port'     => '3306',
         'login'    => 'root',
-        'password' => '',
+        'password' => 'root',
         'database' => 'oms',
         'prefix'   => 'oms_',
     ]
