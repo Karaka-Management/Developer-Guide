@@ -45,7 +45,7 @@ use phpOMS\ApplicationAbstract; /* provides many member variables which are ofte
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Message\Http\Request;
 use phpOMS\Message\Http\Response;
-use phpOMS\Router\Router;
+use phpOMS\Router\WebRouter;
 use phpOMS\Uri\UriFactory;
 use phpOMS\Views\View;
 
@@ -54,7 +54,7 @@ class Application extends ApplicationAbstract
     /* initialize most framework components */
     public function __construct(array $config)
     {
-        $this->router = new Router();
+        $this->router = new WebRouter();
 
         // sample routes for different endpoints are defined in a routes file
         $this->router->importFromFile(__DIR__ . '/Routes.php');
