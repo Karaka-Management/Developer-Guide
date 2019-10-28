@@ -1,10 +1,10 @@
 # Tests
 
-The applications goal is to achive 90% code coverage, which applies for the core application as well as all modules. All unit tests are located in the corresponding `tests` directory.
+The applications goal is to achive 90% code coverage, which applies for the framework, applications as well as all modules. All unit tests are located in the corresponding `tests` directories.
 
 ## PHPUnit
 
-This application uses PHPUnit as unit testing framework. The PHPUnit directory is structured the same way as the `Framework`, `Modules`, `Install` and `Models` directories. Unit tests for specific classes need to be named in the same manner as the testing class.
+This application uses PHPUnit as unit testing framework. Unit tests for specific classes need to be named in the same manner as the testing class.
 
 In order to run all tests and also creating the dummy data for UI tests, execute the following command:
 
