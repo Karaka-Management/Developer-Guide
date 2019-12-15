@@ -92,7 +92,6 @@ function()
 ```php
 class Test
 {
-
 }
 ```
 
