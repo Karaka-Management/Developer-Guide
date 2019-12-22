@@ -212,7 +212,7 @@ use app\view\TestView;
 
 class TestController
 {
-    private $app = null;
+    private ApplicationAbstract $app = null;
 
     /* the dispatcher passes the ApplicationAbstract reference to the controller */
     public function __construct(ApplicationAbstract $app)
