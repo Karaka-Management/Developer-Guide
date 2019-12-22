@@ -114,3 +114,37 @@ $query->prefix(...)->select(...)->from(...)->where(...)->groupBy('columnA', 'col
 ### Schema Builder
 
 The schema builder is used for schema related operations such as `DROP`, `CREATE` etc.
+
+#### Drop Database
+
+A database can be dropped with `dropDatabase`.
+
+```php
+$query->dropDatabase('test');
+```
+
+#### Create Table
+
+A table can be created with `createTable`.
+
+```php
+$query->createTable('user_roles')
+    ->field('user_id', 'INT', null, false, true, true, 'users', 'ext1_id')
+    ->field('role_id', 'VARCHAR(10)', '1', true, false, false, 'roles', 'ext2_id');
+```
+
+#### Show Tables
+
+All tables of a database can be returned with `selectTables`.
+
+```php
+$query->selectTables();
+```
+
+#### Show Table Fields
+
+All table fields of a table can be returned with `selectFields`.
+
+```php
+$query->selectFields('test');
+```

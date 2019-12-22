@@ -4,7 +4,7 @@ Installing the application as a developer can be achived by following one of the
 
 ## Server Requirements
 
-* PHP >= 7.2
+* PHP >= 7.4
 * PDO PHP Extension
 * mbstring
 * database such as mysql

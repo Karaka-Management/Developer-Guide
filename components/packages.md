@@ -34,7 +34,32 @@ In the files directory all files are stored.
 The `package.json` file contains information of the package.
 
 ```json
-
+{
+    "name": "{MODULE_NAME|RESOURCE_NAME|phpOMS|jsOMS|cssOMS}",
+    "type": "Modules",
+    "version": "1.0.1",
+    "update": [
+        {
+            "download": {
+                "{download_uri}": "{save_to_path/file_name}"
+            },
+            "move": {
+                "{file_or_directory_to_move}": "{new_destination}"
+            },
+            "copy": {
+                "{file_or_directory_to_copy}": [
+                    "{new_destination}"
+                ]
+            },
+            "delete": [
+                "{file_or_directory_to_delete}"
+            ],
+            "cmd": [
+                "{php|sh|batch_script_to_execute}",
+            ]
+        }
+    ]
+}
 ```
 
 ### Other
