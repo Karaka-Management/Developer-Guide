@@ -10,7 +10,7 @@ Supported codes are:
 * Aztec
 * QR
 
-All codes expect the string to encode as parameter, the basic dimensions (width, height) and optionally the orientation for barcodes. The hoirzontal barcode image size will be adjusted automatically based on its length.
+All codes expect the string to encode as parameter, the basic dimensions (width, height) and optionally the orientation for barcodes. The horizontal barcode image size will be adjusted automatically based on its length.
 
 ```php
 $c128b = new C128b('ABcdeFG0123+-!@?', 200, 50);
