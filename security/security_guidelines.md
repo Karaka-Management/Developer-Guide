@@ -107,23 +107,23 @@ Input validation be implemented on multiple levels.
 1. Regex validation in html/javascript by using the `pattern=""` attribute
 2. Type hints for method parameters wherever possible.
 3. Making use of the `Validation` classes as much as possible
-4. **Don't** sanitize at all! Accept or dismiss.
+4. **Don't** sanitize! Accept or dismiss.
 
 ## Inclusion and file paths
 
 Be vigilant of where and how the path for the following scenarios comes from:
 
 1. `include $path;`
-2. `fopen($path);`
-3. `file_get_contents('../relative/path/to/' . $path);`
-4. `mkdir($path);`
+2. `\fopen($path);`
+3. `\file_get_contents('../relative/path/to/' . $path);`
+4. `\mkdir($path);`
 
-These are just a few examples but it is very important to make sure, that these paths only have access to wherever the programmer intended them for. At first it is always a good idea to get the `$path = realpath($path)` of a path in order to make sure the path exists and for further validation.
+These are just a few examples but it is very important to make sure, that these paths only have access to wherever the programmer intended them for. At first it is always a good idea to get the `$path = \realpath($path)` of a path in order to make sure the path exists and for further validation.
 
 Example usage:
 
 ```php
-if(($pathNew = realpath($path)) === false) {
+if(($pathNew = \realpath($path)) === false) {
     throw new PathException($path);
 }
 ```

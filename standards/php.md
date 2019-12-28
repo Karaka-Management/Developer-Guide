@@ -155,23 +155,3 @@ The following functions and (super-) global variables MAY only be used in the ph
 * `flock()`
 * `socket_create()`
 * `socket_connect()`
-
-The usage of the following functions SHOULD be avoided and inspected for any kind of possible injection.
-
-* `include()`
-* `include_once()`
-* `require()`
-* `require_once()`
-* `fopen()`
-* `delete()`
-* `copy()`
-* `file()`
-* `file_get_contents()`
-* `file_put_contents()`
-* `readfile()`
-* `rename()`
-* `symlink()`
-* `rmdir()`
-* `mkdir()`
-* `touch()`
-* `unlink()`
