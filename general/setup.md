@@ -27,7 +27,7 @@ This also installs all required dev tools and sets up the directory structure by
 The following steps will setup the application, download all necessary tools and perform extensive code quality checks and documentation tasks:
 
 1. Go to the directory where you want to install the build script
-2. Enter `git clone -b develop https://github.com/Orange-Management/Build.git`
+2. Run `git clone -b develop https://github.com/Orange-Management/Build.git`
 3. Modify `config.sh` (most likely the db credentials and paths)
 4. Run `chmod +x buildProject.sh`
 5. Run `./buildProject.sh`
@@ -52,9 +52,9 @@ This wil only setup the application including some dummy data and also perform t
 ### Steps
 
 1. Go to the directory where you want to install the application
-2. Enter `git clone -b develop https://github.com/Orange-Management/Orange-Management.git`
-3. Enter `git submodule update --init --recursive >/dev/null`
-4. Enter `git submodule foreach git checkout develop >/dev/null`
+2. Run `git clone -b develop https://github.com/Orange-Management/Orange-Management.git`
+3. Run `git submodule update --init --recursive >/dev/null`
+4. Run `git submodule foreach git checkout develop >/dev/null`
 5. Install Composer
 6. Run `composer install` inside `Orange-Management`
 7. Run `php vendor/bin/phpunit --configuration tests/phpunit_no_coverage.xml` inside `Orange-Management` or open `http://127.0.0.1/Install`
