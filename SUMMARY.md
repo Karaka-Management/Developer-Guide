@@ -14,7 +14,7 @@
 ## Examples
 * [Application Sample]({%}?page=example_app/app)
 * [Modules]({%}?page=example_module/module)
-* [Packages]({%}?page=components/packages)
+* [Packages]({%}?page=example_module/packages)
 
 ## API
 * [Routing]({%}?page=basics/routing)
