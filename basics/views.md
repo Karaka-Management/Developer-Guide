@@ -10,7 +10,7 @@ In case the response header is set to JSON the view will automatically get parse
 
 ## Localization
 
-The base view class contains the request as well as the response objects hence it also contains the request/response localization. One of the most important methods is the `getText()` method. This private method allows for module and theme specific translations of defined language elements. 
+The base view class contains the request as well as the response objects hence it also contains the request/response localization. One of the most important methods is the `getText()` method. This private method allows for module and theme specific translations of defined language elements.
 
 In the template you can simply use `$this->getText({TEXT_ID})` for localized text. All other localization elements can be accessed in a similar way e.g. `$this->l11n->getTemperature()`.
 
@@ -28,4 +28,4 @@ Note that the path definition doesn't include the file ending.
 
 ## Data Binding
 
-In the generic view it's possible to bind data by using the `setData()` method and this data can be accessed by using the `getData()` method. 
+In the generic view it's possible to bind data by using the `setData()` method and this data can be accessed by using the `getData()` method.
