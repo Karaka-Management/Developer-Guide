@@ -28,3 +28,9 @@ The `Application` workload depends heavily on the type of the application but in
 * Page View
 
 Furthermore the Application also performs a `CSRF` check, defines the `CSP`, authenticates the user and handles global errors such as invalid application permission, database connection error etc.
+
+## Database
+
+A short extract of the database structure can be seen below. Please note that this only contains the very basic tables from a fresh install without very limited modules and even then we only included the key tables for simplicity reasons.
+
+![Application Flow](Developer-Guide/general/base_uml.svg)
