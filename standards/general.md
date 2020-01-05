@@ -36,7 +36,7 @@ Always use a whitespace **after**:
 Always use a whitespace **before** and **after**:
 
 * assignment (e.g. `=`, `=>`, `+=`, `/=`, `*=`, `-=`, `.=`)
-* math operations (e.g. `+`, `-`, `*`, `/`, `%`, `&`, `|`, `**`, `>>`, `<<`) 
+* math operations (e.g. `+`, `-`, `*`, `/`, `%`, `&`, `|`, `**`, `>>`, `<<`)
 * logic operators (e.g. `&&`, `||`)
 * comparison (e.g. `==`, `===`, `>`, `>=`, `<`, `<=`)
 
@@ -50,11 +50,11 @@ Don't use whitespace inside ANY parentheses (e.g. functions, loops, conditions, 
 
 ```js
 for (let i = 1; i < 100; ++i) { ... }
-``` 
+```
 
 ```js
 function(para1, para2) { ... }
-``` 
+```
 
 ### Brackets
 
@@ -103,7 +103,7 @@ Always use a whitespace before the parentheses.
 while (true) {
     ...
 }
-``` 
+```
 
 ## If, while, for, foreach, switch
 
@@ -158,4 +158,18 @@ All string representations should use single quotes `''` unless `""` provides si
 
 ```js
 'This is a string'
+```
+
+## Todos
+
+Most issues should be documented in the code as todos and vice versa.
+
+```php
+/**
+ * @todo Orange-Management/Repository#IssueNumber
+ *  Below comes the issue/todo description.
+ *  This way developers can see todos directly in the code without going to an external source.
+ *  Todos must not have empty lines in their descriptions.
+ *  If the external ressources have empty lines they must be removed in the todo comment.
+ */
 ```
