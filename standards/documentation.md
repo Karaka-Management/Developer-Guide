@@ -87,7 +87,7 @@ The javascript documentation is based on JsDoc, therefore only valid JsDoc comme
 
 ```js
 /**
- * File description
+ * File description.
  *
  * @package    Package name
  * @copyright  Orange Management

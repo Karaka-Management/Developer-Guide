@@ -5,6 +5,7 @@ The following directory structure should roughly visualize how modules are struc
 * {UniqueModuleName}
     * Admin
         * Install
+            * db.json
             * Navigation.install.json
             * Navigation.php
         * Routes
@@ -50,6 +51,83 @@ The content of the navigation install file highly depends on the module and shou
 
 Some modules can be used without requiring any additional installations it all depends on how the other modules got implemented. Thats also why many modules don't offer any integration at all and
 are almost stand-alone without the possibility to get extended.
+
+### Database schema
+
+The database schema of a module is defined in the `db.json` file and is automatically installed during the installation process.
+
+In the following you can find a sample `db.json` file.
+
+```json
+{
+    "task": {
+        "name": "task",
+        "fields": {
+            "task_id": {
+                "name": "task_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "task_title": {
+                "name": "task_title",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "task_desc": {
+                "name": "task_desc",
+                "type": "TEXT",
+                "null": false
+            },
+            "task_type": {
+                "name": "task_type",
+                "type": "TINYINT",
+                "null": false
+            },
+            "task_created_at": {
+                "name": "task_created_at",
+                "type": "DATETIME",
+                "default": null,
+                "null": true
+            },
+            "task_created_by": {
+                "name": "task_created_by",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            }
+        }
+    },
+    "task_media": {
+        "name": "task_media",
+        "fields": {
+            "task_media_id": {
+                "name": "task_media_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "task_media_src": {
+                "name": "task_media_src",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "task",
+                "foreignKey": "task_id"
+            },
+            "task_media_dst": {
+                "name": "task_media_dst",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "media",
+                "foreignKey": "media_id"
+            }
+        }
+    }
+}
+```
 
 ### Installer.php
 
