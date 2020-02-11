@@ -43,8 +43,8 @@ namespace app;
 
 use phpOMS\ApplicationAbstract; /* provides many member variables which are often shared with controllers */
 use phpOMS\Dispatcher\Dispatcher;
-use phpOMS\Message\Http\Request;
-use phpOMS\Message\Http\Response;
+use phpOMS\Message\Http\HttpRequest;
+use phpOMS\Message\Http\HttpResponse;
 use phpOMS\Router\WebRouter;
 use phpOMS\Uri\UriFactory;
 use phpOMS\Views\View;
@@ -116,9 +116,9 @@ class Application extends ApplicationAbstract
     }
 
     /* initialize response object */
-    private function initResponse(Request $request) : Response
+    private function initResponse(HttpRequest $request) : HttpResponse
     {
-        $response = new Response();
+        $response = new HttpResponse();
 
         // you could use the request content-type in order to define the response content-type
         $response->getHeader()->set('content-type', 'text/html; charset=utf-8');
@@ -130,7 +130,7 @@ class Application extends ApplicationAbstract
     }
 
     /* initialize main page template. if many pages have a different page template you could put this into the corresponding controllers. */
-    private function initMainPageTemplate(Request $request, Response $response) : View
+    private function initMainPageTemplate(HttpRequest $request, HttpResponse $response) : View
     {
         $pageView = new View(null, $request, $response);
         $pageView->setTemplate('/app/tpl/index'); // templates need file ending .tpl.php
