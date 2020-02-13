@@ -1,6 +1,6 @@
 # Php
 
-The php code needs to be php 7 compliant. No php 7 deprecated or removed elements, functions or practices are allowed (e.g. short open tag). Please use the `phpcs.xml` and `phpmd.xml` configurations for PHP Code Sniffer and PHP Mess Detector provided with the project to identify most of the basic code standards.
+The php code needs to be php 7.4 compliant. No php 7.4 deprecated or removed elements, functions or practices are allowed (e.g. short open tag). Please use the `phpcs.xml` and `phpmd.xml` configurations for PHP Code Sniffer and PHP Mess Detector provided with the project to identify most of the basic code standards.
 
 ##  Php Tags
 
