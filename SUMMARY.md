@@ -43,9 +43,6 @@
 * [Styles and Layout]({%}?page=frontend/styles_and_layout)
 * [Charting]({%}?page=services/charting)
 * [Codes]({%}?page=services/codes)
-* [Events]({%}?page=services/events)
-* [Logging]({%}?page=services/logging)
-* [Tasks]({%}?page=services/tasks)
 
 ### Security
 * [Encoding]({%}?page=services/encoding)
@@ -57,4 +54,7 @@
 * [Collection]({%}?page=services/collection)
 
 ### Misc.
+* [Events]({%}?page=services/events)
+* [Logging]({%}?page=services/logging)
+* [Tasks]({%}?page=services/tasks)
 * [Validation]({%}?page=services/validation)
