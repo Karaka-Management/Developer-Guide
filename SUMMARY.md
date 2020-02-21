@@ -17,31 +17,42 @@
 * [Packages]({%}?page=example_module/packages)
 
 ## API
-* [Routing]({%}?page=basics/routing)
-* [Dispatching]({%}?page=basics/dispatching)
-* [Views]({%}?page=basics/views)
+### Message
+* [Uri]({%}?page=services/uri)
 * [Requests]({%}?page=basics/requests)
 * [Responses]({%}?page=basics/responses)
-* [Cache]({%}?page=datastorage/cache)
-* [Session]({%}?page=datastorage/session)
-* [Cookie]({%}?page=datastorage/cookie)
+* [Mail]({%}?page=services/mail)
+
+### DataStorage
 * [LocalStorage]({%}?page=datastorage/localstorage)
 * [Database Connection]({%}?page=datastorage/database/connection)
 * [DataMapper]({%}?page=datastorage/database/datamapper)
 * [Queries]({%}?page=datastorage/database/queries)
-* [Styles and Layout]({%}?page=frontend/styles_and_layout)
-* [Charting]({%}?page=services/charting)
-* [Codes]({%}?page=services/codes)
-* [Events]({%}?page=services/events)
+* [Cache]({%}?page=datastorage/cache)
+* [Session]({%}?page=datastorage/session)
+* [Cookie]({%}?page=datastorage/cookie)
+
+### System
 * [Filesystem]({%}?page=services/filesystem)
+* [Events]({%}?page=services/events)
 * [Logging]({%}?page=services/logging)
 * [Tasks]({%}?page=services/tasks)
-* [Mail]({%}?page=services/mail)
-* [Encoding]({%}?page=services/encoding)
-* [Encryption]({%}?page=services/encryption)
+
+### StdLib
 * [Localization]({%}?page=services/localization)
 * [Money]({%}?page=services/money)
 * [Queues]({%}?page=services/queues)
 * [Collection]({%}?page=services/collection)
+
+### UI
+* [Styles and Layout]({%}?page=frontend/styles_and_layout)
+* [Charting]({%}?page=services/charting)
+* [Codes]({%}?page=services/codes)
+* [Routing]({%}?page=basics/routing)
+* [Dispatching]({%}?page=basics/dispatching)
+* [Views]({%}?page=basics/views)
 * [Validation]({%}?page=services/validation)
-* [Uri]({%}?page=services/uri)
+
+### Security
+* [Encoding]({%}?page=services/encoding)
+* [Encryption]({%}?page=services/encryption)
