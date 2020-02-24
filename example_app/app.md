@@ -41,7 +41,7 @@ echo $App->run(); // outputs the application response
 
 namespace app;
 
-use phpOMS\ApplicationAbstract; /* provides many member variables which are often shared with controllers */
+use phpOMS\Application\ApplicationAbstract; /* provides many member variables which are often shared with controllers */
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Message\Http\HttpResponse;
@@ -203,7 +203,7 @@ return [
 
 namespace app\controller;
 
-use phpOMS\ApplicationAbstract;
+use phpOMS\Application\ApplicationAbstract;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Views\View;

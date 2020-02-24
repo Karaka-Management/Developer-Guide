@@ -139,12 +139,12 @@ namespace Modules\Navigation\Admin;
 
 use phpOMS\DataStorage\Database\DatabaseType;
 use phpOMS\DataStorage\Database\DatabasePool;
-use phpOMS\Module\InfoManager;
+use phpOMS\Module\ModuleInfo;
 use phpOMS\Module\InstallerAbstract;
 
 class Installer extends InstallerAbstract
 {
-    public static function install(string $path, Pool $dbPool, InfoManager $info)
+    public static function install(string $path, Pool $dbPool, ModuleInfo $info)
     {
         parent::install($path, $dbPool, $info);
 
