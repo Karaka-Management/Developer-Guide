@@ -142,7 +142,7 @@ use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Module\ModuleInfo;
 use phpOMS\Module\InstallerAbstract;
 
-class Installer extends InstallerAbstract
+final class Installer extends InstallerAbstract
 {
     public static function install(string $path, Pool $dbPool, ModuleInfo $info)
     {
