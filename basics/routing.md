@@ -163,3 +163,7 @@ $router->route(
 	ORG_ID, ACCOUNT
 );
 ```
+
+## Notes
+
+* 2-character routes on the first level are discouraged because they may conflict with ISO 639-1 codes (e.g. /hr/staff/list)
