@@ -132,7 +132,9 @@ if (isTrue == true
 
 Switch statements must have a `default` case.
 
-## Constants
+## Naming
+
+### Constants
 
 Constants must be written with capital letters and snake case.
 
@@ -140,17 +142,37 @@ Constants must be written with capital letters and snake case.
 CONSTANT_TEST = true;
 ```
 
-## Variables
+### Function
 
-Variables must be written in camel case.
+Functions must be written in camelCase.
 
-### Boolean variables
+### Variables
+
+Variables must be written in camelCase.
+
+#### Boolean variables
 
 Boolean variable names should start with a boolean expression (e.g. is, has)
 
-#### Boolean return value
+##### Boolean return value
 
 Functions which return a boolean value should start with expressions such as is*, has* or similar expressions to indicate that the function returns a boolean value.
+
+### Database
+
+#### Tables
+
+Tables must be written in snake_case
+
+#### Fields / Columns
+
+Fields/columns must be written in snake_case and must be preceded by the table name.
+
+```sql
+table_name_field_name
+```
+
+This allows every field/column name to be unique.
 
 ## Quotation
 
@@ -162,7 +184,7 @@ All string representations should use single quotes `''` unless `""` provides si
 
 ## Todos
 
-Most issues should be documented in the code as todos and vice versa.
+Most issues should be documented in the code as todo and vice versa.
 
 ```php
 /**
@@ -171,5 +193,7 @@ Most issues should be documented in the code as todos and vice versa.
  *  This way developers can see todos directly in the code without going to an external source.
  *  Todos must not have empty lines in their descriptions.
  *  If the external ressources have empty lines they must be removed in the todo comment.
+ *      1. list item 1
+ *      2. list item 2
  */
 ```
