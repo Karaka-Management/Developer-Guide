@@ -119,6 +119,15 @@ if (...) {
 $result = condition ? expr1 : expr2;
 ```
 
+Multiline ternary expressions should be indented.
+
+
+```php
+$result = condition
+    ? very long expr1 which should be written like this
+    : very long expr2 which should be written like this;
+```
+
 Multiline `if` conditions should begin with a logical opperator `or`/`and`.
 
 ```php
