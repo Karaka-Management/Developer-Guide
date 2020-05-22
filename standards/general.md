@@ -197,7 +197,7 @@ Most issues should be documented in the code as todo and vice versa.
 
 ```php
 /**
- * @todo Orange-Management/Repository#IssueNumber
+ * @todo Orange-Management/Repository#IssueNumber [issue:information]
  *  Below comes the issue/todo description.
  *  This way developers can see todos directly in the code without going to an external source.
  *  Todos must not have empty lines in their descriptions.
@@ -206,3 +206,53 @@ Most issues should be documented in the code as todo and vice versa.
  *      2. list item 2
  */
 ```
+
+The issue information can be used to provide additional information such as priority, difficulty and type.
+
+### Priority
+
+Structure:
+
+```php
+[p:{PRIORITY}]
+```
+
+Possible priorities are:
+
+* high
+* low
+* medium
+
+### Difficulty
+
+Structure:
+
+```php
+[d:{DIFFICULTY}]
+```
+
+Possible difficulties are:
+
+* first
+* beginner
+* expert
+* medium
+
+Difficulties marked with first are perfect for people who would like to contribute to the project for the first time.
+
+### Type
+
+Structure:
+
+```php
+[t:{TYPE}]
+```
+
+Possible types are:
+
+* feature
+* optimization
+* performance
+* question
+* security
+* todo (= default)
