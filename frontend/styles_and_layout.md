@@ -11,7 +11,7 @@ Flexboxes are preferred for all content containers.
 ```html
 <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-3 col-lg-1">
-        <section class="box wf-100">...</section>
+        <section class="portlet">...</section>
     </div>
 </div>
 ```
@@ -26,7 +26,7 @@ A container (e.g. section, div, table, etc) can be sized by using `.wf-*` classe
 
 ## Icons
 
-This project uses font-awesome for its icons, the following example allows for stacked icons e.g. creating new/undread email notifications:
+This project uses font-awesome for its icons, the following example allows for stacked icons e.g. creating new/unread email notifications:
 
 ```html
 <i class="fa fa-lg infoIcon fa-envelope">
@@ -49,7 +49,7 @@ The following snippet creates a 100% input with a button next to it.
 
 ### Input with dictionary
 
-The following snippet creates a dictionary button (e.g. for opening a popup window to search for accounts/groups etc) right befor an input field.
+The following snippet creates a dictionary button (e.g. for opening a popup window to search for accounts/groups etc) right before an input field.
 
 ```html
 <span class="input">
@@ -63,18 +63,19 @@ The following snippet creates a dictionary button (e.g. for opening a popup wind
 A section is a container for information that can and should be grouped together.
 
 ```html
-<section class="box wf-100">
-    <h1>Title</h1>
-    <div class="inner">
+<section class="portlet">
+    <div class="portlet-head">Title</div>
+    <div class="portlet-body">
         ...
     </div>
+    <div class="portlet-foot">Footer</div>
 </section>
 ```
 
 Additional coloring of sections can be achieved by adding a coloring class.
 
 ```html
-<section class="box green">
+<section class="portlet green">
     ...
 </section>
 ```

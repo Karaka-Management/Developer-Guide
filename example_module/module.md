@@ -157,7 +157,7 @@ final class Installer extends InstallerAbstract
 }
 ```
 
-If your application doesn't need to implement any database tables for itself the switch statement can be omitted. From the directory structur at the beginning we can however see that some modules accept information form other modules. The following example shows how the navigation module is accepting information during the installation of other modules:
+If your application doesn't need to implement any database tables for itself the switch statement can be omitted. From the directory structure at the beginning we can however see that some modules accept information form other modules. The following example shows how the navigation module is accepting information during the installation of other modules:
 
 ```php
 public static function installExternal(Pool $dbPool, array $data)

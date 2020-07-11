@@ -35,7 +35,7 @@ The following steps will setup the application, download all necessary tools and
 After the installation you'll have access to the following content:
 
 * Application: `http://127.0.0.1`
-* Code Coverager: `http://127.0.0.1/Build/coverage/`
+* Code Coverage: `http://127.0.0.1/Build/coverage/`
 * Test Report: `${INSPECTION_PATH}/test/ReportExternal`
 * Unit Test Report: `${INSPECTION_PATH}/test/testdox.txt`
 * PHPStan Report: `${INSPECTION_PATH}/test/phpstan.json`

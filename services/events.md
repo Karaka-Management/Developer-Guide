@@ -22,7 +22,7 @@ Now the event will be removed from the event manager once executed.
 
 ### Resetting events
 
-In case an event should be reset (all conditions mut be met again befor it can be triggered) after it got successfully triggered  one more parameter can be added.
+In case an event should be reset (all conditions must be met again before it can be triggered) after it got successfully triggered  one more parameter can be added.
 
 ```php
 $eventManager->attach('eventId', function() { echo 'Hello World'; }, false, true);
@@ -40,7 +40,7 @@ $eventManager->trigger('eventId');
 
 ## Multi Condition Events
 
-In some cases it is required that multiple conditions are met before an event is supposed to be triggered. This can be achived by registering these conditions through the `addGroup()` function.
+In some cases it is required that multiple conditions are met before an event is supposed to be triggered. This can be achieved by registering these conditions through the `addGroup()` function.
 
 ```php
 $eventManager->addGroup('eventId', 'conditionName');
@@ -58,8 +58,8 @@ $eventManager->trigger('eventId', 'conditionName'); // No output (if remove = fa
 $eventManager->trigger('eventId', 'conditionName'); // No output (if remove = true)
 ```
 
-The order in which these conditions are triggered doesn't mapper. A multi condition event SHOULD be atteched with the optional boolean parameter `true`. These events can only be executed once and will be removed afterwards. In case the optional boolean parameter was not set to `true` the event will remain in the event manager and will be triggered whenever `trigger('eventId')` is called.
+The order in which these conditions are triggered doesn't mapper. A multi condition event SHOULD be attached with the optional boolean parameter `true`. These events can only be executed once and will be removed afterwards. In case the optional boolean parameter was not set to `true` the event will remain in the event manager and will be triggered whenever `trigger('eventId')` is called.
 
 ## Frontend vs. Backend
 
-The only key difference between the frontend and backend implementation is that the frontend prevents runnning the same event in quick succession (less than 500 ms) in order to prevent undesired effects which can happen due to quick UI interaction.
+The only key difference between the frontend and backend implementation is that the frontend prevents running the same event in quick succession (less than 500 ms) in order to prevent undesired effects which can happen due to quick UI interaction.
