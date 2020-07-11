@@ -58,6 +58,29 @@ The following snippet creates a dictionary button (e.g. for opening a popup wind
 </span>
 ```
 
+### Checkbox
+
+The following snippet creates a checkbox.
+
+```html
+<label class="checkbox" for="iID">
+    <input id="iID" type="checkbox" name="name" value="1">
+    <span class="checkmark"></span>
+    Text
+</label>
+```
+
+### Radio
+
+The following snippet creates a checkbox.
+
+```html
+<label class="checkbox" for="iID">
+    <input id="iID" type="radio" name="name" value="1">
+    <span class="checkmark"></span>
+    Text
+</label
+
 ## Section
 
 A section is a container for information that can and should be grouped together.
