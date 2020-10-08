@@ -73,6 +73,12 @@ Class constants MUST have a access modifier
 public CONST_NAME = ...;
 ```
 
+## Preferred Functions
+
+### file_exists
+
+Instead of using `\file_exists()` the functions `\is_dir()` or `\is_file()` should be used.
+
 ## Deprecated functions and variables
 
 The following functions and (super-) global variables MUST NOT be used.
