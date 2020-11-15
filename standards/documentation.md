@@ -1,5 +1,13 @@
 # Documentation
 
+## User
+
+## Developer
+
+## Database
+
+### Diagramms
+
 ## Php
 
 The php documentation is based on PhpDocumentor, therefore only valid PhpDocumentor comments are valid for files, classes, functions/methods and (member) variables.

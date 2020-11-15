@@ -1,6 +1,30 @@
-# Inspections
+# Code Inspections & Tests
 
-Code inspections are very important in order to maintain the same code quality throughout the application. The Build repository contains all esential configuration files for the respective inspection tools. Every provided module will be evaluated based on the predefined code and quality standards. Only modules that pass all code, quality and unit tests are accepted. This also applies to updates and bug fixes. Any change will have to be re-evaluated.
+Code inspections are very important in order to maintain the same code quality throughout the application. The `Build` repository and package managers such as `composer` and `npm` contain all esential configuration files for the respective inspection tools. The framework and every module will be evaluated based on the defined code and quality standards. Only code that passes all code, quality and test standards are accepted. Updates and bug fixes also must follow the standards.
+
+## How and what to test?
+
+In this project multiple levels of tests must be implemented such as unit tests, integration tests and system tests.
+
+The following testing requirements must be met:
+
+* 90% code coverage in the tests
+* all tests must pass without warnings, errors and exceptions
+* no warnings and errors during static code inspections
+* no usage of deprecated function calls
+* no code style violations
+* every test should have a short description for the test report
+
+### Unit tests
+
+Every test must be in it's own test function.
+Every public function must have a unit test
+
+### Integration tests
+
+### System tests
+
+## Test documentation
 
 ## Tools
 
@@ -14,7 +38,7 @@ Tools used for the code inspection are:
 
 These tools are all installed by running the `setup.sh` script from the Build repository.
 
-## PHPUnit
+### PHPUnit
 
 This application uses PHPUnit as unit testing framework. Unit tests for specific classes need to be named in the same manner as the testing class.
 
@@ -30,11 +54,11 @@ In order to also create a code coverage report run:
 php vendor/bin/phpunit -c tests/PHPUnit/phpunit_default.xml
 ```
 
-### Modules
+#### Modules
 
 Every module needs to have a `Admin` directory containing a class called `AdminTest.php` which is used for testing the installation, activation, deactivation, uninstall and remove of the module. Tests that install, update, remove etc. a module need to have a group called `admin`. After running the `AdminTest.php` test the final state of the module should be installed and active, only this way it's possible to further test the controller and models. A code coverage of at least 80% is mandatory for every module for integration.
 
-## PHPStan
+### PHPStan
 
 With phpstan the code base is statically analyzed based on its configuration. This will help you to follow some of the "best" practices we enforce.
 
@@ -42,11 +66,11 @@ With phpstan the code base is statically analyzed based on its configuration. Th
 php vendor/bin/phpstan analyse --autoload-file=phpOMS/Autoloader.php -l 8 -c Build/Config/phpstan.neon --error-format=prettyJson ./ > Build/test/phpstan.json
 ```
 
-## Jasmine
+### Jasmine
 
 The javascript testing is done with jasmine. The javascript testing directory is structured the same way as the `Framework`. Unit tests for specific classes need to be named in the same manner as the testing class.
 
-## PHP CS
+### PHP CS
 
 Besides the code tests and static code analysis the code style is another very imporant inspection to ensure the code quality.
 
@@ -54,7 +78,7 @@ Besides the code tests and static code analysis the code style is another very i
 php vendor/bin/phpcs ./ --standard="Build/Config/phpcs.xml" -s --report-junit=Build/test/junit_phpcs.xml
 ```
 
-## Git Hooks (Linux only)
+### Git Hooks (Linux only)
 
 The git hooks perform various checks and validations during the `commit` and warn the developer about invalid code or code style/guideline violations.
 
