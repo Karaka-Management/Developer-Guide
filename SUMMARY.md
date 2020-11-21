@@ -4,7 +4,7 @@
 * [Application Structure]({%}&page=general/structure)
 
 ## Quality & Standards
-* [Code Inspection]({%}&page=quality/inspections)
+* [Code Inspections & Tests]({%}&page=quality/inspections)
 * [Documentation Standards]({%}&page=standards/documentation)
 * [General Code Standards]({%}&page=standards/general)
 * [Security Standards]({%}&page=security/security_guidelines)

@@ -14,17 +14,42 @@ The following testing requirements must be met:
 * no usage of deprecated function calls
 * no code style violations
 * every test should have a short description for the test report
+* every file containing code (except enums, traits, interfaces and template files) must have their own test file with tests
+
+When testing it makes sense to test for the happy path/branch of how a method should work and to `try` and break things by trying to find inputs and paths which may lead to unexpected behavior and errors.
 
 ### Unit tests
 
-Every test must be in it's own test function.
-Every public function must have a unit test
+The smallest/lowest level of testing are the unit tests. Unit tests should be implemented for models and framework methods. Every public function should be covered by at least one unit test. If a method has multiple branches every branch should be covered by a separate unit test. In some cases it might make sense to cover multiple branches in one unit test/test function, such a decision should however be made conciously.
 
 ### Integration tests
 
+Integration tests are the second level or middle level of tests. These types of tests are used for example for module controllers. In such tests you should mock a request and test the response.
+
+For large controllers it can make sense to define a `*ControllerTest` which uses `Traits` in order to categorize different suits of tests. For example in the `Admin` ApiControllerTest we implemented different traits for group, account and module tests.
+
 ### System tests
 
+The system tests are the highest level of tests and test the overall functionality and if the implementation fulfills the specifications.
+
+### Modules
+
+Every module must implement the following tests if applicable:
+
+* general module tests (e.g. install, update, delete, status change)
+* admin tests (`use \Modules\tests\ModuleTestTrait;`)
+* model tests (unit tests)
+* controller tests (e.g. ApiController tests)
+* view tests
+
+You can find an example in the TestModule.
+
 ## Test documentation
+
+* every test must have a short test description
+* every test and description must be added to the test report
+* every test needs a test category (e.g. framework, module etc.)
+* every test should have a @covers annotation to specify which class it covers
 
 ## Tools
 
