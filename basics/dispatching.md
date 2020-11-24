@@ -41,11 +41,11 @@ $dispatcher->dispatch(function($para1, $para2) { ... }, $staticToCallPara1, $sta
 The dispatcher accepts the results from the `route()` method of the router which is an array of routes.
 
 ```php
-$dispatcher->dispatch($router->route($request->getUri()->getRoute()));
+$dispatcher->dispatch($router->route($request->uri->getRoute()));
 ```
 
 Based on the function definition returned by the router it's possible to pass more parameters to the function such e.g. request and response objects.
 
 ```php
-$dispatcher->dispatch($router->route($request->getUri()->getRoute()), $request, $response);
+$dispatcher->dispatch($router->route($request->uri->getRoute()), $request, $response);
 ```

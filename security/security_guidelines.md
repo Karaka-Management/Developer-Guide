@@ -23,7 +23,7 @@ if($request->getData('CSRF') === null) {
     $response->setStatusCode(RequestStatus::R_403);
 
     /* optional */
-    $response->set($request->getUri()->__toString(), new Notify('Unknown referrer!', NotifyType::INFO));
+    $response->set($request->uri->__toString(), new Notify('Unknown referrer!', NotifyType::INFO));
 
     return;
 }
@@ -56,13 +56,13 @@ Scripts and frames must be provided by the own server or google. This is importa
 The default CSP looks like the following:
 
 ```php
-$response->getHeader()->set('content-security-policy', 'script-src \'self\'; frame-src \'self\'', true);
+$response->header->set('content-security-policy', 'script-src \'self\'; frame-src \'self\'', true);
 ```
 
 In order to whitelist inline javascript you can use the following logic. This however requires you to know the inline script beforehand `$script`. After setting the CSP header they automatically get locked so that further changes are not possible. This is a security measure in order to prevent any malicious adjustments.
 
 ```php
-$response->getHeader()->set('content-security-policy', 'script-src \'self\' \'sha256-' . base64_encode(hash('sha256', $script, true)) . '\'; frame-src \'self\'', true);
+$response->header->set('content-security-policy', 'script-src \'self\' \'sha256-' . base64_encode(hash('sha256', $script, true)) . '\'; frame-src \'self\'', true);
 ```
 
 ### X-XSS-Protection
@@ -70,7 +70,7 @@ $response->getHeader()->set('content-security-policy', 'script-src \'self\' \'sh
 This header tells the client browser to use local xss protection if available.
 
 ```php
-$response->getHeader()->set('x-xss-protection', '1; mode=block');
+$response->header->set('x-xss-protection', '1; mode=block');
 ```
 
 ### X-Content-Type-Options
@@ -78,7 +78,7 @@ $response->getHeader()->set('x-xss-protection', '1; mode=block');
 By using this header browsers which support this feature will ignore the content/mime and recognize the file by the provided header only.
 
 ```php
-$response->getHeader()->set('x-content-type-options', 'nosniff');
+$response->header->set('x-content-type-options', 'nosniff');
 ```
 
 ### X-Frame-Options
@@ -86,7 +86,7 @@ $response->getHeader()->set('x-content-type-options', 'nosniff');
 The x-frame-options is providing the same protection for frames as the content-security-policy header. Please only use this header in addition to the content-security-policy if you have to but make sure the rules don't contradict with the content-security-policy.
 
 ```php
-$response->getHeader()->set('x-frame-options', 'SAMEORIGIN');
+$response->header->set('x-frame-options', 'SAMEORIGIN');
 ```
 
 ## Superglobals
