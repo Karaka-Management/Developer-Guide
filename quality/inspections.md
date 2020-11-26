@@ -1,6 +1,55 @@
-# Inspections
+# Code Inspections & Tests
 
-Code inspections are very important in order to maintain the same code quality throughout the application. The Build repository contains all esential configuration files for the respective inspection tools. Every provided module will be evaluated based on the predefined code and quality standards. Only modules that pass all code, quality and unit tests are accepted. This also applies to updates and bug fixes. Any change will have to be re-evaluated.
+Code inspections are very important in order to maintain the same code quality throughout the application. The `Build` repository and package managers such as `composer` and `npm` contain all esential configuration files for the respective inspection tools. The framework and every module will be evaluated based on the defined code and quality standards. Only code that passes all code, quality and test standards are accepted. Updates and bug fixes also must follow the standards.
+
+## How and what to test?
+
+In this project multiple levels of tests must be implemented such as unit tests, integration tests and system tests.
+
+The following testing requirements must be met:
+
+* 90% code coverage in the tests
+* all tests must pass without warnings, errors and exceptions
+* no warnings and errors during static code inspections
+* no usage of deprecated function calls
+* no code style violations
+* every test should have a short description for the test report
+* every file containing code (except enums, traits, interfaces and template files) must have their own test file with tests
+
+When testing it makes sense to test for the happy path/branch of how a method should work and to `try` and break things by trying to find inputs and paths which may lead to unexpected behavior and errors.
+
+### Unit tests
+
+The smallest/lowest level of testing are the unit tests. Unit tests should be implemented for models and framework methods. Every public function should be covered by at least one unit test. If a method has multiple branches every branch should be covered by a separate unit test. In some cases it might make sense to cover multiple branches in one unit test/test function, such a decision should however be made conciously.
+
+### Integration tests
+
+Integration tests are the second level or middle level of tests. These types of tests are used for example for module controllers. In such tests you should mock a request and test the response.
+
+For large controllers it can make sense to define a `*ControllerTest` which uses `Traits` in order to categorize different suits of tests. For example in the `Admin` ApiControllerTest we implemented different traits for group, account and module tests.
+
+### System tests
+
+The system tests are the highest level of tests and test the overall functionality and if the implementation fulfills the specifications.
+
+### Modules
+
+Every module must implement the following tests if applicable:
+
+* general module tests (e.g. install, update, delete, status change)
+* admin tests (`use \Modules\tests\ModuleTestTrait;`)
+* model tests (unit tests)
+* controller tests (e.g. ApiController tests)
+* view tests
+
+You can find an example in the TestModule.
+
+## Test documentation
+
+* every test must have a short test description
+* every test and description must be added to the test report
+* every test needs a test category (e.g. framework, module etc.)
+* every test should have a @covers annotation to specify which class it covers
 
 ## Tools
 
@@ -14,7 +63,7 @@ Tools used for the code inspection are:
 
 These tools are all installed by running the `setup.sh` script from the Build repository.
 
-## PHPUnit
+### PHPUnit
 
 This application uses PHPUnit as unit testing framework. Unit tests for specific classes need to be named in the same manner as the testing class.
 
@@ -30,23 +79,23 @@ In order to also create a code coverage report run:
 php vendor/bin/phpunit -c tests/PHPUnit/phpunit_default.xml
 ```
 
-### Modules
+#### Modules
 
 Every module needs to have a `Admin` directory containing a class called `AdminTest.php` which is used for testing the installation, activation, deactivation, uninstall and remove of the module. Tests that install, update, remove etc. a module need to have a group called `admin`. After running the `AdminTest.php` test the final state of the module should be installed and active, only this way it's possible to further test the controller and models. A code coverage of at least 80% is mandatory for every module for integration.
 
-## PHPStan
+### PHPStan
 
 With phpstan the code base is statically analyzed based on its configuration. This will help you to follow some of the "best" practices we enforce.
 
 ```sh
-php vendor/bin/phpstan analyse --autoload-file=phpOMS/Autoloader.php -l 7 -c Build/Config/phpstan.neon --error-format=prettyJson ./ > Build/test/phpstan.json
+php vendor/bin/phpstan analyse --autoload-file=phpOMS/Autoloader.php -l 8 -c Build/Config/phpstan.neon --error-format=prettyJson ./ > Build/test/phpstan.json
 ```
 
-## Jasmine
+### Jasmine
 
 The javascript testing is done with jasmine. The javascript testing directory is structured the same way as the `Framework`. Unit tests for specific classes need to be named in the same manner as the testing class.
 
-## PHP CS
+### PHP CS
 
 Besides the code tests and static code analysis the code style is another very imporant inspection to ensure the code quality.
 
@@ -54,7 +103,7 @@ Besides the code tests and static code analysis the code style is another very i
 php vendor/bin/phpcs ./ --standard="Build/Config/phpcs.xml" -s --report-junit=Build/test/junit_phpcs.xml
 ```
 
-## Git Hooks (Linux only)
+### Git Hooks (Linux only)
 
 The git hooks perform various checks and validations during the `commit` and warn the developer about invalid code or code style/guideline violations.
 

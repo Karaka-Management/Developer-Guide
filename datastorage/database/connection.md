@@ -14,7 +14,6 @@ $con = new MysqlConnection([
     'login'    => 'root', /* db login name */
     'password' => 'root', /* db login password */
     'database' => 'oms', /* db name */
-    'prefix'   => 'oms_', /* db table prefix */
 ]);
 ```
 
@@ -32,7 +31,6 @@ $con = ConnectionFactory::create([
     'login'    => 'root',
     'password' => 'root',
     'database' => 'oms',
-    'prefix'   => 'oms_',
 ]);
 ```
 
@@ -62,7 +60,6 @@ $dbPool->create('read',
         'login'    => 'root',
         'password' => 'root',
         'database' => 'oms',
-        'prefix'   => 'oms_',
     ]
 );
 ```

@@ -1,12 +1,12 @@
 # Dispatching
 
-The dispatching is the follow up on the routing. In the dispatcher the route destination get resolved and executed. Dispatching can be performed on module instance methods, static functions and anonymous functions.
+The dispatching is the follow up on the routing. In the dispatcher the route destination gets resolved and executed. Dispatching can be performed on module instance methods, static functions and anonymous functions.
 
 The return of the `dispatch()` call is an array of all end point returns.
 
 ## Basic
 
-The dispatcher accepts a string representation of the method or static function which should be dispatched, a closure which should be executed or an array of the above.
+The dispatcher accepts a string representation of the method or static function which should be dispatched, a closure which should be executed or an array of the just mentioned options.
 
 The `dispatch()` function accepts additionally a variable amount of parameters which will be passed to the routed method/function.
 
@@ -38,14 +38,14 @@ $dispatcher->dispatch(function($para1, $para2) { ... }, $staticToCallPara1, $sta
 
 ## Routing
 
-The dispatcher accepts the resoults from the `route()` method of the router which is an array of routes.
+The dispatcher accepts the results from the `route()` method of the router which is an array of routes.
 
 ```php
-$dispatcher->dispatch($router->route($request->getUri()->getRoute()));
+$dispatcher->dispatch($router->route($request->uri->getRoute()));
 ```
 
 Based on the function definition returned by the router it's possible to pass more parameters to the function such e.g. request and response objects.
 
 ```php
-$dispatcher->dispatch($router->route($request->getUri()->getRoute()), $request, $response);
+$dispatcher->dispatch($router->route($request->uri->getRoute()), $request, $response);
 ```

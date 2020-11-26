@@ -14,34 +14,25 @@ The database query builder provides a uniform way to write default database quer
 
 The query builder is used for regular CRUD operations on the database.
 
-#### Prefix
-
-Projects often use a prefix for all of the tables. For this project the default prefix is `oms_`.
-
-```php
-$query = new Builder();
-$query->prefix('oms_');
-```
-
 #### Select, Insert, Update, Delete
 
 Both `select` and `insert` expect the column names as parameter. The `where`, `from` and `into` clause can be necessary depending on the type of operation like a normal sql query.
 
 ```php
-$query->prefix(...)->select('columnA', 'columnB')->from('table')->where(...);
-$query->prefix(...)->insert('columnA', 'columnB')->values('a', 'b')->into('table');
+$query->select('columnA', 'columnB')->from('table')->where(...);
+$query->insert('columnA', 'columnB')->values('a', 'b')->into('table');
 ```
 
 The `update` expects the table name which should be updated and then the `set` function to define the columns and new values.
 
 ```php
-$query->prefix(...)->update('table')->set(['columnA' => 'a'])->set(['columnB' => 'b'])->where(...);
+$query->update('table')->set(['columnA' => 'a'])->set(['columnB' => 'b'])->where(...);
 ```
 
 The `delete` function only expects the `from` and `where` clause to identify the to delete columns in a table.
 
 ```php
-$query->prefix(...)->delete()->from('table')->where(...);
+$query->delete()->from('table')->where(...);
 ```
 
 ##### Random
@@ -51,8 +42,8 @@ $query->prefix(...)->delete()->from('table')->where(...);
 The `from` part of a query accepts `string`, `array`, `\Closure`, `From`, `Builder` as parameter.
 
 ```php
-$query->prefix(...)->select(...)->from('table');
-$query->prefix(...)->select(...)->from('tableA', 'tableB');
+$query->select(...)->from('table');
+$query->select(...)->from('tableA', 'tableB');
 ```
 
 #### Into
@@ -64,7 +55,7 @@ The `into` part of a query accepts `string`, `array`, `\Closure`, `Into`, `Build
 The basic `where` clause expects a column, operator, value and boolean concatenater which is used to concatenate multiple where clauses.
 
 ```php
-$query->prefix(...)->select(...)->from(...)->where('columnA', '=', 123)->where('columnB', '=', 'abc', 'or');
+$query->select(...)->from(...)->where('columnA', '=', 123)->where('columnB', '=', 'abc', 'or');
 ```
 
 For easier use additional `where` clauses are defined such as:
@@ -80,7 +71,7 @@ For easier use additional `where` clauses are defined such as:
 The `limit` expects an integer.
 
 ```php
-$query->prefix(...)->select(...)->from(...)->where(...)->limit(3);
+$query->select(...)->from(...)->where(...)->limit(3);
 ```
 
 #### Offset
@@ -88,7 +79,7 @@ $query->prefix(...)->select(...)->from(...)->where(...)->limit(3);
 The `offset` expects an integer.
 
 ```php
-$query->prefix(...)->select(...)->from(...)->where(...)->offset(3);
+$query->select(...)->from(...)->where(...)->offset(3);
 ```
 
 #### Order
@@ -96,7 +87,7 @@ $query->prefix(...)->select(...)->from(...)->where(...)->offset(3);
 The ordering is performed by `orderBy`.
 
 ```php
-$query->prefix(...)->select(...)->from(...)->where(...)->orderBy('columnA', 'DESC');
+$query->select(...)->from(...)->where(...)->orderBy('columnA', 'DESC');
 ```
 
 The `newest` and `oldest` operation are a small wrapper which automatically order by `DESC` and `ASC` respectively.
@@ -106,7 +97,7 @@ The `newest` and `oldest` operation are a small wrapper which automatically orde
 Grouping of columns can be achieved through `groupBy`.
 
 ```php
-$query->prefix(...)->select(...)->from(...)->where(...)->groupBy('columnA', 'columnB');
+$query->select(...)->from(...)->where(...)->groupBy('columnA', 'columnB');
 ```
 
 #### Join

@@ -7,7 +7,7 @@ In order to setup the application for development for the first time please see 
 Make sure your dev-environment or server fulfills the following requirements:
 
 * PHP >= 7.4
-* PHP extensions: mbstring, gd, zip, dom, mysql/pgsql/sqlsrv, sqlite, bcmath, imap*, redis*, memcached*, ftp*, socket*, curl*, xml*
+* PHP extensions: mbstring, gd, zip, dom, mysql/pgsql/sqlsrv, sqlite, bcmath, imap\*, redis\*, memcached\*, ftp\*, socket\*, curl\*, xml\*
 * databases: mysql, postgresql, sqlsrv
 * webserver: apache2
     * mod_headers
@@ -35,7 +35,7 @@ The following steps will setup the application, download all necessary tools and
 After the installation you'll have access to the following content:
 
 * Application: `http://127.0.0.1`
-* Code Coverager: `http://127.0.0.1/Build/coverage/`
+* Code Coverage: `http://127.0.0.1/Build/coverage/`
 * Test Report: `${INSPECTION_PATH}/test/ReportExternal`
 * Unit Test Report: `${INSPECTION_PATH}/test/testdox.txt`
 * PHPStan Report: `${INSPECTION_PATH}/test/phpstan.json`

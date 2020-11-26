@@ -41,7 +41,7 @@ echo $App->run(); // outputs the application response
 
 namespace app;
 
-use phpOMS\ApplicationAbstract; /* provides many member variables which are often shared with controllers */
+use phpOMS\Application\ApplicationAbstract; /* provides many member variables which are often shared with controllers */
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Message\Http\HttpResponse;
@@ -78,7 +78,7 @@ class Application extends ApplicationAbstract
         /* get data from url endpoints defined by the routes */
         $dispatch = $this->dispatcher->dispatch(
             $this->router->route(
-                $request->getUri()->getRoute(),
+                $request->uri->getRoute(),
                 $request->getData('CSRF'), // optional: only required if csrf tokens are used otherwise use null
                 $request->getRouteVerb() // e.g. get, post, put ...
             ),
@@ -91,7 +91,7 @@ class Application extends ApplicationAbstract
         $pageView->addData('dispatch', $dispatch);
 
         // push the headers (no changes to the header are possible afterwards)
-        $response->getHeader()->push();
+        $response->header->push();
 
         // renders the content of the response object (depends on the content type, text/html, json, ...)
         return $response->getBody();
@@ -107,10 +107,10 @@ class Application extends ApplicationAbstract
         $request->createRequestHashs(0);
 
         // if your application is located in a web-subfolder for easier handling
-        $request->getUri()->setRootPath('/');
+        $request->uri->setRootPath('/');
 
         // this will allow you to create urls based on request data
-        UriFactory::setupUriBuilder($request->getUri());
+        UriFactory::setupUriBuilder($request->uri);
 
         return $request;
     }
@@ -121,9 +121,9 @@ class Application extends ApplicationAbstract
         $response = new HttpResponse();
 
         // you could use the request content-type in order to define the response content-type
-        $response->getHeader()->set('content-type', 'text/html; charset=utf-8');
+        $response->header->set('content-type', 'text/html; charset=utf-8');
 
-        $response->getHeader()->set('x-xss-protection', '1; mode=block');
+        $response->header->set('x-xss-protection', '1; mode=block');
         // more CSP can be defined here
 
         return $response;
@@ -203,7 +203,7 @@ return [
 
 namespace app\controller;
 
-use phpOMS\ApplicationAbstract;
+use phpOMS\Application\ApplicationAbstract;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Views\View;

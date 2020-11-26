@@ -1,5 +1,35 @@
 # Documentation
 
+## Module
+
+Every module must have two types of documentation. One for the end-user, which also includes information for the administrator and module configuration and another documentation for developers. Documentation must be available in at least english language.
+
+### User
+
+The user documentation should cover the following aspects:
+
+* Installation, update, status change and delete process
+* Dependencies and requirements
+* Configuration options
+* Permission management
+* How to use the module and its functionality from an end-user perspective
+
+### Developer
+
+The developer documentation should cover the following aspects:
+
+* Database UML diagram (incl. relations to other modules)
+* How to interact with the controllers, views and models from other modules
+* How to interact with the controllers, views and models from within the module
+* Best practices (does and don'ts)
+* Module specific guidelines & contribution information
+
+## Database
+
+### Diagramms
+
+Every module that has a database table must implement a UML diagram illustrating the internal table relations as well as the relations with external tables from other modules.
+
 ## Php
 
 The php documentation is based on PhpDocumentor, therefore only valid PhpDocumentor comments are valid for files, classes, functions/methods and (member) variables.
