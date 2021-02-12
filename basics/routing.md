@@ -1,7 +1,6 @@
 # Routing
 
-Routing allows to bind a string representation to a function. This is required in order to execute request specific code segments.
-One very common scenario for routing is to take the url of a http(s) request and assign it to a function located in a controller.
+Routing allows to bind a string representation to a function. This is required in order to execute request specific code segments. One very common scenario for routing is to take the url of a http(s) request and assign it to a function located in a controller.
 
 ## Routes
 
@@ -45,7 +44,7 @@ Instead of defining closures it's possible to define a string representation of 
 $router->add('foo/bar', '\foo\controller:barFunction');
 ```
 
-Static functions can be defined in the following fashion:
+Static functions can be defined in the following way:
 
 ```php
 $router->add('foo/bar', '\foo\controller::barFunction');
@@ -144,7 +143,7 @@ The state allows a module to have different permissions. E.g. a news module has 
 
 ## CSRF Protection
 
-Often you would like to enable `CSRF` protection for certain urls or routing paths. The router can check if a CSRF protection is needed for a certain path and if it is needed it will check if a CSRF token is provided. If no CSRF protection is required it will ignore the CSRF token, but if it is necessary the router will check if it is available.
+Often you would like to enable `CSRF` protection for certain urls or routing paths. The router can check if a CSRF protection is needed for a certain path and if it is needed it will check if the correct CSRF token is provided. If no CSRF protection is required it will ignore the CSRF token.
 
 ```php
 $router->add('foo/bar', function() {

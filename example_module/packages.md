@@ -64,5 +64,4 @@ The `package.json` file contains information of the package.
 
 ### Other
 
-All other files are related to updates, patches, extensions and installation. These files can be simple assets that will be used or
-replaced in modules, classes in the framework that need to be updated and sql methods for updating the database schema.
+All other files are related to updates, patches, extensions and installation. These files can be simple assets that will be used or replaced in modules, classes in the framework that need to be updated and sql methods for updating the database schema.
