@@ -20,9 +20,10 @@ The following application is a minimal sample in order to show how it's possible
 ```
 
 ```php
+<?php declare(strict_types=1);
+
 // index.php
 // initialize application and output response (entry point for the app)
-<?php declare(strict_types=1);
 
 \ob_start();
 require_once __DIR__ . '/phpOMS/Autoloader.php';
@@ -35,9 +36,10 @@ echo $App->run(); // outputs the application response
 ```
 
 ```php
+<?php declare(strict_types=1);
+
 // app/Application.php
 // Application where the framework components are initialized
-<?php declare(strict_types=1);
 
 namespace app;
 
@@ -142,9 +144,10 @@ class Application extends ApplicationAbstract
 ```
 
 ```php
+<?php declare(strict_types=1);
+
 // app/Routes.php
 // Routes for the application
-<?php declare(strict_types=1);
 
 use phpOMS\Router\RouteVerb;
 
@@ -190,16 +193,18 @@ return [
         <main>
         <?php
             $dispatch = $this->getData('dispatch'); // get data bound to the view with the key "dispatch"
-            foreach($dispatch as $view) echo $view->render(); ?> // in this case it has a 'render()' method which is called
+            foreach($dispatch as $view) echo $view->render(); // in this case it has a 'render()' method which is called
+        ?>
         </main>
     </body>
 </html>
 ```
 
 ```php
+<?php declare(strict_types=1);
+
 // app/controller/TestController.php
 // Sample controller which is referenced in the routes
-<?php declare(strict_types=1);
 
 namespace app\controller;
 
@@ -256,9 +261,10 @@ class TestController
 ```
 
 ```php
+<?php declare(strict_types=1);
+
 // app/view/TestView.php
 // Sample view which can hold additional view logic which can be used by the template
-<?php declare(strict_types=1);
 
 namespace app\view;
 
