@@ -64,12 +64,12 @@ The routing file must have the following structure:
 <?php return [
 	'{ROUTE_STRING}' => [
 		[
-			'dest' => {CLOSURE/REFERENCE_STRING},
-			'verb' => {VERB_1 | VERB_2},
+			'dest' => CLOSURE/REFERENCE_STRING,
+			'verb' => VERB_1 | VERB_2,
 		],
 		[
-			'dest' => {CLOSURE/REFERENCE_STRING},
-			'verb' => {VERB_3},
+			'dest' => CLOSURE/REFERENCE_STRING,
+			'verb' => VERB_3,
 		],
 	],
 	'{ANOTHER_ROUTE_STRING}' => [ ... ],
@@ -110,17 +110,17 @@ $router->route('foo/bar', null, RouteVerb::GET, 'APP_NAME', ORG_ID, ACCOUNT);
 <?php return [
 	'{ROUTE_STRING}' => [
 		[
-			'dest' => {CLOSURE/REFERENCE_STRING},
-			'verb' => {VERB_1 | VERB_2},
+			'dest' => CLOSURE/REFERENCE_STRING,
+			'verb' => VERB_1 | VERB_2,
 			'permission' => [
-				'module' => {MODULE_NAME},
-				'type' => {CREATE | READ | UPDATE | DELETE | PERMISSION},
-				'state' => {MODULE_SPECIFIC_IDENTIFIER_FOR_THE_PERMISSION},
+				'module' => MODULE_NAME,
+				'type' => CREATE | READ | UPDATE | DELETE | PERMISSION,
+				'state' => MODULE_SPECIFIC_IDENTIFIER_FOR_THE_PERMISSION,
 			],
 		],
 		[
-			'dest' => {CLOSURE/REFERENCE_STRING},
-			'verb' => {VERB_3},
+			'dest' => CLOSURE/REFERENCE_STRING,
+			'verb' => VERB_3,
 		],
 	],
 	'{ANOTHER_ROUTE_STRING}' => [ ... ],

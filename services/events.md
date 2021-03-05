@@ -10,6 +10,8 @@ Every event requires a unique trigger key as well as a `\Closure` which should b
 $eventManager->attach('eventId', function() { echo 'Hello World'; });
 ```
 
+The eventId can also be a regex in order to let it trigger on multiple occasions (e.g. `$eventManager->attach('/Test[a-z]+/', ...)`)
+
 ### Repeating events
 
 If a event should only be able to be triggered once another boolean parameter has to be edded to the `attach()` function call.
@@ -38,6 +40,10 @@ An event can be triggered by calling the `trigger()` function.
 $eventManager->trigger('eventId');
 ```
 
+### Triggering Similar Events
+
+In some situations you might want to trigger multiple events. In this case you can provide a regex as eventId and/or conditionName (e.g. `$eventManager->grigger('/[a-z]+/')`)
+
 ## Multi Condition Events
 
 In some cases it is required that multiple conditions are met before an event is supposed to be triggered. This can be achieved by registering these conditions through the `addGroup()` function.
@@ -62,4 +68,4 @@ The order in which these conditions are triggered doesn't mapper. A multi condit
 
 ## Frontend vs. Backend
 
-The only key difference between the frontend and backend implementation is that the frontend prevents running the same event in quick succession (less than 500 ms) in order to prevent undesired effects which can happen due to quick UI interaction.
+The only key difference between the frontend and backend implementation is that the frontend prevents running the same event in quick succession (less than 300 ms) in order to prevent undesired effects which can happen due to quick UI interaction.

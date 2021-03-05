@@ -20,6 +20,19 @@ The module function can be called by providing the namespace followed by the fun
 $dispatcher->dispatch('\My\Namespace:methodToCall', $methodToCallPara1, $methodToCallPara2, ...);
 ```
 
+In order to allow the dispatcher to automatically create a a controller instance. The class constructore for the controller `\my\Namespace` needs to extend `ModuleAbstract` and have the format:
+
+```php
+public function __construct(ApplicationAbstract $app) {}
+```
+
+Alternatively you can also add a controller manually to the disptacher. In this case you may construct the controller as you see fit. However, the controller must extend `ModuleAbstract`.
+
+```php
+$testController = new MyController();
+$dispatcher->set($testController, MyController::class)
+```
+
 #### Static
 
 A static function can be called by providing the namespace followed by the function name concatonated with two colons `::` between the function name and the namespace.
