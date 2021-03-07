@@ -47,7 +47,7 @@ During this process the database automatically gets dropped (if existing) and re
 
 ## Option 2: PHPUnit Test Suits
 
-This wil only setup the application including some dummy data and also perform the code tests but no quality checks.
+This will only setup the application including some dummy data and also perform the code tests but no quality checks.
 
 ### Steps
 

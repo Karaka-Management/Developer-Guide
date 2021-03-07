@@ -1,6 +1,6 @@
 # Routing
 
-Routing allows to bind a string representation to a function. This is required in order to execute request specific code segments. One very common scenario for routing is to take the url of a http(s) request and assign it to a function located in a controller.
+Routing allows to bind a string representation to a function. This is required in order to execute request specific code segments. One very common scenario for routing is to take the URL of a http(s) request and assign it to a function located in a controller.
 
 ## Routes
 
@@ -82,7 +82,7 @@ In this schematic the first route has different destinations depending on the ve
 
 With request verbs it's possible to use the same request path and assign different endpoints to them. This is helpful when you want to have the same path for retrieving data and changing data. This is a normal situation in web development e.g.
 
-Let's assume we have the url `https://yoururl.com/user/1/name` if we make a `GET` request we could return the name for the user `1` and if we make a `POST` request we could update the name for the user `1` and use the same url.
+Let's assume we have the URL `https://yoururl.com/user/1/name` if we make a `GET` request we could return the name for the user `1` and if we make a `POST` request we could update the name for the user `1` and use the same url.
 
 Allowed request verbs are:
 

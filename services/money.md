@@ -10,7 +10,7 @@ The initialization can be done by providing an integer, float or string represen
 * (float) 1.23  = 1.23
 * (string) 1.23 = 1.23
 
-The max and min money values that can be represented on a 32bit system are `214,748.3647` and `-214,748.3647` which is most of the time not sufficient. On 64bit systems however the max and min values that can be represented ar `922,337,203,685,477.5807` and `-922,337,203,685,477.5807`.
+The max and min money values that can be represented on a 32bit system are `214,748.3647` and `-214,748.3647` which is most of the time not sufficient. On 64bit systems however the max and min values that can be represented are `922,337,203,685,477.5807` and `-922,337,203,685,477.5807`.
 
 ## Operations
 

@@ -4,7 +4,7 @@ The following application is a minimal sample in order to show how it's possible
 
 ```txt
 # .htaccess
-# enable url rewriting
+# enable URL rewriting
 <ifmodule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /
@@ -77,7 +77,7 @@ class Application extends ApplicationAbstract
         // bind the page view to the response object. This is rendered later on.
         $response->set('Content', $pageView);
 
-        /* get data from url endpoints defined by the routes */
+        /* get data from URL endpoints defined by the routes */
         $dispatch = $this->dispatcher->dispatch(
             $this->router->route(
                 $request->uri->getRoute(),
@@ -105,7 +105,7 @@ class Application extends ApplicationAbstract
         // initialize request from the superglobals which are automatically populated
         $request = Request::createFromSuperglobals();
 
-        // optional: will transform the url path and sub-paths to hashs
+        // optional: will transform the URL path and sub-paths to hashs
         $request->createRequestHashs(0);
 
         // if your application is located in a web-subfolder for easier handling

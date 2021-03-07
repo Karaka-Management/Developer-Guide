@@ -4,7 +4,7 @@ Responses can be either outgoing responses such as http or socket responses on t
 
 ## Http Response
 
-A response can be defined with the `set()` function and the body of the response can be generated/rendered witth the `getBody()` function.
+A response can be defined with the `set()` function and the body of the response can be generated/rendered with the `getBody()` function.
 
 ```php
 $response->set('response_id', {stringifiable_element});
@@ -54,11 +54,11 @@ In order to change the response type the header `content-type` must be changed.
 $response->header->set('content-type', '....', true);
 ```
 
-The boolean flag at the end forces an overwrite of the previous response type. If this flag is not set the response type will not be overwritten. The reason for this flag is to protect header elements from accidentially getting overwritten.
+The boolean flag at the end forces an overwrite of the previous response type. If this flag is not set the response type will not be overwritten. The reason for this flag is to protect header elements from accidentally getting overwritten.
 
 ### Sending Headers
 
-> After the headers are sent it is not possible to change the headers or re-send them, the header is locked!. Usually you don't have to worry about this since the headers are automatically sent just bevore the content gets rendered.
+> After the headers are sent it is not possible to change the headers or re-send them, the header is locked!. Usually you don't have to worry about this since the headers are automatically sent just before the content gets rendered.
 
 ### Text/Html Response
 

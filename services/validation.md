@@ -26,7 +26,7 @@ function functionName(mixed $var, $mySetting1, $mySetting2) : bool
 Validator::isValid($testVariable, ['functionName' => $settings]);
 ```
 
-The second parameter (settings paramenter) contains an associative array where the key is the function name which should get invoked and the value are the settings/options/parameters passed to the function name. The function must be implemented by the user.
+The second parameter (settings parameter) contains an associative array where the key is the function name which should get invoked and the value are the settings/options/parameters passed to the function name. The function must be implemented by the user.
 
 If multiple constraints are provided the validation only returns true if all validations are successful.
 
@@ -115,7 +115,7 @@ Example for our `info.json` valdiation
 
 ```
 
-The example above shows how to specifiy optional elements (e.g. "dependencies") which can have as many children in any form possible or optional values with a specific key (e.g. website) which can be omitted.
+The example above shows how to specify optional elements (e.g. "dependencies") which can have as many children in any form possible or optional values with a specific key (e.g. website) which can be omitted.
 
 ## Finance
 
@@ -167,7 +167,7 @@ Hostname::isValid('http://test.com'); // false
 
 ### Ip
 
-A simple ip validator which only validates the structure not if it actually exists.
+A simple Ip validator which only validates the structure not if it actually exists.
 
 ```php
 IP::isValid('192.168.178.1');

@@ -22,7 +22,7 @@ $head->addAsset(AssetType::JS, $request->uri->getBase() . 'Modules/Media/Control
 
 ## System Cache
 
-All cache systems implement very similar functionality. It is only due to different features of the underlying technologie that some minor details are different between the different cache solutions.
+All cache systems implement very similar functionality. It is only due to different features of the underlying technology that some minor details are different between the different cache solutions.
 
 The available cache solutions are:
 

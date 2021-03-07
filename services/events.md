@@ -14,7 +14,7 @@ The eventId can also be a regex in order to let it trigger on multiple occasions
 
 ### Repeating events
 
-If a event should only be able to be triggered once another boolean parameter has to be edded to the `attach()` function call.
+If a event should only be able to be triggered once another boolean parameter has to be added to the `attach()` function call.
 
 ```php
 $eventManager->attach('eventId', function() { echo 'Hello World'; }, true);
@@ -42,7 +42,7 @@ $eventManager->trigger('eventId');
 
 ### Triggering Similar Events
 
-In some situations you might want to trigger multiple events. In this case you can provide a regex as eventId and/or conditionName (e.g. `$eventManager->grigger('/[a-z]+/')`)
+In some situations you might want to trigger multiple events. In this case you can provide a regex as eventId and/or conditionName (e.g. `$eventManager->trigger('/[a-z]+/')`)
 
 ## Multi Condition Events
 

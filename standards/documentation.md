@@ -2,7 +2,7 @@
 
 ## Module
 
-Every module must have two types of documentation. One for the end-user, which also includes information for the administrator and module configuration and another documentation for developers. Documentation must be available in at least english language.
+Every module must have two types of documentation. One for the end-user, which also includes information for the administrator and module configuration and another documentation for developers. Documentation must be available in at least English language.
 
 ### User
 
@@ -26,7 +26,7 @@ The developer documentation should cover the following aspects:
 
 ## Database
 
-### Diagramms
+### Diagrams
 
 Every module that has a database table must implement a UML diagram illustrating the internal table relations as well as the relations with external tables from other modules.
 

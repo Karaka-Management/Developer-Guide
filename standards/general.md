@@ -128,7 +128,7 @@ $result = condition
     : very long expr2 which should be written like this;
 ```
 
-Multiline `if` conditions should begin with a logical opperator `or`/`and`.
+Multiline `if` conditions should begin with a logical operator `or`/`and`.
 
 ```php
 if (isTrue == true
