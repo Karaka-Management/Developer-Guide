@@ -2,6 +2,7 @@
 
 The following directory structure should roughly visualize how modules are structured. The purpose of the different sub-directories and their files will be covered in the following sections.
 
+```
 * {UniqueModuleName}
     * Admin
         * Install
@@ -40,6 +41,7 @@ The following directory structure should roughly visualize how modules are struc
     * Controller.php
     * Controller.js
     * info.json
+```
 
 All modules are located inside the `/Modules` directory and their directory name has to be the module name itself without whitespace.
 

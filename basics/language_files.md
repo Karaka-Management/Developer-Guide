@@ -37,3 +37,11 @@ It is recommended to create the translations in a spreadsheet software and expor
 Afterwards you can import the modified csv file in the OMS exchange which will create the language files based on this file.
 
 > Please note that the csv must be `;` deliminated and `"` escaped.
+
+## Import/Export
+
+In order to create translations more easily you may use the OMS language exporter. This exporter generates a csv including all module langauge files. You can use this to easily check which localized string are not implemented in the language file of the respective language.
+
+After you modified the csv file you can import it with the OMS language importer.
+
+Since the import/export is so simple it is actually recommended to use `$this->getHtml('...')` in the `.tpl.php` files without manually generating a language file and only do it in the generated csv file. This option also allows you to use automatic translation tools.

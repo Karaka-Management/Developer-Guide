@@ -26,6 +26,31 @@ This means each class is in a file by itself, and is in a namespace of at least 
 
 Class names MUST be declared in StudlyCaps.
 
+### Return type hint
+
+The return type hint must have a whitespace after the closing braces and after the colon. The return type must be on the same line as the closing brace.
+
+```php
+function() : int
+{
+
+}
+```
+
+or for multiline function parameters
+
+```php
+function(
+	$para1,
+	$para2,
+	$para3,
+	$para4
+) : int
+{
+
+}
+```
+
 ### Default Functions
 
 Function calls to php internal function calls must use the root namespace `\`:
@@ -36,6 +61,14 @@ Function calls to php internal function calls must use the root namespace `\`:
 \file_get_contents(...);
 ....
 ```
+
+## Type hints
+
+Type hints are mandatory wherever reasonably possible (member variables, function parameters, return types, ...).
+
+## Attributes
+
+Function attributes must not be used!
 
 ## Php in html
 

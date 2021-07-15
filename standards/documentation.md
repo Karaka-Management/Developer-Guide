@@ -44,11 +44,11 @@ A file documentation MUST be implemented in the following form:
  *
  * PHP Version 7.0
  *
- * @package    Package name
- * @copyright  Orange Management
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       http://your.url.com
+ * @package   Package name
+ * @copyright Orange Management
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      http://your.url.com
  */
 ```
 
@@ -60,10 +60,10 @@ A class documentation MUST be implemented in the following form:
 /**
  * Class description.
  *
- * @package    Package name
- * @license    OMS License 1.0
- * @link       http://your.url.com
- * @since      1.0.0
+ * @package Package name
+ * @license OMS License 1.0
+ * @link    http://your.url.com
+ * @since   1.0.0
  */
 ```
 
@@ -101,7 +101,7 @@ A function/method documentation MUST be implemented in the following form:
 
 ### Variable
 
-Variable documentation is not mandatory and can be omitted. However it's recommended to use a variable documentation for objects and arrays of objects in templates for ide code completion.
+Variable documentation is not mandatory and can be omitted. However it's recommended to use a variable documentation for objects and arrays of objects in templates for IDE code completion.
 
 Example:
 
@@ -119,11 +119,11 @@ The javascript documentation is based on JsDoc, therefore only valid JsDoc comme
 /**
  * File description.
  *
- * @package    Package name
- * @copyright  Orange Management
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       http://your.url.com
+ * @package   Package name
+ * @copyright Orange Management
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      http://your.url.com
  */
 ```
 
@@ -135,10 +135,10 @@ A class documentation MUST be implemented in the following form:
 /**
  * Class description.
  *
- * @package    Package name
- * @license    OMS License 1.0
- * @link       http://your.url.com
- * @since      1.0.0
+ * @package Package name
+ * @license OMS License 1.0
+ * @link    http://your.url.com
+ * @since   1.0.0
  */
 ```
 

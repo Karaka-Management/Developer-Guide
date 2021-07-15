@@ -6,7 +6,7 @@ In order to setup the application for development for the first time please see 
 
 Make sure your dev-environment or server fulfills the following requirements:
 
-* PHP >= 7.4
+* PHP >= 8.0
 * PHP extensions: mbstring, gd, zip, dom, mysql/pgsql/sqlsrv, sqlite, bcmath, imap\*, redis\*, memcached\*, ftp\*, socket\*, curl\*, xml\*
 * databases: mysql, postgresql, sqlsrv
 * webserver: apache2
@@ -43,7 +43,7 @@ After the installation you'll have access to the following content:
 
 ### Annotation
 
-During this process the database automatically gets dropped (if existing) and re-created. If you don't have `xdebug` installed but `phpdbg` you can replace `php phpunit.phar ...` with `phpdbg -qrr phpunit.phar ...` or use `pcov` for much faster code coverage generation.
+During this process the database automatically gets dropped (if it exists) and re-created. If you don't have `xdebug` installed but `phpdbg` you can replace `php phpunit ...` with `phpdbg -qrr phpunit.phar ...` or use `pcov` for much faster code coverage generation in `Build/Inspection/Php/tests.sh`
 
 ## Option 2: PHPUnit Test Suits
 
@@ -66,7 +66,7 @@ After the installation you'll have access to the following content:
 
 ### Annotation
 
-During this process the database automatically gets dropped (if existing) and re-created. If you don't have `xdebug` installed but `phpdbg` you can replace `php phpunit.phar ...` with `phpdbg -qrr phpunit.phar ...` or use `pcov` for much faster code coverage generation.
+During this process the database automatically gets dropped (if it exists) and re-created. If you don't have `xdebug` installed but `phpdbg` you can replace `php phpunit ...` with `phpdbg -qrr phpunit.phar ...` or use `pcov` for much faster code coverage generation.
 
 ## Git Hooks (Linux only)
 
