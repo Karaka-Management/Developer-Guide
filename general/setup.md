@@ -18,6 +18,12 @@ Extensions marked with `*` are optional. They are only required in special situa
 
 Steps which are not explained in this documentation are how to install and setup the above mentioned software and extensions. You also should configure the webserver paths accordingly in order to access the application in the browser.
 
+### Installation Options
+
+1. Option 1: Full installation, code checks/tests, generating documentation. **Not recomended for quick setup**
+2. Option 2: Only installs the application with some tests. Requires you to install the dev tools manually. **Recommended**
+3. Option 3: Only installs the application, due to the large amount of data takes some time to execute. **Recommended**
+
 ## Option 1: Linux Shell Script
 
 This also installs all required dev tools and sets up the directory structure by itself. Using this method also tears down previous installs for a fresh install perfect for re-installing from the current development version. Furthermore, the use of PHPUnit also makes sure that the application is working as intended. The PHPUnit install also provides lots of dummy data for better integration and functionality testing of your own code/modules.
@@ -53,8 +59,8 @@ This will only setup the application including some dummy data and also perform 
 
 1. Go to the directory where you want to install the application
 2. Run `git clone -b develop https://github.com/Orange-Management/Orange-Management.git`
-3. Run `git submodule update --init --recursive >/dev/null`
-4. Run `git submodule foreach git checkout develop >/dev/null`
+3. Run `git submodule update --init --recursive`
+4. Run `git submodule foreach git checkout develop`
 5. Install Composer
 6. Run `composer install` inside `Orange-Management`
 7. Run `php vendor/bin/phpunit --configuration tests/phpunit_no_coverage.xml` inside `Orange-Management` or open `http://127.0.0.1/Install`
@@ -89,3 +95,24 @@ The following tools are important to test the application and to ensure the code
 * phpmetrics
 * documentor
 * phpstan
+
+## Option 3: Demo Application
+
+This will only setup the application including some dummy data and also perform the code tests but no quality checks. Compared to option 2 this includes much more test data and it doesn't execute a unit test.
+
+1. Go to the directory where you want to install the application
+2. Run `git clone -b develop https://github.com/Orange-Management/Orange-Management.git`
+3. Run `git submodule update --init --recursive`
+4. Run `git submodule foreach git checkout develop`
+5. Install Composer
+6. Run `composer install` inside `Orange-Management`
+7. Create the database table `oms`
+7. Run `php demoSetup/setup.php` inside `Orange-Management`
+
+After the installation you'll have access to the following content:
+
+* Application: `http://127.0.0.1`
+
+### Annotation
+
+During this process the database automatically gets dropped (if it exists) and re-created.
