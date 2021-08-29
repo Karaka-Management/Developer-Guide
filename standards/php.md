@@ -112,6 +112,30 @@ public CONST_NAME = ...;
 
 Instead of using `\file_exists()` the functions `\is_dir()` or `\is_file()` should be used.
 
+## Enum
+
+Don't use the internal enum implementations of PHP (neither `SplEnum` nor `enum`)
+
+## Member variables
+
+Member variables should be public unless there is absolutely no reason directly access them or additional data manipulation upon setting, changing or returning them is required.
+
+### Getters/Setters
+
+Getters and setters for member variables should be kept at a minimum and only used when they actually perform additional actions, such as additional type checks, data manipulation, ...
+
+#### Model IDs
+
+Model IDs must always be private. They must not have a setter. Therfore most models need/should have a getter function which returns the model ID.
+
+#### Pseudo enums
+
+Whenever a scalar coming from the internal enum data type (`\phpOMS\Stdlib\Base\Enum`) is used the variable should be private and a getter and setter should exist for additional type checks.
+
+```php
+private int $myStatus = TestEnum::ACTIVE; // extends \phpOMS\Stdlib\Base\Enum
+```
+
 ## Deprecated functions and variables
 
 The following functions and (super-) global variables MUST NOT be used.
