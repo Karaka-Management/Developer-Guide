@@ -6,7 +6,7 @@ In order to setup the application for development for the first time please see 
 
 Make sure your dev-environment or server fulfills the following requirements:
 
-* PHP >= 7.4
+* PHP >= 8.0
 * PHP extensions: mbstring, gd, zip, dom, mysql/pgsql/sqlsrv, sqlite, bcmath, imap\*, redis\*, memcached\*, ftp\*, socket\*, curl\*, xml\*
 * databases: mysql, postgresql, sqlsrv
 * webserver: apache2
@@ -17,6 +17,12 @@ The application and frameworks can use different databases. For the normal devel
 Extensions marked with `*` are optional. They are only required in special situations.
 
 Steps which are not explained in this documentation are how to install and setup the above mentioned software and extensions. You also should configure the webserver paths accordingly in order to access the application in the browser.
+
+### Installation Options
+
+1. Option 1: Full installation, code checks/tests, generating documentation. **Not recomended for quick setup**
+2. Option 2: Only installs the application with some tests. Requires you to install the dev tools manually. **Recommended**
+3. Option 3: Only installs the application, due to the large amount of data takes some time to execute. **Recommended**
 
 ## Option 1: Linux Shell Script
 
@@ -43,18 +49,18 @@ After the installation you'll have access to the following content:
 
 ### Annotation
 
-During this process the database automatically gets dropped (if existing) and re-created. If you don't have `xdebug` installed but `phpdbg` you can replace `php phpunit.phar ...` with `phpdbg -qrr phpunit.phar ...` or use `pcov` for much faster code coverage generation.
+During this process the database automatically gets dropped (if it exists) and re-created. If you don't have `xdebug` installed but `phpdbg` you can replace `php phpunit ...` with `phpdbg -qrr phpunit.phar ...` or use `pcov` for much faster code coverage generation in `Build/Inspection/Php/tests.sh`
 
 ## Option 2: PHPUnit Test Suits
 
-This wil only setup the application including some dummy data and also perform the code tests but no quality checks.
+This will only setup the application including some dummy data and also perform the code tests but no quality checks.
 
 ### Steps
 
 1. Go to the directory where you want to install the application
 2. Run `git clone -b develop https://github.com/Orange-Management/Orange-Management.git`
-3. Run `git submodule update --init --recursive >/dev/null`
-4. Run `git submodule foreach git checkout develop >/dev/null`
+3. Run `git submodule update --init --recursive`
+4. Run `git submodule foreach git checkout develop`
 5. Install Composer
 6. Run `composer install` inside `Orange-Management`
 7. Run `php vendor/bin/phpunit --configuration tests/phpunit_no_coverage.xml` inside `Orange-Management` or open `http://127.0.0.1/Install`
@@ -66,7 +72,7 @@ After the installation you'll have access to the following content:
 
 ### Annotation
 
-During this process the database automatically gets dropped (if existing) and re-created. If you don't have `xdebug` installed but `phpdbg` you can replace `php phpunit.phar ...` with `phpdbg -qrr phpunit.phar ...` or use `pcov` for much faster code coverage generation.
+During this process the database automatically gets dropped (if it exists) and re-created. If you don't have `xdebug` installed but `phpdbg` you can replace `php phpunit ...` with `phpdbg -qrr phpunit.phar ...` or use `pcov` for much faster code coverage generation.
 
 ## Git Hooks (Linux only)
 
@@ -89,3 +95,24 @@ The following tools are important to test the application and to ensure the code
 * phpmetrics
 * documentor
 * phpstan
+
+## Option 3: Demo Application
+
+This will only setup the application including some dummy data and also perform the code tests but no quality checks. Compared to option 2 this includes much more test data and it doesn't execute a unit test.
+
+1. Go to the directory where you want to install the application
+2. Run `git clone -b develop https://github.com/Orange-Management/Orange-Management.git`
+3. Run `git submodule update --init --recursive`
+4. Run `git submodule foreach git checkout develop`
+5. Install Composer
+6. Run `composer install` inside `Orange-Management`
+7. Create the database table `oms`
+7. Run `php demoSetup/setup.php` inside `Orange-Management`
+
+After the installation you'll have access to the following content:
+
+* Application: `http://127.0.0.1`
+
+### Annotation
+
+During this process the database automatically gets dropped (if it exists) and re-created.

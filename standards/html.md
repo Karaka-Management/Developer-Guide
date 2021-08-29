@@ -31,8 +31,8 @@ The following tags MUST not specify a end tag (\\):
 
 ## Accessible Rich Internet Applications
 
-All modules and themes SHOULD be WAI-ARIA 2.0 compliant. For further reading please refere to https://www.w3.org/TR/WCAG20-TECHS/aria.
+All modules and themes SHOULD be WAI-ARIA 2.0 compliant. For further reading please refer to https://www.w3.org/TR/WCAG20-TECHS/aria.
 
 ## Structured Data (Microdata)
 
-For structured data https://schema.org/ SHOULD be used. 
+For structured data https://schema.org/ SHOULD be used.

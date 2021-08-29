@@ -2,6 +2,7 @@
 
 The following directory structure should roughly visualize how modules are structured. The purpose of the different sub-directories and their files will be covered in the following sections.
 
+```
 * {UniqueModuleName}
     * Admin
         * Install
@@ -40,6 +41,7 @@ The following directory structure should roughly visualize how modules are struc
     * Controller.php
     * Controller.js
     * info.json
+```
 
 All modules are located inside the `/Modules` directory and their directory name has to be the module name itself without whitespace.
 
@@ -160,7 +162,7 @@ final class Installer extends InstallerAbstract
 If your application doesn't need to implement any database tables for itself the switch statement can be omitted. From the directory structure at the beginning we can however see that some modules accept information form other modules. The following example shows how the navigation module is accepting information during the installation of other modules:
 
 ```php
-public static function installExternal(Pool $dbPool, array $data)
+public static function installExternal(Pool $dbPool, array $data) : array
 {
     /* What do you want to do with the data provided by $data? */
 }

@@ -26,6 +26,31 @@ This means each class is in a file by itself, and is in a namespace of at least 
 
 Class names MUST be declared in StudlyCaps.
 
+### Return type hint
+
+The return type hint must have a whitespace after the closing braces and after the colon. The return type must be on the same line as the closing brace.
+
+```php
+function() : int
+{
+
+}
+```
+
+or for multiline function parameters
+
+```php
+function(
+	$para1,
+	$para2,
+	$para3,
+	$para4
+) : int
+{
+
+}
+```
+
 ### Default Functions
 
 Function calls to php internal function calls must use the root namespace `\`:
@@ -36,6 +61,14 @@ Function calls to php internal function calls must use the root namespace `\`:
 \file_get_contents(...);
 ....
 ```
+
+## Type hints
+
+Type hints are mandatory wherever reasonably possible (member variables, function parameters, return types, ...).
+
+## Attributes
+
+Function attributes must not be used!
 
 ## Php in html
 
@@ -78,6 +111,30 @@ public CONST_NAME = ...;
 ### file_exists
 
 Instead of using `\file_exists()` the functions `\is_dir()` or `\is_file()` should be used.
+
+## Enum
+
+Don't use the internal enum implementations of PHP (neither `SplEnum` nor `enum`)
+
+## Member variables
+
+Member variables should be public unless there is absolutely no reason directly access them or additional data manipulation upon setting, changing or returning them is required.
+
+### Getters/Setters
+
+Getters and setters for member variables should be kept at a minimum and only used when they actually perform additional actions, such as additional type checks, data manipulation, ...
+
+#### Model IDs
+
+Model IDs must always be private. They must not have a setter. Therfore most models need/should have a getter function which returns the model ID.
+
+#### Pseudo enums
+
+Whenever a scalar coming from the internal enum data type (`\phpOMS\Stdlib\Base\Enum`) is used the variable should be private and a getter and setter should exist for additional type checks.
+
+```php
+private int $myStatus = TestEnum::ACTIVE; // extends \phpOMS\Stdlib\Base\Enum
+```
 
 ## Deprecated functions and variables
 

@@ -16,6 +16,9 @@
 * [Modules]({%}?page=example_module/module)
 * [Packages]({%}?page=example_module/packages)
 
+## Application Specific
+* [Language Files]({%}?page=basics/language_files)
+
 ## API
 ### Message
 * [Uri]({%}?page=services/uri)

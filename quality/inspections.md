@@ -1,6 +1,6 @@
 # Code Inspections & Tests
 
-Code inspections are very important in order to maintain the same code quality throughout the application. The `Build` repository and package managers such as `composer` and `npm` contain all esential configuration files for the respective inspection tools. The framework and every module will be evaluated based on the defined code and quality standards. Only code that passes all code, quality and test standards are accepted. Updates and bug fixes also must follow the standards.
+Code inspections are very important in order to maintain the same code quality throughout the application. The `Build` repository and package managers such as `composer` and `npm` contain all essential configuration files for the respective inspection tools. The framework and every module will be evaluated based on the defined code and quality standards. Only code that passes all code, quality and test standards are accepted. Updates and bug fixes also must follow the standards.
 
 ## How and what to test?
 
@@ -20,7 +20,7 @@ When testing it makes sense to test for the happy path/branch of how a method sh
 
 ### Unit tests
 
-The smallest/lowest level of testing are the unit tests. Unit tests should be implemented for models and framework methods. Every public function should be covered by at least one unit test. If a method has multiple branches every branch should be covered by a separate unit test. In some cases it might make sense to cover multiple branches in one unit test/test function, such a decision should however be made conciously.
+The smallest/lowest level of testing are the unit tests. Unit tests should be implemented for models and framework methods. Every public function should be covered by at least one unit test. If a method has multiple branches every branch should be covered by a separate unit test. In some cases it might make sense to cover multiple branches in one unit test/test function, such a decision should however be made consciously.
 
 ### Integration tests
 
@@ -97,7 +97,7 @@ The javascript testing is done with jasmine. The javascript testing directory is
 
 ### PHP CS
 
-Besides the code tests and static code analysis the code style is another very imporant inspection to ensure the code quality.
+Besides the code tests and static code analysis the code style is another very important inspection to ensure the code quality.
 
 ```sh
 php vendor/bin/phpcs ./ --standard="Build/Config/phpcs.xml" -s --report-junit=Build/test/junit_phpcs.xml

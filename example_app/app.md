@@ -4,7 +4,7 @@ The following application is a minimal sample in order to show how it's possible
 
 ```txt
 # .htaccess
-# enable url rewriting
+# enable URL rewriting
 <ifmodule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /
@@ -20,9 +20,10 @@ The following application is a minimal sample in order to show how it's possible
 ```
 
 ```php
+<?php declare(strict_types=1);
+
 // index.php
 // initialize application and output response (entry point for the app)
-<?php declare(strict_types=1);
 
 \ob_start();
 require_once __DIR__ . '/phpOMS/Autoloader.php';
@@ -35,9 +36,10 @@ echo $App->run(); // outputs the application response
 ```
 
 ```php
+<?php declare(strict_types=1);
+
 // app/Application.php
 // Application where the framework components are initialized
-<?php declare(strict_types=1);
 
 namespace app;
 
@@ -75,7 +77,7 @@ class Application extends ApplicationAbstract
         // bind the page view to the response object. This is rendered later on.
         $response->set('Content', $pageView);
 
-        /* get data from url endpoints defined by the routes */
+        /* get data from URL endpoints defined by the routes */
         $dispatch = $this->dispatcher->dispatch(
             $this->router->route(
                 $request->uri->getRoute(),
@@ -103,7 +105,7 @@ class Application extends ApplicationAbstract
         // initialize request from the superglobals which are automatically populated
         $request = Request::createFromSuperglobals();
 
-        // optional: will transform the url path and sub-paths to hashs
+        // optional: will transform the URL path and sub-paths to hashs
         $request->createRequestHashs(0);
 
         // if your application is located in a web-subfolder for easier handling
@@ -142,9 +144,10 @@ class Application extends ApplicationAbstract
 ```
 
 ```php
+<?php declare(strict_types=1);
+
 // app/Routes.php
 // Routes for the application
-<?php declare(strict_types=1);
 
 use phpOMS\Router\RouteVerb;
 
@@ -190,16 +193,18 @@ return [
         <main>
         <?php
             $dispatch = $this->getData('dispatch'); // get data bound to the view with the key "dispatch"
-            foreach($dispatch as $view) echo $view->render(); ?> // in this case it has a 'render()' method which is called
+            foreach($dispatch as $view) echo $view->render(); // in this case it has a 'render()' method which is called
+        ?>
         </main>
     </body>
 </html>
 ```
 
 ```php
+<?php declare(strict_types=1);
+
 // app/controller/TestController.php
 // Sample controller which is referenced in the routes
-<?php declare(strict_types=1);
 
 namespace app\controller;
 
@@ -256,9 +261,10 @@ class TestController
 ```
 
 ```php
+<?php declare(strict_types=1);
+
 // app/view/TestView.php
 // Sample view which can hold additional view logic which can be used by the template
-<?php declare(strict_types=1);
 
 namespace app\view;
 

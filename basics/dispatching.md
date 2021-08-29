@@ -14,15 +14,28 @@ The `dispatch()` function accepts additionally a variable amount of parameters w
 
 #### Module
 
-The string representation for a module method is almost the same as the static function representation. The only difference is that a module method has only one colon `:` between the function name and the namespace.
+The module function can be called by providing the namespace followed by the function name concatonated with a colon `:` between the function name and the namespace.
 
 ```php
 $dispatcher->dispatch('\My\Namespace:methodToCall', $methodToCallPara1, $methodToCallPara2, ...);
 ```
 
+In order to allow the dispatcher to automatically create a a controller instance. The class constructore for the controller `\my\Namespace` needs to extend `ModuleAbstract` and have the format:
+
+```php
+public function __construct(ApplicationAbstract $app) {}
+```
+
+Alternatively you can also add a controller manually to the disptacher. In this case you may construct the controller as you see fit. However, the controller must extend `ModuleAbstract`.
+
+```php
+$testController = new MyController();
+$dispatcher->set($testController, MyController::class)
+```
+
 #### Static
 
-The string representation for a module method is almost the same as the static function representation. The only difference is that a module method has two colons `::` between the function name and the namespace.
+A static function can be called by providing the namespace followed by the function name concatonated with two colons `::` between the function name and the namespace.
 
 ```php
 $dispatcher->dispatch('\My\Namespace::staticToCall', $staticToCallPara1, $staticToCallPara2, ...);
@@ -44,7 +57,7 @@ The dispatcher accepts the results from the `route()` method of the router which
 $dispatcher->dispatch($router->route($request->uri->getRoute()));
 ```
 
-Based on the function definition returned by the router it's possible to pass more parameters to the function such e.g. request and response objects.
+Based on the function definition returned by the router it's possible to pass additional parameters to the function such e.g. request and response objects.
 
 ```php
 $dispatcher->dispatch($router->route($request->uri->getRoute()), $request, $response);

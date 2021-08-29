@@ -14,7 +14,22 @@ The base view class contains the request as well as the response objects hence i
 
 In the template you can simply use `$this->getText({TEXT_ID})` for localized text. All other localization elements can be accessed in a similar way e.g. `$this->l11n->getTemperature()`.
 
-In html templates it's recommended to use `$this->getHtml({TEXT_ID})` as this will savely escape defined strings for html output. In case you would like to escape none pre-defined language strings use `$this->printHtml('string to escape')`.
+In html templates it's recommended to use `$this->getHtml({TEXT_ID})` as this will safely escape static/defined strings (see language files) for html output. By default the language file of the current module is used for the translation, if you would like to use a translation from another module you have to specify the module name and the template name e.g. `<?= $this->getHtml('Word', 'ModuleName', 'TemplateName'); ?>`. This only works if the specified module is available and therefore it is only recommended to use this if the current module has a dependency defined on the specified module which ensures its availability.
+
+Furthermore there is also a global translation file for common translations, this can be accessed as follows `<?= $this->getHtml('Word', '0', '0'); ?>`. Common translations are for example `ID`, `Submit`, `Send`, `Cancel` etc.
+
+In case you would like to escape none pre-defined language strings use `$this->printHtml('string to escape')`.
+
+Other important functions are:
+
+* getNumeric()
+* getPrecentage()
+* getCurrency()
+* getDateTime()
+
+## HTML Encoding
+
+The `printHtml()` function already escapes the localized output. However, in some cases no static localization is available and a simple string needs to be encoded (e.g. a string from a model like the title of a news article). In this case the member function `printHtml()` or the static function `html()` can be called to correctly escape whatever input string is provided.
 
 ## Templates
 

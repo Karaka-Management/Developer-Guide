@@ -1,7 +1,6 @@
 # Routing
 
-Routing allows to bind a string representation to a function. This is required in order to execute request specific code segments.
-One very common scenario for routing is to take the url of a http(s) request and assign it to a function located in a controller.
+Routing allows to bind a string representation to a function. This is required in order to execute request specific code segments. One very common scenario for routing is to take the URL of a http(s) request and assign it to a function located in a controller.
 
 ## Routes
 
@@ -45,7 +44,7 @@ Instead of defining closures it's possible to define a string representation of 
 $router->add('foo/bar', '\foo\controller:barFunction');
 ```
 
-Static functions can be defined in the following fashion:
+Static functions can be defined in the following way:
 
 ```php
 $router->add('foo/bar', '\foo\controller::barFunction');
@@ -65,12 +64,12 @@ The routing file must have the following structure:
 <?php return [
 	'{ROUTE_STRING}' => [
 		[
-			'dest' => {CLOSURE/REFERENCE_STRING},
-			'verb' => {VERB_1 | VERB_2},
+			'dest' => CLOSURE/REFERENCE_STRING,
+			'verb' => VERB_1 | VERB_2,
 		],
 		[
-			'dest' => {CLOSURE/REFERENCE_STRING},
-			'verb' => {VERB_3},
+			'dest' => CLOSURE/REFERENCE_STRING,
+			'verb' => VERB_3,
 		],
 	],
 	'{ANOTHER_ROUTE_STRING}' => [ ... ],
@@ -83,7 +82,7 @@ In this schematic the first route has different destinations depending on the ve
 
 With request verbs it's possible to use the same request path and assign different endpoints to them. This is helpful when you want to have the same path for retrieving data and changing data. This is a normal situation in web development e.g.
 
-Let's assume we have the url `https://yoururl.com/user/1/name` if we make a `GET` request we could return the name for the user `1` and if we make a `POST` request we could update the name for the user `1` and use the same url.
+Let's assume we have the URL `https://yoururl.com/user/1/name` if we make a `GET` request we could return the name for the user `1` and if we make a `POST` request we could update the name for the user `1` and use the same url.
 
 Allowed request verbs are:
 
@@ -111,17 +110,17 @@ $router->route('foo/bar', null, RouteVerb::GET, 'APP_NAME', ORG_ID, ACCOUNT);
 <?php return [
 	'{ROUTE_STRING}' => [
 		[
-			'dest' => {CLOSURE/REFERENCE_STRING},
-			'verb' => {VERB_1 | VERB_2},
+			'dest' => CLOSURE/REFERENCE_STRING,
+			'verb' => VERB_1 | VERB_2,
 			'permission' => [
-				'module' => {MODULE_NAME},
-				'type' => {CREATE | READ | UPDATE | DELETE | PERMISSION},
-				'state' => {MODULE_SPECIFIC_IDENTIFIER_FOR_THE_PERMISSION},
+				'module' => MODULE_NAME,
+				'type' => CREATE | READ | UPDATE | DELETE | PERMISSION,
+				'state' => MODULE_SPECIFIC_IDENTIFIER_FOR_THE_PERMISSION,
 			],
 		],
 		[
-			'dest' => {CLOSURE/REFERENCE_STRING},
-			'verb' => {VERB_3},
+			'dest' => CLOSURE/REFERENCE_STRING,
+			'verb' => VERB_3,
 		],
 	],
 	'{ANOTHER_ROUTE_STRING}' => [ ... ],
@@ -144,7 +143,7 @@ The state allows a module to have different permissions. E.g. a news module has 
 
 ## CSRF Protection
 
-Often you would like to enable `CSRF` protection for certain urls or routing paths. The router can check if a CSRF protection is needed for a certain path and if it is needed it will check if a CSRF token is provided. If no CSRF protection is required it will ignore the CSRF token, but if it is necessary the router will check if it is available.
+Often you would like to enable `CSRF` protection for certain urls or routing paths. The router can check if a CSRF protection is needed for a certain path and if it is needed it will check if the correct CSRF token is provided. If no CSRF protection is required it will ignore the CSRF token.
 
 ```php
 $router->add('foo/bar', function() {
