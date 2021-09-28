@@ -35,7 +35,7 @@ The `package.json` file contains information of the package.
 
 ```json
 {
-    "name": "{MODULE_NAME|RESOURCE_NAME|phpOMS|jsOMS|cssOMS}",
+    "name": "{NAME|RESOURCE_NAME|phpOMS|jsOMS|cssOMS}",
     "type": "Modules",
     "version": "1.0.1",
     "update": [

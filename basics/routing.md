@@ -113,7 +113,7 @@ $router->route('foo/bar', null, RouteVerb::GET, 'APP_NAME', ORG_ID, ACCOUNT);
 			'dest' => CLOSURE/REFERENCE_STRING,
 			'verb' => VERB_1 | VERB_2,
 			'permission' => [
-				'module' => MODULE_NAME,
+				'module' => NAME,
 				'type' => CREATE | READ | UPDATE | DELETE | PERMISSION,
 				'state' => MODULE_SPECIFIC_IDENTIFIER_FOR_THE_PERMISSION,
 			],
