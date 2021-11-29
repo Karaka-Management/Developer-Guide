@@ -49,13 +49,13 @@ Never use spaces between variables and atomic operations (e.g. `!`, `++`, `--`)
 Don't use whitespace inside ANY parentheses (e.g. functions, loops, conditions, catch, closures).
 
 ```js
-for (let i = 1; i < 100; ++i) { 
+for (let i = 1; i < 100; ++i) {
     ...
 }
 ```
 
 ```js
-function(para1, para2) { 
+function(para1, para2) {
     ...
 }
 ```
@@ -200,7 +200,7 @@ All string representations should use single quotes `''` unless `""` provides si
 
 Todos should be documented in the [PROJECT.md](https://github.com/Orange-Management/Docs/blob/master/Project/PROJECT.md).
 
-In code todos can be created like this 
+In code todos can be created like this
 
 ```php
 // @todo: Single line todo
@@ -208,8 +208,7 @@ In code todos can be created like this
 
 ```php
 /**
- * @todo:
- *  Multi line todo
+ * @todo: Multi line todo
  *  This way developers can see todos directly in the code without going to an external source.
  *  Todos must not have empty lines in their descriptions.
  *  If the external ressources have empty lines they must be removed in the todo comment.
