@@ -76,7 +76,7 @@ php vendor/bin/phpunit -c tests/PHPUnit/phpunit_no_coverage.xml
 In order to also create a code coverage report run:
 
 ```sh
-php vendor/bin/phpunit -c tests/PHPUnit/phpunit_default.xml
+php -dxdebug.remote_enable=1 -dxdebug.mode=coverage,develop vendor/bin/phpunit -c tests/phpunit_default.xml
 ```
 
 #### Modules
