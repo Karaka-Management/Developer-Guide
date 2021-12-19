@@ -10,7 +10,7 @@ Make sure your dev-environment or server fulfills the following requirements:
 * PHP extensions: mbstring, gd, zip, dom, mysql/pgsql/sqlsrv, sqlite, bcmath, imap\*, redis\*, memcached\*, ftp\*, socket\*, curl\*, xml\*
 * databases: mysql, postgresql, sqlsrv
 * webserver: apache2
-    * mod_headers
+    * mod_headers (apache2)
 
 The application and frameworks can use different databases. For the normal development process you only need one (whichever you prefer). However, in order to test against all supported databases and all code paths you would have to install all above mentioned databases.
 
@@ -20,7 +20,7 @@ Steps which are not explained in this documentation are how to install and setup
 
 ### Installation Options
 
-1. Option 1: Full installation, code checks/tests, generating documentation. **Not recomended for quick setup**
+1. Option 1: Full installation, code checks/tests, generating documentation. **Not recomended as quick setup**
 2. Option 2: Only installs the application with some tests. Requires you to install the dev tools manually. **Recommended**
 3. Option 3: Only installs the application, due to the large amount of data takes some time to execute. **Recommended**
 

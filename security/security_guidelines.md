@@ -102,12 +102,12 @@ In some cases superglobals will even be overwritten by values from these classes
 
 ## Input validation
 
-Input validation be implemented on multiple levels.
+Input validation can be implemented on multiple levels.
 
 1. Regex validation in html/javascript by using the `pattern=""` attribute
 2. Type hints for method parameters wherever possible.
 3. Making use of the `Validation` classes as much as possible
-4. **Don't** sanitize! Accept or dismiss.
+4. **Don't** sanitize! Accept or dismiss!
 
 ## Inclusion and file paths
 

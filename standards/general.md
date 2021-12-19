@@ -150,10 +150,10 @@ Switch statements must have a `default` case.
 
 ### Constants
 
-Constants must be written with capital letters and snake case.
+Constants must have a visibility defined if possible (private, public, protected) and must be written with capital letters and snake case.
 
-```js
-CONSTANT_TEST = true;
+```php
+public CONSTANT_TEST = true;
 ```
 
 ### Function
@@ -194,26 +194,5 @@ All string representations should use single quotes `''` unless `""` provides si
 
 ```js
 'This is a string'
-```
-
-## Todos
-
-Todos should be documented in the [PROJECT.md](https://github.com/Orange-Management/Docs/blob/master/Project/PROJECT.md).
-
-In code todos can be created like this
-
-```php
-// @todo: Single line todo
-```
-
-```php
-/**
- * @todo: Multi line todo
- *  This way developers can see todos directly in the code without going to an external source.
- *  Todos must not have empty lines in their descriptions.
- *  If the external ressources have empty lines they must be removed in the todo comment.
- *      1. list item 1
- *      2. list item 2
- */
 ```
 
