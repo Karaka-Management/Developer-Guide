@@ -13,15 +13,24 @@
 * [Html Coding Standards]({%}?page=standards/html)
 * [Php Coding Standards]({%}?page=standards/php)
 
-## Examples
+## Application Examples
 * [Application Sample]({%}?page=example_app/app)
 * [Modules]({%}?page=example_module/module)
 * [Packages]({%}?page=example_module/packages)
-
-## Application Specific
 * [Language Files]({%}?page=basics/language_files)
 
 ## API
+
+### Backend
+* [Codes]({%}?page=services/codes)
+* [Routing]({%}?page=basics/routing)
+* [Dispatching]({%}?page=basics/dispatching)
+* [Views]({%}?page=basics/views)
+* [Validation]({%}?page=services/validation)
+
+### Frontend
+* [Notifications]({%}?page=frontend/notifications)
+
 ### Message
 * [Uri]({%}?page=services/uri)
 * [Requests]({%}?page=basics/requests)
@@ -49,15 +58,27 @@
 * [Queues]({%}?page=services/queues)
 * [Collection]({%}?page=services/collection)
 
-### UI
-* [Styles and Layout]({%}?page=frontend/styles_and_layout)
-* [Charting]({%}?page=services/charting)
-* [Codes]({%}?page=services/codes)
-* [Routing]({%}?page=basics/routing)
-* [Dispatching]({%}?page=basics/dispatching)
-* [Views]({%}?page=basics/views)
-* [Validation]({%}?page=services/validation)
-
 ### Security
 * [Encoding]({%}?page=services/encoding)
 * [Encryption]({%}?page=services/encryption)
+
+## UI
+
+### Layout
+
+* [Tables]({%}?page=frontend/elements/tables/tables)
+* [Data selection]({%}?page=frontend/elements/dataselection/dataselection)
+* [Alerts]({%}?page=frontend/elements/alerts/alerts)
+* [Buttons]({%}?page=frontend/elements/buttons/buttons)
+* [Tags]({%}?page=frontend/elements/tags/tags)
+* [Panels]({%}?page=frontend/elements/panels/panels)
+* [Tabs]({%}?page=frontend/elements/tabs/tabs)
+* [Breadcrumbs]({%}?page=frontend/elements/breadcrumbs/breadcrumbs)
+* [Progress]({%}?page=frontend/elements/progress/progress)
+* [Layout]({%}?page=frontend/grid/grid)
+* [Charting]({%}?page=services/charting)
+
+### Forms
+* [Forms]({%}?page=frontend/elements/forms/forms)
+* [Inputs]({%}?page=frontend/elements/inputs/inputs)
+* [Tables]({%}?page=frontend/elements/tables/tables)

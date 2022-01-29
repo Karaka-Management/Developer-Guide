@@ -34,6 +34,22 @@ $con = ConnectionFactory::create([
 ]);
 ```
 
+### Database types
+
+Available database types/constants can be found in the the `DatabaseType.php` file:
+
+```php
+public const MYSQL = 'mysql'; /* MySQL */
+public const SQLITE = 'sqlite'; /* SQLITE */
+public const PGSQL = 'pgsql'; /* PostgreSQL */
+public const SQLSRV = 'mssql'; /* Microsoft SQL Server */
+```
+
+Example usage:
+```php
+DatabaseType::MYSQL;
+```
+
 ## Database Pool
 
 Existing database connections can be added to the database pool:

@@ -14,7 +14,7 @@ Both logging implementations provide the following logging functions for the dif
 * `console()`
 * `log()`
 
-All functions take at least two parameters where one is the message and the other one is the optional context that should be injected into the message. 
+All functions take at least two parameters where one is the message and the other one is the optional context that should be injected into the message.
 
 ```php
 $log->error(FileLogger::MSG_FULL, ['message' => 'Log me!']);
@@ -37,3 +37,7 @@ On the client side a logger is also implemented providing the same functions as 
 ```js
 let log = jsOMS.Log.Logger.getInstance(true, false, true);
 ```
+
+* The first parameter defines if the log output will done in the console
+* The second parameter defines if the log output should be done as notification
+* The thrid parameter defines if the log output should be send to the backend
