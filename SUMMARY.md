@@ -1,7 +1,9 @@
 # General
 * [Introduction]({%}?page=README)
-* [Setup]({%}?page=general/setup)
 * [Application Structure]({%}?page=general/structure)
+
+## Setup
+* [Install]({%}?page=general/setup)
 
 ## Quality & Standards
 * [Code Inspections & Tests]({%}?page=quality/inspections)

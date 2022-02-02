@@ -172,3 +172,25 @@ In some cases it may be required to type hint a variable in this case the follow
 ```php
 /** @var variable_type varName {optional_description}
 ```
+
+## Todos
+
+Todos should be documented in the [PROJECT.md](https://github.com/Orange-Management/Docs/blob/master/Project/PROJECT.md).
+
+In code todos can be created like this
+
+```php
+// @todo: Single line todo
+```
+
+```php
+/**
+ * @todo: Multi line todo
+ *  This way developers can see todos directly in the code without going to an external source.
+ *  Todos must not have empty lines in their descriptions.
+ *  If the external ressources have empty lines they must be removed in the todo comment.
+ *      1. list item 1
+ *      2. list item 2
+ */
+```
+

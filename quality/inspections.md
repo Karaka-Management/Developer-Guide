@@ -76,7 +76,7 @@ php vendor/bin/phpunit -c tests/PHPUnit/phpunit_no_coverage.xml
 In order to also create a code coverage report run:
 
 ```sh
-php vendor/bin/phpunit -c tests/PHPUnit/phpunit_default.xml
+php -dxdebug.remote_enable=1 -dxdebug.mode=coverage,develop vendor/bin/phpunit -c tests/phpunit_default.xml
 ```
 
 #### Modules
@@ -111,4 +111,4 @@ For developers it is recommended to copy the contents of the `default.sh` file i
 
 The same should be done with every module. Simply go to `.git/modules/**/hooks` and also add the content of the `default.sh` file to all `pre-commit` files.
 
-By doing this every commit will be inspected and either pass without warnings, pass with warnings or stop with errors. This will allow you to fix code before committing it. Be aware only changed files will be inspected. Also make sure all `pre-commit` have `+x` permissions.
+By doing this every commit will be inspected and either pass without warnings, pass with warnings or stop with errors. This will allow you to fix code before committing it. Be aware only changed files will be inspected. Also make sure all `pre-commit` files have `+x` permissions.

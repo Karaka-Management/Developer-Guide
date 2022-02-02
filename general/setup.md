@@ -1,4 +1,4 @@
-# Setup
+# Install
 
 In order to setup the application for development for the first time please see the following instructions and recommendations.
 
@@ -9,18 +9,18 @@ Make sure your dev-environment or server fulfills the following requirements:
 * PHP >= 8.0
 * PHP extensions: mbstring, gd, zip, dom, mysql/pgsql/sqlsrv, sqlite, bcmath, imap\*, redis\*, memcached\*, ftp\*, socket\*, curl\*, xml\*
 * databases: mysql, postgresql, sqlsrv
-* webserver: apache2
-    * mod_headers
+* web server: apache2
+    * mod_headers (apache2)
 
 The application and frameworks can use different databases. For the normal development process you only need one (whichever you prefer). However, in order to test against all supported databases and all code paths you would have to install all above mentioned databases.
 
 Extensions marked with `*` are optional. They are only required in special situations.
 
-Steps which are not explained in this documentation are how to install and setup the above mentioned software and extensions. You also should configure the webserver paths accordingly in order to access the application in the browser.
+Steps which are not explained in this documentation are how to install and setup the above mentioned software and extensions. You also should configure the web server paths accordingly in order to access the application in the browser.
 
 ### Installation Options
 
-1. Option 1: Full installation, code checks/tests, generating documentation. **Not recomended for quick setup**
+1. Option 1: Full installation, code checks/tests, generating documentation. **Not recomended as quick setup**
 2. Option 2: Only installs the application with some tests. Requires you to install the dev tools manually. **Recommended**
 3. Option 3: Only installs the application, due to the large amount of data takes some time to execute. **Recommended**
 
@@ -115,4 +115,17 @@ After the installation you'll have access to the following content:
 
 ### Annotation
 
-During this process the database automatically gets dropped (if it exists) and re-created.
+* During this process the database automatically gets dropped (if it exists) and re-created
+* The total storage space needed for this installation (w/o profiling data) is ≈10 GB
+* The database space needed for this installation is ≈500 MB
+* The runtime of the script is approx. 1h but can be slower depending on the hardware (slower CPU, hard drive vs SSD)
+
+### Profiling
+
+You maybe want to use the following command to run the install script instead in order to also generate a cachegrind output for memory and performance profiling:
+
+```sh
+php -dxdebug.profiler_enable=1 -dxdebug.mode=develop,debug,profile -dxdebug.output_dir=/your/path demoSetup/setup.php
+```
+
+> This may use a lot of resources and storage space (≈15 GB of cachegrind data w/o trace data and ≈120 GB w/ trace data)
