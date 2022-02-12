@@ -7,14 +7,14 @@ In order to setup the application for development for the first time please see 
 Make sure your dev-environment or server fulfills the following requirements:
 
 * PHP >= 8.0
-* PHP extensions: mbstring, gd, zip, dom, mysql/pgsql/sqlsrv, sqlite, bcmath, imap\*, redis\*, memcached\*, ftp\*, socket\*, curl\*, xml\*
-* databases: mysql, postgresql, sqlsrv
-* web server: apache2
+* PHP extensions: mbstring, gd, zip, dom, pdo, pdo-mysql/pdo-pgsql/pdo-sqlsrv, sqlite, bcmath, imap\*, redis\*, memcached\*, ftp\*, socket\*, curl\*, xml\*
+* databases: mysql/postgresql/sqlsrv
+* web server: apache2/nginx
     * mod_headers (apache2)
 
 The application and frameworks can use different databases. For the normal development process you only need one (whichever you prefer). However, in order to test against all supported databases and all code paths you would have to install all above mentioned databases.
 
-Extensions marked with `*` are optional. They are only required in special situations.
+Extensions marked with `*` are optional but recommended. They are only required in special situations. Requirements with a `/` in between mean that only one of the dependencies is necessary depending on your preferences and previous decisions.
 
 Steps which are not explained in this documentation are how to install and setup the above mentioned software and extensions. You also should configure the web server paths accordingly in order to access the application in the browser.
 
