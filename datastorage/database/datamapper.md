@@ -65,7 +65,7 @@ The `name` contains the field name in the database, the `type` represents the da
 In order to make columns searchable you have to add `'autocomplete' => true` as column information to the respective column.
 
 ```php
-public COLUMNS = [
+public const COLUMNS = [
     'db_field_name_1' => ['name' => 'db_field_name_1', 'type' => 'int',    'internal' => 'model_var_name_1', 'autocomplete' => true],
     'db_field_name_2' => ['name' => 'db_field_name_2', 'type' => 'string', 'internal' => 'model_var_name_2'],
 ];

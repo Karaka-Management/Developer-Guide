@@ -7,14 +7,14 @@ In order to setup the application for development for the first time please see 
 Make sure your dev-environment or server fulfills the following requirements:
 
 * PHP >= 8.0
-* PHP extensions: mbstring, gd, zip, dom, mysql/pgsql/sqlsrv, sqlite, bcmath, imap\*, redis\*, memcached\*, ftp\*, socket\*, curl\*, xml\*
-* databases: mysql, postgresql, sqlsrv
-* web server: apache2
+* PHP extensions: mbstring, gd, zip, dom, pdo, pdo-mysql/pdo-pgsql/pdo-sqlsrv, sqlite, bcmath, imap\*, redis\*, memcached\*, ftp\*, socket\*, curl\*, xml\*
+* databases: mysql/postgresql/sqlsrv
+* web server: apache2/nginx
     * mod_headers (apache2)
 
 The application and frameworks can use different databases. For the normal development process you only need one (whichever you prefer). However, in order to test against all supported databases and all code paths you would have to install all above mentioned databases.
 
-Extensions marked with `*` are optional. They are only required in special situations.
+Extensions marked with `*` are optional but recommended. They are only required in special situations. Requirements with a `/` in between mean that only one of the dependencies is necessary depending on your preferences and previous decisions.
 
 Steps which are not explained in this documentation are how to install and setup the above mentioned software and extensions. You also should configure the web server paths accordingly in order to access the application in the browser.
 
@@ -33,7 +33,7 @@ This also installs all required dev tools and sets up the directory structure by
 The following steps will setup the application, download all necessary tools and perform extensive code quality checks and documentation tasks:
 
 1. Go to the directory where you want to install the build script
-2. Run `git clone -b develop https://github.com/Orange-Management/Build.git`
+2. Run `git clone -b develop https://github.com/karaka-management/Build.git`
 3. Modify `config.sh` (most likely the db credentials and paths)
 4. Run `chmod +x buildProject.sh`
 5. Run `./buildProject.sh`
@@ -58,12 +58,12 @@ This will only setup the application including some dummy data and also perform 
 ### Steps
 
 1. Go to the directory where you want to install the application
-2. Run `git clone -b develop https://github.com/Orange-Management/Orange-Management.git`
+2. Run `git clone -b develop https://github.com/karaka-management/Karaka.git`
 3. Run `git submodule update --init --recursive`
 4. Run `git submodule foreach git checkout develop`
 5. Install Composer
-6. Run `composer install` inside `Orange-Management`
-7. Run `php vendor/bin/phpunit --configuration tests/phpunit_no_coverage.xml` inside `Orange-Management` or open `http://127.0.0.1/Install`
+6. Run `composer install` inside `Karaka`
+7. Run `php vendor/bin/phpunit --configuration tests/phpunit_no_coverage.xml` inside `Karaka` or open `http://127.0.0.1/Install`
 
 After the installation you'll have access to the following content:
 
@@ -101,13 +101,13 @@ The following tools are important to test the application and to ensure the code
 This will only setup the application including some dummy data and also perform the code tests but no quality checks. Compared to option 2 this includes much more test data and it doesn't execute a unit test.
 
 1. Go to the directory where you want to install the application
-2. Run `git clone -b develop https://github.com/Orange-Management/Orange-Management.git`
+2. Run `git clone -b develop https://github.com/karaka-management/Karaka.git`
 3. Run `git submodule update --init --recursive`
 4. Run `git submodule foreach git checkout develop`
 5. Install Composer
-6. Run `composer install` inside `Orange-Management`
+6. Run `composer install` inside `Karaka`
 7. Create the database table `oms`
-7. Run `php demoSetup/setup.php` inside `Orange-Management`
+7. Run `php demoSetup/setup.php` inside `Karaka`
 
 After the installation you'll have access to the following content:
 

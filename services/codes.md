@@ -19,6 +19,8 @@ $c128b->saveToPngFile('path/code.png');
 
 The barcodes can be either saved as `png` and `jpeg` or outputted directly.
 
+![C128b Code](Developer-Guide/services/codes1.png)
+
 ```php
 $c128b = new C128b('ABcdeFG0123+-!@?', 200, 50);
 $c128b = $C128a->get();
@@ -26,9 +28,3 @@ header ('Content-type: image/png');
 imagepng($c128b);
 imagedestroy($c128b);
 ```
-
-<div align="center">
-
-![C128b Code](codes1.png)
-
-</div>
