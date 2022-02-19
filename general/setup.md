@@ -58,12 +58,12 @@ This will only setup the application including some dummy data and also perform 
 ### Steps
 
 1. Go to the directory where you want to install the application
-2. Run `git clone -b develop https://github.comkaraka-management/Orange-Management.git`
+2. Run `git clone -b develop https://github.comkaraka-management/Karaka.git`
 3. Run `git submodule update --init --recursive`
 4. Run `git submodule foreach git checkout develop`
 5. Install Composer
-6. Run `composer install` inside `Orange-Management`
-7. Run `php vendor/bin/phpunit --configuration tests/phpunit_no_coverage.xml` inside `Orange-Management` or open `http://127.0.0.1/Install`
+6. Run `composer install` inside `Karaka`
+7. Run `php vendor/bin/phpunit --configuration tests/phpunit_no_coverage.xml` inside `Karaka` or open `http://127.0.0.1/Install`
 
 After the installation you'll have access to the following content:
 
@@ -101,13 +101,13 @@ The following tools are important to test the application and to ensure the code
 This will only setup the application including some dummy data and also perform the code tests but no quality checks. Compared to option 2 this includes much more test data and it doesn't execute a unit test.
 
 1. Go to the directory where you want to install the application
-2. Run `git clone -b develop https://github.comkaraka-management/Orange-Management.git`
+2. Run `git clone -b develop https://github.comkaraka-management/Karaka.git`
 3. Run `git submodule update --init --recursive`
 4. Run `git submodule foreach git checkout develop`
 5. Install Composer
-6. Run `composer install` inside `Orange-Management`
+6. Run `composer install` inside `Karaka`
 7. Create the database table `oms`
-7. Run `php demoSetup/setup.php` inside `Orange-Management`
+7. Run `php demoSetup/setup.php` inside `Karaka`
 
 After the installation you'll have access to the following content:
 
