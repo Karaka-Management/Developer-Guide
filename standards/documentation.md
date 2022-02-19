@@ -45,7 +45,7 @@ A file documentation MUST be implemented in the following form:
  * PHP Version 7.0
  *
  * @package   Package name
- * @copyright Orange Management
+ * @copyright Karaka
  * @license   OMS License 1.0
  * @version   1.0.0
  * @link      http://your.url.com
@@ -120,7 +120,7 @@ The javascript documentation is based on JsDoc, therefore only valid JsDoc comme
  * File description.
  *
  * @package   Package name
- * @copyright Orange Management
+ * @copyright Karaka
  * @license   OMS License 1.0
  * @version   1.0.0
  * @link      http://your.url.com
@@ -175,7 +175,7 @@ In some cases it may be required to type hint a variable in this case the follow
 
 ## Todos
 
-Todos should be documented in the [PROJECT.md](https://github.com/Orange-Management/Docs/blob/master/Project/PROJECT.md).
+Todos should be documented in the [PROJECT.md](https://github.comkaraka-management/Docs/blob/master/Project/PROJECT.md).
 
 In code todos can be created like this
 

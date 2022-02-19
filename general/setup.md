@@ -33,7 +33,7 @@ This also installs all required dev tools and sets up the directory structure by
 The following steps will setup the application, download all necessary tools and perform extensive code quality checks and documentation tasks:
 
 1. Go to the directory where you want to install the build script
-2. Run `git clone -b develop https://github.com/Orange-Management/Build.git`
+2. Run `git clone -b develop https://github.comkaraka-management/Build.git`
 3. Modify `config.sh` (most likely the db credentials and paths)
 4. Run `chmod +x buildProject.sh`
 5. Run `./buildProject.sh`
@@ -58,7 +58,7 @@ This will only setup the application including some dummy data and also perform 
 ### Steps
 
 1. Go to the directory where you want to install the application
-2. Run `git clone -b develop https://github.com/Orange-Management/Orange-Management.git`
+2. Run `git clone -b develop https://github.comkaraka-management/Orange-Management.git`
 3. Run `git submodule update --init --recursive`
 4. Run `git submodule foreach git checkout develop`
 5. Install Composer
@@ -101,7 +101,7 @@ The following tools are important to test the application and to ensure the code
 This will only setup the application including some dummy data and also perform the code tests but no quality checks. Compared to option 2 this includes much more test data and it doesn't execute a unit test.
 
 1. Go to the directory where you want to install the application
-2. Run `git clone -b develop https://github.com/Orange-Management/Orange-Management.git`
+2. Run `git clone -b develop https://github.comkaraka-management/Orange-Management.git`
 3. Run `git submodule update --init --recursive`
 4. Run `git submodule foreach git checkout develop`
 5. Install Composer
