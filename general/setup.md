@@ -11,10 +11,11 @@ Make sure your dev-environment or server fulfills the following requirements:
 * databases: mysql/postgresql/sqlsrv
 * web server: apache2/nginx
     * mod_headers (apache2)
+* software: tesseract\*, pdftotext\*, pdftoppm\*
 
 The application and frameworks can use different databases. For the normal development process you only need one (whichever you prefer). However, in order to test against all supported databases and all code paths you would have to install all above mentioned databases.
 
-Extensions marked with `*` are optional but recommended. They are only required in special situations. Requirements with a `/` in between mean that only one of the dependencies is necessary depending on your preferences and previous decisions.
+Extensions and software marked with `*` are optional but recommended. They are only required in special situations. Requirements with a `/` in between mean that only one of the dependencies is necessary depending on your preferences and previous decisions.
 
 Steps which are not explained in this documentation are how to install and setup the above mentioned software and extensions. You also should configure the web server paths accordingly in order to access the application in the browser.
 
@@ -129,3 +130,10 @@ php -dxdebug.profiler_enable=1 -dxdebug.mode=develop,debug,profile -dxdebug.outp
 ```
 
 > This may use a lot of resources and storage space (≈15 GB of cachegrind data w/o trace data and ≈120 GB w/ trace data)
+
+## cOMS
+
+### OpenCV
+
+https://docs.opencv.org/3.4/d7/d9f/tutorial_linux_install.html
+
