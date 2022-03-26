@@ -6,7 +6,7 @@ Views contain the raw information of a result which then depending on the templa
 
 A view must implement `__serialize/__unserialize` and `\JsonSerializable`.
 
-In case the response header is set to JSON the view will automatically get parsed as JSON object, either by using a the JSON template or by encoding the view. For the JSON serialization the `jsonSerialize()` function will be used in all other cases the `__serialize()` function will be used.
+In case the response header is set to JSON the view will automatically get parsed as JSON object, either by using a the JSON template or by encoding the view. For the JSON serialization the `jsonSerialize()` function will be used in all other cases the `serialize()` function will be used.
 
 ## Localization
 
