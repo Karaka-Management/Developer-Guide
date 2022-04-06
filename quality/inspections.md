@@ -88,7 +88,7 @@ Every module needs to have a `Admin` directory containing a class called `AdminT
 With phpstan the code base is statically analyzed based on its configuration. This will help you to follow some of the "best" practices we enforce.
 
 ```sh
-php vendor/bin/phpstan analyse --autoload-file=phpOMS/Autoloader.php -l 8 -c Build/Config/phpstan.neon --error-format=prettyJson ./ > Build/test/phpstan.json
+php vendor/bin/phpstan analyse --autoload-file=phpOMS/Autoloader.php -l 9 -c Build/Config/phpstan.neon --error-format=prettyJson ./ > Build/test/phpstan.json
 ```
 
 ### Jasmine
