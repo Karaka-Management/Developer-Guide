@@ -8,10 +8,11 @@ Make sure your dev-environment or server fulfills the following requirements:
 
 * PHP >= 8.0
 * PHP extensions: mbstring, gd, zip, dom, pdo, pdo-mysql/pdo-pgsql/pdo-sqlsrv, sqlite, bcmath, imap\*, redis\*, memcached\*, ftp\*, socket\*, curl\*, xml\*
+  * Extension list: `php8.0 php8.0-dev php8.0-cli php8.0-common php8.0-mysql php8.0-pgsql php8.0-xdebug php8.0-opcache php8.0-pdo php8.0-sqlite php8.0-mbstring php8.0-curl php8.0-imap php8.0-bcmath php8.0-zip php8.0-dom php8.0-xml php8.0-phar php8.0-gd php-pear`
 * databases: mysql/postgresql/sqlsrv
 * web server: apache2/nginx
     * mod_headers (apache2)
-* software: tesseract\*, pdftotext\*, pdftoppm\*
+* software: tesseract-ocr\*, pdftotext\*, pdftoppm\*
 
 The application and frameworks can use different databases. For the normal development process you only need one (whichever you prefer). However, in order to test against all supported databases and all code paths you would have to install all above mentioned databases.
 
