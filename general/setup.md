@@ -8,10 +8,11 @@ Make sure your dev-environment or server fulfills the following requirements:
 
 * PHP >= 8.0
 * PHP extensions: mbstring, gd, zip, dom, pdo, pdo-mysql/pdo-pgsql/pdo-sqlsrv, sqlite, bcmath, imap\*, redis\*, memcached\*, ftp\*, socket\*, curl\*, xml\*
+  * Extension list: `php8.0 php8.0-dev php8.0-cli php8.0-common php8.0-mysql php8.0-pgsql php8.0-xdebug php8.0-opcache php8.0-pdo php8.0-sqlite php8.0-mbstring php8.0-curl php8.0-imap php8.0-bcmath php8.0-zip php8.0-dom php8.0-xml php8.0-phar php8.0-gd php-pear`
 * databases: mysql/postgresql/sqlsrv
 * web server: apache2/nginx
     * mod_headers (apache2)
-* software: tesseract\*, pdftotext\*, pdftoppm\*
+* software: tesseract-ocr\*, pdftotext\*, pdftoppm\*
 
 The application and frameworks can use different databases. For the normal development process you only need one (whichever you prefer). However, in order to test against all supported databases and all code paths you would have to install all above mentioned databases.
 
@@ -75,28 +76,6 @@ After the installation you'll have access to the following content:
 
 During this process the database automatically gets dropped (if it exists) and re-created. If you don't have `xdebug` installed but `phpdbg` you can replace `php phpunit ...` with `phpdbg -qrr phpunit.phar ...` or use `pcov` for much faster code coverage generation.
 
-## Git Hooks (Linux only)
-
-The git hooks perform various checks and validations during the `commit` and warn the developer about invalid code or code style/guideline violations.
-
-For developers it is recommended to copy the contents of the `default.sh` file in the `Build` repository under `Hooks` to your `pre-commit` file in the `.git/hooks` directory. If the `pre-commit` file doesn't exist just create it.
-
-The same should be done with every module. Simply go to `.git/modules/**/hooks` and also add the content of the `default.sh` file to all `pre-commit` files.
-
-By doing this every commit will be inspected and either pass without warnings, pass with warnings or stop with errors. This will allow you to fix code before committing it. Be aware only changed files will be inspected. Also make sure all `pre-commit` have `+x` permissions.
-
-## Tools
-
-The following tools are important to test the application and to ensure the code quality. The configurations and sample shell executions can be found in the `Build` directory. These tools are also downloaded during the setup process of the `buildProject.sh` script.
-
-* composer
-* phploc
-* phpunit
-* phpcs
-* phpmetrics
-* documentor
-* phpstan
-
 ## Option 3: Demo Application
 
 This will only setup the application including some dummy data and also perform the code tests but no quality checks. Compared to option 2 this includes much more test data and it doesn't execute a unit test.
@@ -130,6 +109,28 @@ php -dxdebug.profiler_enable=1 -dxdebug.mode=develop,debug,profile -dxdebug.outp
 ```
 
 > This may use a lot of resources and storage space (≈15 GB of cachegrind data w/o trace data and ≈120 GB w/ trace data)
+
+## Git Hooks (Linux only)
+
+The git hooks perform various checks and validations during the `commit` and warn the developer about invalid code or code style/guideline violations.
+
+For developers it is recommended to copy the contents of the `default.sh` file in the `Build` repository under `Hooks` to your `pre-commit` file in the `.git/hooks` directory. If the `pre-commit` file doesn't exist just create it.
+
+The same should be done with every module. Simply go to `.git/modules/**/hooks` and also add the content of the `default.sh` file to all `pre-commit` files.
+
+By doing this every commit will be inspected and either pass without warnings, pass with warnings or stop with errors. This will allow you to fix code before committing it. Be aware only changed files will be inspected. Also make sure all `pre-commit` have `+x` permissions.
+
+## Tools
+
+The following tools are important to test the application and to ensure the code quality. The configurations and sample shell executions can be found in the `Build` directory. These tools are also downloaded during the setup process of the `buildProject.sh` script.
+
+* composer
+* phploc
+* phpunit
+* phpcs
+* phpmetrics
+* documentor
+* phpstan
 
 ## cOMS
 
