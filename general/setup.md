@@ -76,28 +76,6 @@ After the installation you'll have access to the following content:
 
 During this process the database automatically gets dropped (if it exists) and re-created. If you don't have `xdebug` installed but `phpdbg` you can replace `php phpunit ...` with `phpdbg -qrr phpunit.phar ...` or use `pcov` for much faster code coverage generation.
 
-## Git Hooks (Linux only)
-
-The git hooks perform various checks and validations during the `commit` and warn the developer about invalid code or code style/guideline violations.
-
-For developers it is recommended to copy the contents of the `default.sh` file in the `Build` repository under `Hooks` to your `pre-commit` file in the `.git/hooks` directory. If the `pre-commit` file doesn't exist just create it.
-
-The same should be done with every module. Simply go to `.git/modules/**/hooks` and also add the content of the `default.sh` file to all `pre-commit` files.
-
-By doing this every commit will be inspected and either pass without warnings, pass with warnings or stop with errors. This will allow you to fix code before committing it. Be aware only changed files will be inspected. Also make sure all `pre-commit` have `+x` permissions.
-
-## Tools
-
-The following tools are important to test the application and to ensure the code quality. The configurations and sample shell executions can be found in the `Build` directory. These tools are also downloaded during the setup process of the `buildProject.sh` script.
-
-* composer
-* phploc
-* phpunit
-* phpcs
-* phpmetrics
-* documentor
-* phpstan
-
 ## Option 3: Demo Application
 
 This will only setup the application including some dummy data and also perform the code tests but no quality checks. Compared to option 2 this includes much more test data and it doesn't execute a unit test.
@@ -131,6 +109,28 @@ php -dxdebug.profiler_enable=1 -dxdebug.mode=develop,debug,profile -dxdebug.outp
 ```
 
 > This may use a lot of resources and storage space (≈15 GB of cachegrind data w/o trace data and ≈120 GB w/ trace data)
+
+## Git Hooks (Linux only)
+
+The git hooks perform various checks and validations during the `commit` and warn the developer about invalid code or code style/guideline violations.
+
+For developers it is recommended to copy the contents of the `default.sh` file in the `Build` repository under `Hooks` to your `pre-commit` file in the `.git/hooks` directory. If the `pre-commit` file doesn't exist just create it.
+
+The same should be done with every module. Simply go to `.git/modules/**/hooks` and also add the content of the `default.sh` file to all `pre-commit` files.
+
+By doing this every commit will be inspected and either pass without warnings, pass with warnings or stop with errors. This will allow you to fix code before committing it. Be aware only changed files will be inspected. Also make sure all `pre-commit` have `+x` permissions.
+
+## Tools
+
+The following tools are important to test the application and to ensure the code quality. The configurations and sample shell executions can be found in the `Build` directory. These tools are also downloaded during the setup process of the `buildProject.sh` script.
+
+* composer
+* phploc
+* phpunit
+* phpcs
+* phpmetrics
+* documentor
+* phpstan
 
 ## cOMS
 
