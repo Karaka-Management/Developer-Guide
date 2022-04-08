@@ -81,7 +81,7 @@ php -dxdebug.remote_enable=1 -dxdebug.mode=coverage,develop vendor/bin/phpunit -
 
 #### Modules
 
-Every module needs to have a `Admin` directory containing a class called `AdminTest.php` which is used for testing the installation, activation, deactivation, uninstall and remove of the module. Tests that install, update, remove etc. a module need to have a group called `admin`. After running the `AdminTest.php` test the final state of the module should be installed and active, only this way it's possible to further test the controller and models. A code coverage of at least 80% is mandatory for every module for integration.
+Every module needs to have a `Admin` directory containing a class called `AdminTest.php` which is used for testing the installation, activation, deactivation, uninstall and remove of the module. Tests that install, update, remove etc. a module need to have a group called `admin`. After running the `AdminTest.php` test the final state of the module should be installed and active, only this way it's possible to further test the controller and models. A code coverage of at least 90% is mandatory for every module for integration.
 
 ### PHPStan
 
@@ -112,3 +112,19 @@ For developers it is recommended to copy the contents of the `default.sh` file i
 The same should be done with every module. Simply go to `.git/modules/**/hooks` and also add the content of the `default.sh` file to all `pre-commit` files.
 
 By doing this every commit will be inspected and either pass without warnings, pass with warnings or stop with errors. This will allow you to fix code before committing it. Be aware only changed files will be inspected. Also make sure all `pre-commit` files have `+x` permissions.
+
+## Demo setup
+
+A good way to setup a demo application with mostly randomly generated user input data is the **demoSetup** script which can be found in the repository https://github.com/Karaka-Management/demoSetup.
+
+The following command will create a demo application:
+
+```sh
+php demoSetup/setup.php
+```
+
+In some cases code changes may require changes to the demo setup script (e.g. changes in the api, new modules). Since the demo setup script tries to simulate user generated data it takes some time to run. You may speed up the runtime by parallelizing the execution. However, this may use up 100% of your CPU and storage performance.
+
+```sh
+php demoSetup/setup.php -a 0
+```
