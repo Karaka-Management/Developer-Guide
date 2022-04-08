@@ -117,7 +117,7 @@ By doing this every commit will be inspected and either pass without warnings, p
 
 #### Release Report
 
-The **TestReportGenerator** generates a customer report which outputs various information regarding tests (unit, integration, static) and code quality. The primary purpose of this report generator is to aggregate the code inspections in a printable format that can be used for auditing purposes on the customer side.
+The (TestReportGenerator)[https://github.com/Karaka-Management/TestReportGenerator] generates a customer report which outputs various information regarding tests (unit, integration, static) and code quality. The primary purpose of this report generator is to aggregate the code inspections in a printable format that can be used for auditing purposes on the customer side.
 
 ```sh
 php TestReportGenerator/src/index.php \
