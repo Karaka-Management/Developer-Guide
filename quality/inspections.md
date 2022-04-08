@@ -103,7 +103,9 @@ Besides the code tests and static code analysis the code style is another very i
 php vendor/bin/phpcs ./ --standard="Build/Config/phpcs.xml" -s --report-junit=Build/test/junit_phpcs.xml
 ```
 
-### Git Hooks (Linux only)
+### Custom scripts
+
+#### Git Hooks (Linux only)
 
 The git hooks perform various checks and validations during the `commit` and warn the developer about invalid code or code style/guideline violations.
 
@@ -112,6 +114,23 @@ For developers it is recommended to copy the contents of the `default.sh` file i
 The same should be done with every module. Simply go to `.git/modules/**/hooks` and also add the content of the `default.sh` file to all `pre-commit` files.
 
 By doing this every commit will be inspected and either pass without warnings, pass with warnings or stop with errors. This will allow you to fix code before committing it. Be aware only changed files will be inspected. Also make sure all `pre-commit` files have `+x` permissions.
+
+#### Release Report
+
+The **TestReportGenerator** generates a customer report which outputs various information regarding tests (unit, integration, static) and code quality. The primary purpose of this report generator is to aggregate the code inspections in a printable format that can be used for auditing purposes on the customer side.
+
+```sh
+php TestReportGenerator/src/index.php \
+    -b /home/oms \
+    -l /home/oms/Build/Config/reportLang.php \
+    -c /home/oms/tests/coverage.xml \
+    -s /home/oms/Build/test/junit_phpcs.xml \
+    -sj /home/oms/Build/test/junit_eslint.xml \
+    -a /home/oms/Build/test/phpstan.json \
+    -u /home/oms/Build/test/junit_php.xml \
+    -d /home/oms/Build/test/ReportExternal \
+    --version 1.0.0
+```
 
 ## Demo setup
 
