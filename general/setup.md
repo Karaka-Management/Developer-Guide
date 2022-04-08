@@ -20,6 +20,14 @@ Extensions and software marked with `*` are optional but recommended. They are o
 
 Steps which are not explained in this documentation are how to install and setup the above mentioned software and extensions. You also should configure the web server paths accordingly in order to access the application in the browser.
 
+### IDE / Editor
+
+Which IDE or editor a developer uses is up to the individual developer. From experience the following opinionated choices provided good results:
+
+* Visual Studio Code (vscode)
+* Sublime
+* PHPStorm (mostly for php, html, css, js)
+
 ### Installation Options
 
 1. Option 1: Full installation, code checks/tests, generating documentation. **Not recomended as quick setup**
@@ -87,11 +95,13 @@ This will only setup the application including some dummy data and also perform 
 5. Install Composer
 6. Run `composer install` inside `Karaka`
 7. Create the database table `oms`
-7. Run `php demoSetup/setup.php` inside `Karaka`
+8. Run `php demoSetup/setup.php` inside `Karaka` (takes a long time: > 1h)
 
 After the installation you'll have access to the following content:
 
 * Application: `http://127.0.0.1`
+
+Instead of calling `php demoSetup/setup.php` which only uses a single thread you may also run `php demoSetup/setup.php -a 0` which will execute the install script in multiple threads leading to most likely 100% CPU and storage usage but therfore significantly reduce the execution time.
 
 ### Annotation
 
@@ -110,27 +120,9 @@ php -dxdebug.profiler_enable=1 -dxdebug.mode=develop,debug,profile -dxdebug.outp
 
 > This may use a lot of resources and storage space (≈15 GB of cachegrind data w/o trace data and ≈120 GB w/ trace data)
 
-## Git Hooks (Linux only)
-
-The git hooks perform various checks and validations during the `commit` and warn the developer about invalid code or code style/guideline violations.
-
-For developers it is recommended to copy the contents of the `default.sh` file in the `Build` repository under `Hooks` to your `pre-commit` file in the `.git/hooks` directory. If the `pre-commit` file doesn't exist just create it.
-
-The same should be done with every module. Simply go to `.git/modules/**/hooks` and also add the content of the `default.sh` file to all `pre-commit` files.
-
-By doing this every commit will be inspected and either pass without warnings, pass with warnings or stop with errors. This will allow you to fix code before committing it. Be aware only changed files will be inspected. Also make sure all `pre-commit` have `+x` permissions.
-
 ## Tools
 
-The following tools are important to test the application and to ensure the code quality. The configurations and sample shell executions can be found in the `Build` directory. These tools are also downloaded during the setup process of the `buildProject.sh` script.
-
-* composer
-* phploc
-* phpunit
-* phpcs
-* phpmetrics
-* documentor
-* phpstan
+Especially in order to ensure the code quality various tools are used. Check out the inspection guidelines for further details.
 
 ## cOMS
 
