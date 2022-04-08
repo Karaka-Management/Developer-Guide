@@ -76,9 +76,10 @@
 * [Breadcrumbs]({%}?page=frontend/elements/breadcrumbs/breadcrumbs)
 * [Progress]({%}?page=frontend/elements/progress/progress)
 * [Layout]({%}?page=frontend/grid/grid)
+* [Drag & Drop]({%}?page=frontend/elements/dragndrop/dragndrop)
 * [Charting]({%}?page=services/charting)
 
 ### Forms
-* [Forms]({%}?page=frontend/elements/forms/forms)
+* [Forms]({%}?page=frontend/forms/forms)
 * [Inputs]({%}?page=frontend/elements/inputs/inputs)
 * [Tables]({%}?page=frontend/elements/tables/tables)

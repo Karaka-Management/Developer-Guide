@@ -16,7 +16,6 @@ The `{stringifiable_element}` accepts all supported types from the `StringUtils:
 
 * \JsonSerializable
 * array
-* \Serializable
 * string
 * int
 * float
