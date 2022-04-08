@@ -20,6 +20,14 @@ Extensions and software marked with `*` are optional but recommended. They are o
 
 Steps which are not explained in this documentation are how to install and setup the above mentioned software and extensions. You also should configure the web server paths accordingly in order to access the application in the browser.
 
+### IDE / Editor
+
+Which IDE or editor a developer uses is up to the individual developer. From experience the following opinionated choices provided good results:
+
+* Visual Studio Code (vscode)
+* Sublime
+* PHPStorm (mostly for php, html, css, js)
+
 ### Installation Options
 
 1. Option 1: Full installation, code checks/tests, generating documentation. **Not recomended as quick setup**
