@@ -1,22 +1,10 @@
 # Php
 
-The php code needs to be php 7.4 compliant. No php 7.4 deprecated or removed elements, functions or practices are allowed (e.g. short open tag). Please use the `phpcs.xml` and `phpmd.xml` configurations for PHP Code Sniffer and PHP Mess Detector provided with the project to identify most of the basic code standards.
+The php code needs to be php 8.0 compliant. No php 8.0 deprecated or removed elements, functions or practices are allowed (e.g. short open tag). Please use the `phpcs.xml` configuration for PHP Code Sniffer to identify most of the basic code standards.
 
 ##  Php Tags
 
 PHP code MUST use the long `<?php ?>` tags or the short-echo `<?= ?>` tags; it MUST NOT use the other tag variations.
-
-## Character Encoding
-
-PHP code MUST use only UTF-8 without BOM
-
-## Line Ending
-
-Lines MUST end with `\n` (LF) and MUST NOT have a whitespace at the end.
-
-## File Ending
-
-Files must end with a new line element `\n`.
 
 ## Namespace and Class Names
 
@@ -106,6 +94,14 @@ Class constants MUST have a access modifier
 public CONST_NAME = ...;
 ```
 
+## Array
+
+Arrays should always bet initialized by using `[]`.
+
+```php
+$arr = [1, 2, 3];
+```
+
 ## Preferred Functions
 
 ### file_exists
@@ -115,14 +111,6 @@ Instead of using `\file_exists()` the functions `\is_dir()` or `\is_file()` shou
 ## Enum
 
 Don't use the internal enum implementations of PHP (neither `SplEnum` nor `enum`)
-
-## Member variables
-
-Member variables should be public unless there is absolutely no reason directly access them or additional data manipulation upon setting, changing or returning them is required.
-
-### Getters/Setters
-
-Getters and setters for member variables should be kept at a minimum and only used when they actually perform additional actions, such as additional type checks, data manipulation, ...
 
 #### Model IDs
 

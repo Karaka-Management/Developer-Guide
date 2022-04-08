@@ -91,17 +91,29 @@ With phpstan the code base is statically analyzed based on its configuration. Th
 php vendor/bin/phpstan analyse --autoload-file=phpOMS/Autoloader.php -l 8 -c Build/Config/phpstan.neon --error-format=prettyJson ./ > Build/test/phpstan.json
 ```
 
-### Jasmine
-
-The javascript testing is done with jasmine. The javascript testing directory is structured the same way as the `Framework`. Unit tests for specific classes need to be named in the same manner as the testing class.
-
 ### PHP CS
 
-Besides the code tests and static code analysis the code style is another very important inspection to ensure the code quality.
+The php code base has a defined code style standard. The easiest way to check for most rules is to run phpcs.
 
 ```sh
 php vendor/bin/phpcs ./ --standard="Build/Config/phpcs.xml" -s --report-junit=Build/test/junit_phpcs.xml
 ```
+
+> Many IDEs allow to integrate phpcs rules/configuration files for automatic checks in the editor
+
+### Jasmine
+
+The javascript testing is done with jasmine. The javascript testing directory is structured the same way as the `Framework`. Unit tests for specific classes need to be named in the same manner as the testing class.
+
+### JS Eslint
+
+The js code base has a defined code style standard. The easiest way to check for most rules is to run eslint.
+
+```sh
+npx eslint jsOMS/ -c Build/Config/.eslintrc.json
+```
+
+> Many IDEs allow to integrate eslint rules/configuration files for automatic checks in the editor
 
 ### Custom scripts
 

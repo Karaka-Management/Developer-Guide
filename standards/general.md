@@ -10,13 +10,25 @@ The phrase "side effects" means execution of logic not directly related to decla
 
 "Side effects" include but are not limited to: generating output, explicit use of require or include, connecting to external services, modifying ini settings, emitting errors or exceptions, modifying global or static variables, reading from or writing to a file, and so on.
 
-## Array
+## Character Encoding
 
-Arrays should always bet initialized by using `[]`.
+PHP code MUST use only UTF-8 without BOM
 
-```php
-$arr = [1, 2, 3];
-```
+## Line Ending
+
+Lines MUST end with `\n` (LF) and MUST NOT have a whitespace at the end.
+
+## File Ending
+
+Files must end with a new line element `\n`.
+
+## Member variables
+
+Member variables should be public unless there is absolutely no reason directly access them or additional data manipulation upon setting, changing or returning them is required.
+
+### Getters/Setters
+
+Getters and setters for member variables should be kept at a minimum and only used when they actually perform additional actions, such as additional type checks, data manipulation, ...
 
 ## Indention
 
