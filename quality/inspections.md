@@ -4,12 +4,23 @@ Code inspections are very important in order to maintain the same code quality t
 
 ## Summary
 
-The following tests must pass without errors, failures and warnings for successful code changes:
+The following automated tests must pass without errors, failures and warnings for successful code changes:
 
 * `php ./vendor/bin/phpstan analyse --autoload-file=phpOMS/Autoloader.php -l 9 -c Build/Config/phpstan.neon ./`
 * `php ./vendor/bin/phpcs ./ --standard="Build/Config/phpcs.xml"`
-* `npx eslint ./ -c Build/Config/.eslintrc.json`
 * `php ./vendor/bin/phpunit -c tests/PHPUnit/phpunit_no_coverage.xml`
+* `npx eslint ./ -c Build/Config/.eslintrc.json`
+* `npx jasmine-node ./`
+* `./cOMS/tests/test.sh`
+* see [other checks](#other-checks) below
+
+Alternatively you can simply run the helper script in the Build repository, which executes all the above mentioned checks:
+
+```sh
+./Build/Helper/inspectproject.sh
+```
+
+> Manual tests and inspections may reveal further issues during the review process requiring additional code changes
 
 ## How and what to test?
 
@@ -86,6 +97,10 @@ php demoSetup/setup.php -a 0
 
 While UI tests can be part of unit, integration or system tests the `cssOMS` repository also includes a simple test suit at http://127.0.0.1/cssOMS/tests/app which allows developers to test UI elements and check how they work.
 
+#### Live debugging
+
+In the demo application it is possible to highlight html and css warnings (e.g. missing attributes, deprecated tags, inline styles, ...). In order to activate the live debugging add `&debug=true` to the end of your url.
+
 ## Test documentation
 
 * every test must have a short test description
@@ -147,6 +162,10 @@ php vendor/bin/phpcs ./ --standard="Build/Config/phpcs.xml" -s --report-junit=Bu
 
 The javascript testing is done with jasmine. The javascript testing directory is structured the same way as the `Framework`. Unit tests for specific classes need to be named in the same manner as the testing class.
 
+```sh
+npx jasmine-node ./
+```
+
 ### JS Eslint
 
 The js code base has a defined code style standard. The easiest way to check for most rules is to run eslint.
@@ -159,9 +178,17 @@ npx eslint ./ -c Build/Config/.eslintrc.json
 
 ### Custom scripts
 
+#### C++ tests
+
+The c++ tests use the internal assertion/testing functions. You can run all tests by running the test script.
+
+```sh
+./cOMS/tests/test.sh
+```
+
 #### Git Hooks (Linux only)
 
-The git hooks perform various checks and validations during the `commit` and warn the developer about invalid code or code style/guideline violations.
+The git hooks perform various checks and validations during the `commit` and warn the developer about invalid code or code style/guideline violations. However, the checks and validations performed are only those which can be done very quickly, to avoid commit slow downs.
 
 For developers it is recommended to copy the contents of the `default.sh` file in the `Build` repository under `Hooks` to your `pre-commit` file in the `.git/hooks` directory. If the `pre-commit` file doesn't exist just create it.
 
@@ -184,6 +211,83 @@ php TestReportGenerator/src/index.php \
     -u /home/oms/Build/test/junit_php.xml \
     -d /home/oms/Build/test/ReportExternal \
     --version 1.0.0
+```
+
+#### Other checks
+
+The following checks should return no result:
+
+**Empty attributes:**
+
+```sh
+find ./Web ./phpOMS ./Install ./Modules -name "*tpl.php" | xargs grep -E '=\"[\#\$\%\^\&\*\(\)\\/\ ]*\"'
+```
+
+**Missing alt for images:**
+
+```sh
+find ./Web ./phpOMS ./Install ./Modules -name "*tpl.php" | xargs grep -P '(\<img)((?!.*?alt=).)*(>)'
+```
+
+**Missing type in input:**
+
+```sh
+find ./Web ./phpOMS ./Install ./Modules -name "*tpl.php" | xargs grep -P '(<input)((?!.*?type=).)*(>)'
+```
+
+**Missing name in form elements:**
+
+```sh
+find ./Web ./phpOMS ./Install ./Modules -name "*tpl.php" | xargs grep -P '(<input|<select|<textarea)((?!.*?name=).)*(>)'
+```
+
+**Inline style:**
+
+```sh
+find ./Web ./phpOMS ./Install ./Modules -name "*tpl.php" | xargs grep -P '(style=)'
+```
+
+**Hard coded text in localizable attributes:**
+
+```sh
+find ./Web ./phpOMS ./Install ./Modules -name "*tpl.php" | xargs grep -P '(value|title|alt|aria\-label)(=\")((?!\<\?).)*(>)'
+```
+
+**Hard coded text in localizable tag:**
+
+```sh
+find ./Web ./phpOMS ./Install ./Modules -name "*tpl.php" | xargs grep -P '(\<td\>|\<th\>|\<caption\>|\<label.*?(\"|l)\>)[0-9a-zA-Z\.\?]+)'
+```
+
+**Php files without strict_types:**
+
+```sh
+grep -r -L "declare(strict_types=1);" --include=*.php --exclude={*.tpl.php,*Hooks.php,*Routes.php,*SearchCommands.php} ./phpOMS ./Web ./Modules ./Model
+```
+
+**Js files without use strict:**
+
+```sh
+grep -r -L "\"use strict\";" --include=*.js ./jsOMS ./Modules ./Model
+```
+
+**On actions:**
+
+```sh
+grep -rlni "onafterprint=\|onbeforeprint=\|onbeforeunload=\|onerror=\|onhaschange=\|onload=\|onmessage=\|onoffline=\|ononline=\|onpagehide=\|onpageshow=\|onpopstate=\|onredo=\|onresize=\|onstorage=\|onund=o\|onunload=\|onblur=\|onchage=\|oncontextmenu=\|onfocus=\|onformchange=\|onforminput=\|oninput=\|oninvalid=\|onreset=\|onselect=\|onsubmit=\|onkeydown=\|onkeypress=\|onkeyup=\|onclick=\|ondblclic=k\|ondrag=\|ondragend=\|ondragenter=\|ondragleave=\|ondragover=\|ondragstart=\|ondrop=\|onmousedown=\|onmousemove=\|onmouseout=\|onmouseover=\|onmouseup=\|onmousewheel=\|onscroll=\|onabor=t\|oncanplay=\|oncanplaythrough=\|ondurationchange=\|onemptied=\|onended=\|onerror=\|onloadeddata=\|onloadedmetadata=\|onloadstart=\|onpause=\|onplay=\|onplaying=\|onprogress=\|onratechange=\|onreadystatechange=\|onseeked=\|onseeking=\|onstalled=\|onsuspend=\|ontimeupdate=\|onvolumechange=" --include=*.js ./jsOMS ./Model ./Modules ./Web
+```
+
+**Has logs:**
+
+```sh
+find ./Web ./phpOMS ./Model ./Modules -name "*.js" | xargs grep 'console.log('
+find ./Web ./jsOMS ./Model ./Modules -name "*.php" | xargs grep 'var_dump('
+```
+
+**Has whitespace at line end:**
+
+```sh
+find ./Web ./phpOMS ./jsOMS ./cOMS ./Model ./Build ./Modules \( -name "*.php" -o -name "*.js" -o -name "*.sh" -o -name "*.cpp" -o -name "*.h" -o -name "*.json" \) | xargs grep -P ' $'
 ```
 
 ## References
