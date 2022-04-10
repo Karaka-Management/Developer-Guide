@@ -1,6 +1,15 @@
 # Code Inspections & Tests
 
-Code inspections are very important in order to maintain the same code quality throughout the application. The `Build` repository and package managers such as `composer` and `npm` contain all essential configuration files for the respective inspection tools. The framework and every module will be evaluated based on the defined code and quality standards. Only code that passes all code, quality and test standards are accepted. Updates and bug fixes also must follow the standards.
+Code inspections are very important in order to maintain the same code quality throughout the application. The `Build` repository and package managers such as `composer` and `npm` contain all essential configuration files for the respective inspection tools. The framework and every module will be evaluated based on the defined code and quality standards. Only code that passes all code, quality and test standards is accepted. Updates and bug fixes also must follow the standards.
+
+## Summary
+
+The following tests must pass without errors, failures and warnings for successful code changes:
+
+* `php ./vendor/bin/phpstan analyse --autoload-file=phpOMS/Autoloader.php -l 9 -c Build/Config/phpstan.neon ./`
+* `php ./vendor/bin/phpcs ./ --standard="Build/Config/phpcs.xml"`
+* `npx eslint ./ -c Build/Config/.eslintrc.json`
+* `php ./vendor/bin/phpunit -c tests/PHPUnit/phpunit_no_coverage.xml`
 
 ## How and what to test?
 
@@ -17,6 +26,17 @@ The following testing requirements must be met:
 * every file containing code (except enums, traits, interfaces and template files) must have their own test file with tests
 
 When testing it makes sense to test for the happy path/branch of how a method should work and to `try` and break things by trying to find inputs and paths which may lead to unexpected behavior and errors.
+
+### Test locations
+
+* Application: tests
+* Php framework: phpOMS/tests
+* Modules: Modules/**/tests
+* Js framework: jsOMS/tests
+* C++ framework + tools: cOMS/tests
+* Css framework: cssOMS/tests
+* Configurations for tools: Build/Config
+* Inspection script: Build/Inspection/inspection.sh
 
 ### Unit tests
 
@@ -43,6 +63,28 @@ Every module must implement the following tests if applicable:
 * view tests
 
 You can find an example in the TestModule.
+
+### Demo test
+
+The demo application is a simple way to check the overall functionality of the application and provide a user with a large amount of data for manual tests.
+
+A good way to setup a demo application with mostly randomly generated user input data is the **demoSetup** script which can be found in the repository https://github.com/Karaka-Management/demoSetup.
+
+The following command will create a demo application:
+
+```sh
+php demoSetup/setup.php
+```
+
+In some cases code changes may require changes to the demo setup script (e.g. changes in the api, new modules). Since the demo setup script tries to simulate user generated data it takes some time to run. You may speed up the runtime by parallelizing the execution. However, this may use up 100% of your CPU and storage performance.
+
+```sh
+php demoSetup/setup.php -a 0
+```
+
+### UI tests
+
+While UI tests can be part of unit, integration or system tests the `cssOMS` repository also includes a simple test suit at http://127.0.0.1/cssOMS/tests/app which allows developers to test UI elements and check how they work.
 
 ## Test documentation
 
@@ -110,7 +152,7 @@ The javascript testing is done with jasmine. The javascript testing directory is
 The js code base has a defined code style standard. The easiest way to check for most rules is to run eslint.
 
 ```sh
-npx eslint jsOMS/ -c Build/Config/.eslintrc.json
+npx eslint ./ -c Build/Config/.eslintrc.json
 ```
 
 > Many IDEs allow to integrate eslint rules/configuration files for automatic checks in the editor
@@ -144,18 +186,6 @@ php TestReportGenerator/src/index.php \
     --version 1.0.0
 ```
 
-## Demo setup
+## References
 
-A good way to setup a demo application with mostly randomly generated user input data is the **demoSetup** script which can be found in the repository https://github.com/Karaka-Management/demoSetup.
-
-The following command will create a demo application:
-
-```sh
-php demoSetup/setup.php
-```
-
-In some cases code changes may require changes to the demo setup script (e.g. changes in the api, new modules). Since the demo setup script tries to simulate user generated data it takes some time to run. You may speed up the runtime by parallelizing the execution. However, this may use up 100% of your CPU and storage performance.
-
-```sh
-php demoSetup/setup.php -a 0
-```
+[Development process](https://github.com/Karaka-Management/Docs/blob/master/Processes/Development.md)

@@ -7,7 +7,7 @@ Elements can be made drag and droppable which can be helpful to allow users to r
 In order to make elements drag and droppable you must define a container which contains all the drag and droppable elements.
 
 ```html
-<div class="dragcontainer">
+<div class="oms-dragcontainer">
 </div>
 ```
 
@@ -16,7 +16,7 @@ In order to make elements drag and droppable you must define a container which c
 Elements which should be draggable in the container must be marked with `draggable="true"`.
 
 ```html
-<div class="dragcontainer">
+<div class="oms-dragcontainer">
     <div draggable="true">1</div>
     <div draggable="true">2</div>
     <div draggable="true">3</div>

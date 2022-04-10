@@ -22,8 +22,10 @@ Which IDE or editor a developer uses is up to the individual developer. From exp
 
 ## Application install options
 
-1. Option: Only installs the application, due to the large amount of data takes some time to execute. **Recommended**
-2. Option: Only installs the application with some tests. Requires you to install the dev tools in advance. **Recommended**
+Option 1 and 2 require you to install the dev tools in advance!
+
+1. Option: Installs the application (with a lot of dummy data, this may take a long time). **Recommended**
+2. Option: Installs the application (with or without performing tests). **Recommended**
 3. Option: Full installation, code checks/tests, generating documentation. **Not recomended**
 
 ### Option 1: Demo Application
