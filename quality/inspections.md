@@ -267,12 +267,6 @@ find ./Web ./phpOMS ./Install ./Modules -name "*tpl.php" | xargs grep -P '(\<td\
 grep -r -L "declare(strict_types=1);" --include=*.php --exclude={*.tpl.php,*Hooks.php,*Routes.php,*SearchCommands.php} ./phpOMS ./Web ./Modules ./Model
 ```
 
-**Js files without use strict:**
-
-```sh
-grep -r -L "\"use strict\";" --include=*.js ./jsOMS ./Modules ./Model
-```
-
 **On actions:**
 
 ```sh

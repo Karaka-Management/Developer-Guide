@@ -15,7 +15,7 @@ The content of the language files is very simple. All you need is the module nam
 /**
  * Karaka
  *
- * PHP Version 8.0
+ * PHP Version 8.1
  *
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
