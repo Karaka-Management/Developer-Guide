@@ -36,11 +36,12 @@ This will only setup the application including some dummy data and also perform 
 2. Run `git clone -b develop https://github.com/karaka-management/Karaka.git`
 3. Run `git submodule update --init --recursive`
 4. Run `git submodule foreach git checkout develop`
-5. Run `composer install` inside `Karaka`
-6. Run `npm install` inside `Karaka`
-7. Create the database `oms` in your database management software
-8. Adjust the `demoSetup/config.php` file according to your settings (e.g. database user name + password)
-9. Run `php demoSetup/setup.php` inside `Karaka` (takes a long time: > 1h)
+5. Run `git clone -b master https://github.com/Karaka-Management/demoSetup.git`
+6. Run `composer install` inside `Karaka`
+7. Run `npm install` inside `Karaka`
+8. Create the database `oms` in your database management software
+9. Adjust the `demoSetup/config.php` file according to your settings (e.g. database user name + password)
+10. Run `php demoSetup/setup.php` inside `Karaka` (takes a long time: > 1h)
 
 After the installation you'll have access to the following content:
 
