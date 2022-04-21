@@ -1,6 +1,6 @@
 # Php
 
-The php code needs to be php 8.0 compliant. No php 8.0 deprecated or removed elements, functions or practices are allowed (e.g. short open tag). Please use the `phpcs.xml` configuration for PHP Code Sniffer to identify most of the basic code standards.
+The php code needs to be php 8.1 compliant. No php 8.1 deprecated or removed elements, functions or practices are allowed (e.g. short open tag). Please use the `phpcs.xml` configuration for PHP Code Sniffer to identify most of the basic code standards.
 
 ##  Php Tags
 

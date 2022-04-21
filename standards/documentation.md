@@ -175,7 +175,7 @@ In some cases it may be required to type hint a variable in this case the follow
 
 ## Todos
 
-Todos should be documented in the [PROJECT.md](https://github.com/karaka-management/Docs/blob/master/Project/PROJECT.md).
+Todos should be documented in the [PROJECT.md](https://github.com/Karaka-Management/Organization-Guide/blob/master/Project/PROJECT.md).
 
 In code todos can be created like this
 

@@ -288,4 +288,4 @@ find ./Web ./phpOMS ./jsOMS ./cOMS ./Model ./Build ./Modules \( -name "*.php" -o
 
 ## References
 
-[Development process](https://github.com/Karaka-Management/Docs/blob/master/Processes/Development.md)
+[Development process](https://github.com/Karaka-Management/Organization-Guide/blob/master/Processes/Development.md)
