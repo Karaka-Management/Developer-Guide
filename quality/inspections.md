@@ -7,7 +7,7 @@ Code inspections are very important in order to maintain the same code quality t
 The following automated tests must pass without errors, failures and warnings for successful code changes:
 
 * `php ./vendor/bin/phpstan analyse --autoload-file=phpOMS/Autoloader.php -l 9 -c Build/Config/phpstan.neon ./`
-* `php ./vendor/bin/phpcs ./ --standard="Build/Config/phpcs.xml"`
+* `php ./vendor/bin/phpcs --severity=1 ./ --standard="Build/Config/phpcs.xml"`
 * `php ./vendor/bin/phpunit -c tests/PHPUnit/phpunit_no_coverage.xml`
 * `npx eslint ./ -c Build/Config/.eslintrc.json`
 * `npx jasmine-node ./`
@@ -155,7 +155,7 @@ php vendor/bin/phpstan analyse --autoload-file=phpOMS/Autoloader.php -l 9 -c Bui
 The php code base has a defined code style standard. The easiest way to check for most rules is to run phpcs.
 
 ```sh
-php vendor/bin/phpcs ./ --standard="Build/Config/phpcs.xml" -s --report-junit=Build/test/junit_phpcs.xml
+php vendor/bin/phpcs --severity=1 ./ --standard="Build/Config/phpcs.xml" -s --report-junit=Build/test/junit_phpcs.xml
 ```
 
 > Many IDEs allow to integrate phpcs rules/configuration files for automatic checks in the editor
@@ -217,74 +217,17 @@ php TestReportGenerator/src/index.php \
 
 #### Other checks
 
-The following checks should return no result:
+The following checks should also be performed. If you use the git hooks from the Build repository, they are automatically done during the staging process.
 
-**Empty attributes:**
-
-```sh
-find ./Web ./phpOMS ./Install ./Modules -name "*tpl.php" | xargs grep -E '=\"[\#\$\%\^\&\*\(\)\\/\ ]*\"'
-```
-
-**Missing alt for images:**
-
-```sh
-find ./Web ./phpOMS ./Install ./Modules -name "*tpl.php" | xargs grep -P '(\<img)((?!.*?alt=).)*(>)'
-```
-
-**Missing type in input:**
-
-```sh
-find ./Web ./phpOMS ./Install ./Modules -name "*tpl.php" | xargs grep -P '(<input)((?!.*?type=).)*(>)'
-```
-
-**Missing name in form elements:**
-
-```sh
-find ./Web ./phpOMS ./Install ./Modules -name "*tpl.php" | xargs grep -P '(<input|<select|<textarea)((?!.*?name=).)*(>)'
-```
-
-**Inline style:**
-
-```sh
-find ./Web ./phpOMS ./Install ./Modules -name "*tpl.php" | xargs grep -P '(style=)'
-```
-
-**Hard coded text in localizable attributes:**
-
-```sh
-find ./Web ./phpOMS ./Install ./Modules -name "*tpl.php" | xargs grep -P '(value|title|alt|aria\-label)(=\")((?!\<\?).)*(>)'
-```
-
-**Hard coded text in localizable tag:**
-
-```sh
-find ./Web ./phpOMS ./Install ./Modules -name "*tpl.php" | xargs grep -P '(\<td\>|\<th\>|\<caption\>|\<label.*?(\"|l)\>)[0-9a-zA-Z\.\?]+)'
-```
-
-**Php files without strict_types:**
-
-```sh
-grep -r -L "declare(strict_types=1);" --include=*.php --exclude={*.tpl.php,*Hooks.php,*Routes.php,*SearchCommands.php} ./phpOMS ./Web ./Modules ./Model
-```
-
-**On actions:**
-
-```sh
-grep -rlni "onafterprint=\|onbeforeprint=\|onbeforeunload=\|onerror=\|onhaschange=\|onload=\|onmessage=\|onoffline=\|ononline=\|onpagehide=\|onpageshow=\|onpopstate=\|onredo=\|onresize=\|onstorage=\|onund=o\|onunload=\|onblur=\|onchage=\|oncontextmenu=\|onfocus=\|onformchange=\|onforminput=\|oninput=\|oninvalid=\|onreset=\|onselect=\|onsubmit=\|onkeydown=\|onkeypress=\|onkeyup=\|onclick=\|ondblclic=k\|ondrag=\|ondragend=\|ondragenter=\|ondragleave=\|ondragover=\|ondragstart=\|ondrop=\|onmousedown=\|onmousemove=\|onmouseout=\|onmouseover=\|onmouseup=\|onmousewheel=\|onscroll=\|onabor=t\|oncanplay=\|oncanplaythrough=\|ondurationchange=\|onemptied=\|onended=\|onerror=\|onloadeddata=\|onloadedmetadata=\|onloadstart=\|onpause=\|onplay=\|onplaying=\|onprogress=\|onratechange=\|onreadystatechange=\|onseeked=\|onseeking=\|onstalled=\|onsuspend=\|ontimeupdate=\|onvolumechange=" --include=*.js ./jsOMS ./Model ./Modules ./Web
-```
-
-**Has logs:**
-
-```sh
-find ./Web ./phpOMS ./Model ./Modules -name "*.js" | xargs grep 'console.log('
-find ./Web ./jsOMS ./Model ./Modules -name "*.php" | xargs grep 'var_dump('
-```
-
-**Has whitespace at line end:**
-
-```sh
-find ./Web ./phpOMS ./jsOMS ./cOMS ./Model ./Build ./Modules \( -name "*.php" -o -name "*.js" -o -name "*.sh" -o -name "*.cpp" -o -name "*.h" -o -name "*.json" \) | xargs grep -P ' $'
-```
+* Missing alt for images
+* Missing type in input
+* Missing name in form elements
+* No inline style
+* Hard coded text in localizable attributes
+* Hard coded text in localizable tag
+* Php files without strict_types
+* Has logs
+* Has whitespace at line end
 
 ## References
 
