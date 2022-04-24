@@ -2,6 +2,10 @@
 
 In order to setup the application for development for the first time please see the following instructions and recommendations.
 
+* [Dev-Environment Requirements](#dev-environment-requirements)
+* [Application install options](#application-install-options)
+* [cOMS](#coms)
+
 ## Dev-Environment Requirements
 
 Follow the general install/setup documentation until the application setup: [Install](https://github.com/Karaka-Management/User-Guide/blob/develop/setup/install.md)
@@ -113,7 +117,7 @@ After the installation you'll have access to the following content:
 * ... and more
 
 > During this process the database automatically gets dropped (if it exists) and re-created. If you don't have `xdebug` installed but `phpdbg` you can replace `php phpunit ...` with `phpdbg -qrr phpunit.phar ...` or use `pcov` for much faster code coverage generation in `Build/Inspection/Php/tests.sh`
->
+
 ## cOMS
 
 If you are interest on working on the c++ code base you will in addition need the following tools and libraries:
