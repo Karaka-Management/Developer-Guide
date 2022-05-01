@@ -57,9 +57,9 @@ data-tpl-value-path : remote path for the text
 - [ ] remote update (easy, only submit data)
 
 ### Internal
-- [ ] add
-- [ ] update
-- [ ] cancel
+- [x] add
+- [x] update
+- [x] cancel
 - [ ] remote add (easy, only submit data)
 - [ ] remote update (easy only submit data)
 
