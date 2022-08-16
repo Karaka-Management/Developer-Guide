@@ -29,10 +29,10 @@ or for multiline function parameters
 
 ```php
 function(
-	$para1,
-	$para2,
-	$para3,
-	$para4
+	string $para1,
+	int $para2,
+	bool $para3,
+	array $para4
 ) : int
 {
 

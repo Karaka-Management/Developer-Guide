@@ -36,7 +36,7 @@ It is recommended to create the translations in a spreadsheet software and expor
 
 Afterwards you can import the modified csv file in the OMS exchange which will create the language files based on this file.
 
-> Please note that the csv must be `;` deliminated and `"` escaped.
+> Please note that the csv must be **;** deliminated and **"** escaped.
 
 ## Import/Export
 

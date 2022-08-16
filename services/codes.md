@@ -28,3 +28,4 @@ header ('Content-type: image/png');
 imagepng($c128b);
 imagedestroy($c128b);
 ```
+

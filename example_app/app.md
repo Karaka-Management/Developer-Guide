@@ -2,22 +2,26 @@
 
 The following application is a minimal sample in order to show how it's possible to set it up. Please note that for simplicity purposes many framework features and architectural aspects are omitted.
 
+## .htaccess
+
+The .htaccess file can be used to enable URL rewriting, file compression for css, js files, caching, and much more. In this sample application we will only do the bare minimum by enabling URL rewriting.
+
 ```txt
 # .htaccess
 # enable URL rewriting
 <ifmodule mod_rewrite.c>
-    RewriteEngine On
-    RewriteBase /
-    RewriteCond %{HTTP:Accept-encoding} gzip
-    RewriteCond %{REQUEST_FILENAME} \.(js|css)$
-    RewriteCond %{REQUEST_FILENAME}.gz -f
-    RewriteRule ^(.*)$ $1.gz [QSA,L]
-
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^(.*)$ /?{QUERY_STRING} [QSA]
+    RewriteCond %{HTTPS} !on
+    RewriteCond %{HTTP_HOST} !^(127\.0\.0)|(192\.)|(172\.)
+    RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
 </ifmodule>
 ```
+
+## index.php
+
+In the index file the application gets initialized and executed. 
 
 ```php
 <?php declare(strict_types=1);
@@ -34,6 +38,12 @@ echo $App->run(); // outputs the application response
 
 \ob_end_flush();
 ```
+
+We use output buffering `\ob_start()` and `\ob_end_flush()` which allows the application to internally modify the response before it gets returned to the user. 
+
+## Application.php
+
+The application file is responsible for initializing the application resources, handling the request and response population (see Router and Dispatcher) as well as rendering the main view. Another task which is often performed in this file is the user authentication.
 
 ```php
 <?php declare(strict_types=1);
@@ -143,6 +153,10 @@ class Application extends ApplicationAbstract
 }
 ```
 
+## Routes.php
+
+The routes file contains the routing information. which is responsible for matching URLs to application end-points.
+
 ```php
 <?php declare(strict_types=1);
 
@@ -181,6 +195,10 @@ return [
 ];
 ```
 
+## index.tpl.php
+
+The index template is the main template which is used to render all frontend responses from the dispatcher to the user. The layout is completely in the hands of the developer and designer.
+
 ```php
 <!-- app/tpl/index.tpl.php Main template -->
 <html>
@@ -200,11 +218,17 @@ return [
 </html>
 ```
 
+The `$dispatch` date is populated in the `Application.php` an can be used in this template. Often is is just one element but in some cases multiple endpoints get matched to a URL and provide content for the user.
+
+## Controller.php
+
+A controller file defines the end-point functionality. In this file the response content is generated incl. the date collection for the response. Usually there are two types of controllers, one is a UI controller which is responsible for generating UI content and the other is a API controller which is used to handle API logic (e.g. handling form data such as creating/updating new models).
+
 ```php
 <?php declare(strict_types=1);
 
 // app/controller/TestController.php
-// Sample controller which is referenced in the routes
+// Sample (UI) controller which is referenced in the routes
 
 namespace app\controller;
 
@@ -260,6 +284,10 @@ class TestController
 }
 ```
 
+## View.php
+
+A view is responsible for handling and rendering template data. Some business logic doesn't belong in the controller but rather to a specific view (i.e. how to render a user name).
+
 ```php
 <?php declare(strict_types=1);
 
@@ -280,6 +308,10 @@ class TestView extends View
 }
 ```
 
+## Templates
+
+Templates contain the actual content which should get shown/returned to the user. We already learned about the `index.tpl.php`. These template files are returned from the controller as part of a view and then rendered in the `index.tpl.php` file. Inside of a template you can access the view data and view logic and helper functions defined in the view.
+
 ```html
 <!-- app/tpl/welcome.tpl.php This is shown in the index.tpl.php -->
 <div><?= 'Hello ' . $this->renderBold('beautiful') . ' World!' ?></div>
@@ -294,3 +326,4 @@ class TestView extends View
 <!-- app/tpl/overwritten.tpl.php This becomes the new main template -->
 <div>The main template got overwritten!</div>
 ```
+
