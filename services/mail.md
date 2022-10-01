@@ -68,24 +68,24 @@ $handler->setMailer(SubmitType::SENDMAIL);
 
 ```php
 $mail                      = new Email();
-$mail->confirmationAddress = 'test1@karaka.email';
+$mail->confirmationAddress = 'test1@jingga.app';
 ```
 
 ### From, To, CC & BCC
 
 ```php
 $mail = new Email();
-$mail->setFrom('test1@karaka.email', 'Dennis Eichhorn');
-$mail->addTo('test@karaka.email', 'Dennis Eichhorn');
-$mail->addCC('test2@karaka.email', 'Dennis Eichhorn');
-$mail->addBCC('test3@karaka.email', 'Dennis Eichhorn');
+$mail->setFrom('test1@jingga.app', 'Dennis Eichhorn');
+$mail->addTo('test@jingga.app', 'Dennis Eichhorn');
+$mail->addCC('test2@jingga.app', 'Dennis Eichhorn');
+$mail->addBCC('test3@jingga.app', 'Dennis Eichhorn');
 ```
 
 ### Reply
 
 ```php
 $mail = new Email();
-$mail->addReplyTo('test4@karaka.email', 'Dennis Eichhorn');
+$mail->addReplyTo('test4@jingga.app', 'Dennis Eichhorn');
 ```
 
 ### Subject
