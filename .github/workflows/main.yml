@@ -23,11 +23,13 @@ jobs:
           ref: develop
           repository: Karaka-Management/Build
           path: Build
+    - name: Echo
+      run: pwd
     - name: Lint Code Base
       uses: github/super-linter/slim@v4
       env:
         VALIDATE_ALL_CODEBASE: false
         VALIDATE_MARKDOWN: true
-        MARKDOWN_CONFIG_FILE: /Build/Config/markdown.json
+        MARKDOWN_CONFIG_FILE: /home/runner/work/Developer-Guide/Developer-Guide/Build/Config/markdown.json
         DEFAULT_BRANCH: develop
         GITHUB_TOKEN: ${{ secrets.GH_PAT }}
