@@ -30,6 +30,9 @@ jobs:
       env:
         VALIDATE_ALL_CODEBASE: false
         VALIDATE_MARKDOWN: true
+        LINTER_RULES_PATH: /
         MARKDOWN_CONFIG_FILE: /home/runner/work/Developer-Guide/Developer-Guide/Build/Config/markdown.json
         DEFAULT_BRANCH: develop
         GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+    - name: Echo2
+      run: pwd
