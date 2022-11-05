@@ -23,7 +23,7 @@ jobs:
           ref: develop
           repository: Karaka-Management/Build
           path: Build
-    - name: Echo
+    - name: Copy config file
       run: |
         mkdir .github/linters
         cp Build/Config/markdown.json .github/linters/markdown.json
