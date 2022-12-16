@@ -20,7 +20,7 @@ The content of the language files is very simple. All you need is the module nam
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
  * @version   1.0.0
- * @link      https://karaka.app
+ * @link      https://jingga.app
  */
 declare(strict_types=1);
 
