@@ -52,7 +52,7 @@ After the installation you'll have access to the following content:
 
 Instead of calling `php demoSetup/setup.php` which only uses a single thread you may also run `php demoSetup/setup.php -a 0` which will execute the install script in multiple threads leading to most likely 100% CPU and storage usage but therfore significantly reduce the execution time.
 
-> You might want to call the setup script as a different user to ensure the same permissions `sudo -u wwww-data php demoSetup/setup.php`
+> You may want to call the setup script as a different user to ensure the same permissions `sudo -u wwww-data php demoSetup/setup.php`
 
 #### Annotation
 

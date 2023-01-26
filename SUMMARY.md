@@ -18,7 +18,7 @@
 * [Css Coding Standards]({%}?page=standards/css)
 
 ## Application Examples
-* [Application Sample]({%}?page=example_app/app)
+* [Application Sample]({%}?page=example_app/web_app)
 * [Modules]({%}?page=example_module/module)
 * [Packages]({%}?page=example_module/packages)
 * [Language Files]({%}?page=basics/language_files)

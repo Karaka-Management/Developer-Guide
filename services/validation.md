@@ -2,6 +2,20 @@
 
 The built in validation allows to quickly validate some basic data formats.
 
+## Guarding
+
+The `Guard` provides basic protection function for comman mistakes and angles of attacks:
+
+### Path guarding
+
+Usually no user input should be used for path construction but in some cases this might not be possible. With the path guarding you can check if the generated path would lead outside the applications root path.
+
+```php
+public static function isSafePath(string $path, string $base = '') : bool;
+```
+
+By leaving the `$base` path empty the function automatically restricts the `$path` to the parent directory of the framework.
+
 ## Validator
 
 The `Validator` provides basic validations with:
