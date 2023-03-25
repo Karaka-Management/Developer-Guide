@@ -16,6 +16,15 @@ The following dev tools are highly recommended and the documentation assumes you
 * [composer](https://getcomposer.org/)
 * [npm](https://docs.npmjs.com/)
 
+### Quick Setup
+
+```ssh
+sudo apt-get install git poppler-utils tesseract-ocr mysql-server postgresql postgresql-contrib vsftpd tesseract-ocr wget curl grep sed composer npm software-properties-common php8.1 php8.1-dev php8.1-cli php8.1-common php8.1-mysql php8.1-pgsql php8.1-xdebug php8.1-opcache php8.1-pdo php8.1-sqlite php8.1-mbstring php8.1-curl php8.1-imap php8.1-bcmath php8.1-zip php8.1-dom php8.1-xml php8.1-phar php8.1-gd php-pear apache2 redis redis-server memcached sqlite3
+
+sudo a2enmod rewrite
+sudo systemctl restart apache2
+```
+
 ### IDE / Editor
 
 Which IDE or editor a developer uses is up to the individual developer. From experience the following opinionated choices provided good results:
@@ -28,11 +37,22 @@ Which IDE or editor a developer uses is up to the individual developer. From exp
 
 Option 1 and 2 require you to install the dev tools in advance!
 
-1. Option: Installs the application (with a lot of dummy data, this may take a long time). **Recommended**
-2. Option: Installs the application (with or without performing tests). **Recommended**
-3. Option: Full installation, code checks/tests, generating documentation. **Not recomended**
+1. Option: Use the virtual machine we provide for devs which has everything setup and configered to start almost instantly after download **Most Recommended**
+2. Option: Installs the application (with a lot of dummy data, this may take a long time). **Recommended (slow but a lot of usefull data)**
+3. Option: Installs the application (with or without performing tests). **Recommended (slow and less usefull data)**
+4. Option: Full installation, code checks/tests, generating documentation. **Not recomended (slow and less usefull data)**
 
-### Option 1: Demo Application
+### Option 1: VM
+
+Please contact us if you would like to use our VM, we will send you a download link.
+
+1. Install VirtualBox
+2. Download the VM image
+3. Setup your IDE (i.e. to use ssh, or mount the git repository, ...)
+
+> The VM has apache2 and a database already running with dummy data for immediate testing. The VM size is less than 10 GB.
+
+### Option 2: Demo Application
 
 This will only setup the application including some dummy data and also perform the code tests but no quality checks. Compared to option 2 this includes much more test data and it doesn't execute a unit test.
 
@@ -71,7 +91,7 @@ php -dxdebug.profiler_enable=1 -dxdebug.mode=develop,debug,profile -dxdebug.outp
 
 > This may use a lot of resources and storage space (≈15 GB of cachegrind data w/o trace data and ≈120 GB w/ trace data)
 
-### Option 2: PHPUnit Test Suits
+### Option 3: PHPUnit Test Suits
 
 This will only setup the application including some dummy data and also perform the code tests but no quality checks.
 
@@ -93,7 +113,7 @@ After the installation you'll have access to the following content:
 
 > During this process the database automatically gets dropped (if it exists) and re-created. If you don't have `xdebug` installed but `phpdbg` you can replace `php phpunit ...` with `phpdbg -qrr phpunit.phar ...` or use `pcov` for much faster code coverage generation.
 
-### Option 3: Linux Shell Script
+### Option 4: Linux Shell Script
 
 This also installs all required dev tools and sets up the directory structure by itself. Using this method also tears down previous installs for a fresh install perfect for re-installing from the current development version. Furthermore, the use of PHPUnit also makes sure that the application is working as intended. The PHPUnit install also provides lots of dummy data for better integration and functionality testing of your own code/modules.
 
