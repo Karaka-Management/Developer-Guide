@@ -24,11 +24,19 @@ Files must end with a new line element `\n`.
 
 ## Member variables
 
-Member variables should be public unless there is absolutely no reason directly access them or additional data manipulation upon setting, changing or returning them is required.
+Member variables should be public unless there is absolutely no reason to directly access them or additional data manipulation upon setting, changing or returning them is required.
 
 ### Getters/Setters
 
-Getters and setters for member variables should be kept at a minimum and only used when they actually perform additional actions, such as additional type checks, data manipulation, ...
+Getters and setters for member variables should be kept at a absolute minimum and only used when they actually perform additional actions.
+
+### Why are we using public so much?
+
+* Private/protected adds a huge amount of unneccessary typing without gaining much/anything
+* Getters/setters may hide unsuspecting side effects
+* Adding additional functionality afterwards if it becomes necessary is easy by changing the member to private and letting the static code inspection tools find the callers
+* Performance overhead (function calls, data mappers)
+* Private or protected doesn't add any security due to unserialization and reflections
 
 ## Indention
 
