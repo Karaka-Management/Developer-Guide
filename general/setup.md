@@ -74,6 +74,8 @@ Instead of calling `php demoSetup/setup.php` which only uses a single thread you
 
 > You may want to call the setup script as a different user to ensure the same permissions `sudo -u wwww-data php demoSetup/setup.php`
 
+> For debugging you may use the command `sudo -u www-data php -dxdebug.mode=debug -dxdebug.start_with_request=yes demoSetup/setup.php`
+
 #### Annotation
 
 * During this process the database automatically gets dropped (if it exists) and re-created
@@ -86,7 +88,7 @@ Instead of calling `php demoSetup/setup.php` which only uses a single thread you
 You maybe want to use the following command to run the install script instead in order to also generate a cachegrind output for memory and performance profiling:
 
 ```sh
-php -dxdebug.profiler_enable=1 -dxdebug.mode=develop,debug,profile -dxdebug.output_dir=/your/path demoSetup/setup.php
+php -dxdebug.mode=develop,debug,profile -dxdebug.start_with_request=yes -dxdebug.output_dir=/your/path demoSetup/setup.php
 ```
 
 > This may use a lot of resources and storage space (≈15 GB of cachegrind data w/o trace data and ≈120 GB w/ trace data)
@@ -104,7 +106,7 @@ This will only setup the application including some dummy data and also perform 
 5. Run `npm install` inside `Karaka`
 6. Create the database `oms` in your database management software
 7. Adjust the `tests/Bootstrap.php` file according to your settings (e.g. database user name + password)
-8. Run `php vendor/bin/phpunit --configuration tests/phpunit_no_coverage.xml` inside `Karaka` or open `http://127.0.0.1/Install`
+8. Run `php -dxdebug.mode=develop,debug,profile,coverage -dxdebug.start_with_request=yes vendor/bin/phpunit --configuration tests/phpunit_default.xml` inside `Karaka` or open `http://127.0.0.1/Install`
 
 After the installation you'll have access to the following content:
 
