@@ -14,6 +14,8 @@ This means each class is in a file by itself, and is in a namespace of at least 
 
 Class names MUST be declared in StudlyCaps.
 
+Nativ PHP functions must use global namespacing e.g. `\count(...)`.
+
 ### Return type hint
 
 The return type hint must have a whitespace after the closing braces and after the colon. The return type must be on the same line as the closing brace.
