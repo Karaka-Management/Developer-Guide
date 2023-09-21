@@ -24,7 +24,7 @@ For routes it's possible to define a `\Closure` which will get returned upon usi
 
 ```php
 $router->add('foo/bar', function() {
-	return 'Hello World';
+    return 'Hello World';
 });
 ```
 
@@ -32,7 +32,7 @@ Routes can have different verbs which are derived from the HTTP verbs. Routes th
 
 ```php
 $router->add('foo/bar', function() {
-	return 'Hello World';
+    return 'Hello World';
 }, RouteVerb::GET | RouteVerb::SET);
 ```
 
@@ -62,17 +62,17 @@ The routing file must have the following structure:
 
 ```php
 <?php return [
-	'{ROUTE_STRING}' => [
-		[
-			'dest' => CLOSURE/REFERENCE_STRING,
-			'verb' => VERB_1 | VERB_2,
-		],
-		[
-			'dest' => CLOSURE/REFERENCE_STRING,
-			'verb' => VERB_3,
-		],
-	],
-	'{ANOTHER_ROUTE_STRING}' => [ ... ],
+    '{ROUTE_STRING}' => [
+        [
+            'dest' => CLOSURE/REFERENCE_STRING,
+            'verb' => VERB_1 | VERB_2,
+        ],
+        [
+            'dest' => CLOSURE/REFERENCE_STRING,
+            'verb' => VERB_3,
+        ],
+    ],
+    '{ANOTHER_ROUTE_STRING}' => [ ... ],
 ];
 ```
 
@@ -108,22 +108,22 @@ $router->route('foo/bar', null, RouteVerb::GET, 'APP_NAME', ORG_ID, ACCOUNT);
 
 ```php
 <?php return [
-	'{ROUTE_STRING}' => [
-		[
-			'dest' => CLOSURE/REFERENCE_STRING,
-			'verb' => VERB_1 | VERB_2,
-			'permission' => [
-				'module' => NAME,
-				'type' => CREATE | READ | UPDATE | DELETE | PERMISSION,
-				'state' => MODULE_SPECIFIC_IDENTIFIER_FOR_THE_PERMISSION,
-			],
-		],
-		[
-			'dest' => CLOSURE/REFERENCE_STRING,
-			'verb' => VERB_3,
-		],
-	],
-	'{ANOTHER_ROUTE_STRING}' => [ ... ],
+    '{ROUTE_STRING}' => [
+        [
+            'dest' => CLOSURE/REFERENCE_STRING,
+            'verb' => VERB_1 | VERB_2,
+            'permission' => [
+                'module' => NAME,
+                'type' => CREATE | READ | UPDATE | DELETE | PERMISSION,
+                'state' => MODULE_SPECIFIC_IDENTIFIER_FOR_THE_PERMISSION,
+            ],
+        ],
+        [
+            'dest' => CLOSURE/REFERENCE_STRING,
+            'verb' => VERB_3,
+        ],
+    ],
+    '{ANOTHER_ROUTE_STRING}' => [ ... ],
 ];
 ```
 
@@ -147,19 +147,19 @@ Often you would like to enable `CSRF` protection for certain urls or routing pat
 
 ```php
 $router->add('foo/bar', function() {
-	return 'Hello World';
-	}, RouteVerb::GET | RouteVerb::SET,
-	true, // CSRF token is required
+    return 'Hello World';
+    }, RouteVerb::GET | RouteVerb::SET,
+    true, // CSRF token is required
 );
 ```
 
 ```php
 $router->route(
-	'foo/bar',
-	$request->getData('CSRF'),
-	RouteVerb::GET,
-	'APP_NAME',
-	ORG_ID, ACCOUNT
+    'foo/bar',
+    $request->getData('CSRF'),
+    RouteVerb::GET,
+    'APP_NAME',
+    ORG_ID, ACCOUNT
 );
 ```
 

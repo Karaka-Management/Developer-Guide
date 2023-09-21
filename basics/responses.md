@@ -66,11 +66,11 @@ In most cases the text/html response is created based on a `View` which has a te
 ```php
 public function controllerEndpoint(HttpRequest $request, HttpResponse $response, array $data = []) : RenderableInterface
 {
-	$view = new View($this->app->l11nManager, $request, $response);
-	$view->setTemplate('....');
-	$view->setData('data_id', ....);
+    $view = new View($this->app->l11nManager, $request, $response);
+    $view->setTemplate('....');
+    $view->setData('data_id', ....);
 
-	return $view;
+    return $view;
 }
 ```
 

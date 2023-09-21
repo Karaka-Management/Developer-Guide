@@ -33,8 +33,8 @@ Example:
 ```php
 function functionName(mixed $var, $mySetting1, $mySetting2) : bool
 {
-	// Do some validation here
-	return true;
+    // Do some validation here
+    return true;
 }
 
 Validator::isValid($testVariable, ['functionName' => $settings]);

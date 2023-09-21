@@ -2,7 +2,7 @@
 
 The php code needs to be php 8.1 compliant. No php 8.1 deprecated or removed elements, functions or practices are allowed (e.g. short open tag). Please use the `phpcs.xml` configuration for PHP Code Sniffer to identify most of the basic code standards.
 
-##  Php Tags
+## Php Tags
 
 PHP code MUST use the long `<?php ?>` tags or the short-echo `<?= ?>` tags; it MUST NOT use the other tag variations.
 
@@ -31,10 +31,10 @@ or for multiline function parameters
 
 ```php
 function(
-	string $para1,
-	int $para2,
-	bool $para3,
-	array $para4
+    string $para1,
+    int $para2,
+    bool $para3,
+    array $para4
 ) : int
 {
 
@@ -80,7 +80,7 @@ echo 'Hello' , 'World';
 
 ## If
 
-#### Elseif
+### Elseif
 
 Use `elseif` where possible instead of `else if`.
 
@@ -114,11 +114,7 @@ Instead of using `\file_exists()` the functions `\is_dir()` or `\is_file()` shou
 
 Don't use the internal enum implementations of PHP (neither `SplEnum` nor `enum`)
 
-#### Model IDs
-
-Model IDs must always be private. They must not have a setter. Therfore most models need/should have a getter function which returns the model ID.
-
-#### Pseudo enums
+### Pseudo enums
 
 Whenever a scalar coming from the internal enum data type (`\phpOMS\Stdlib\Base\Enum`) is used the variable should be private and a getter and setter should exist for additional type checks.
 
