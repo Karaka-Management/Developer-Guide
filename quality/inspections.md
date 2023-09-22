@@ -80,7 +80,7 @@ You can find an example in the TestModule.
 
 The demo application is a simple way to check the overall functionality of the application and provide a user with a large amount of data for manual tests.
 
-A good way to setup a demo application with mostly randomly generated user input data is the **demoSetup** script which can be found in the repository https://github.com/Karaka-Management/demoSetup.
+A good way to setup a demo application with mostly randomly generated user input data is the **demoSetup** script which can be found in the repository [demoSetup](https://github.com/Karaka-Management/demoSetup).
 
 The following command will create a demo application:
 
@@ -98,7 +98,7 @@ php demoSetup/setup.php -a 0
 
 ### UI tests
 
-While UI tests can be part of unit, integration or system tests the `cssOMS` repository also includes a simple test suit at http://127.0.0.1/cssOMS/tests/app which allows developers to test UI elements and check how they work.
+While UI tests can be part of unit, integration or system tests the `cssOMS` repository also includes a simple test suit at [http://127.0.0.1/cssOMS/tests/app](http://127.0.0.1/cssOMS/tests/app) which allows developers to test UI elements and check how they work.
 
 #### Live debugging
 
