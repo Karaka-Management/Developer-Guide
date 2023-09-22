@@ -8,7 +8,8 @@ The following automated tests must pass without errors, failures and warnings fo
 
 * `php ./vendor/bin/phpstan analyse --autoload-file=phpOMS/Autoloader.php -l 9 -c Build/Config/phpstan.neon ./`
 * `php ./vendor/bin/phpcs --severity=1 ./ --standard="Build/Config/phpcs.xml"`
-* `php ./vendor/bin/phpunit -c tests/PHPUnit/phpunit_no_coverage.xml`
+* `php ./vendor/bin/phpunit -c tests/phpunit_no_coverage.xml`
+* `php ./vendor/bin/rector process --config Build/Config/rector.php --dry-run ./`
 * `npx eslint ./ -c Build/Config/.eslintrc.json`
 * `npx jasmine-node ./`
 * `./cOMS/tests/test.sh`
