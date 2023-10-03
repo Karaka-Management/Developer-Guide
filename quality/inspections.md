@@ -15,11 +15,13 @@ The following automated tests must pass without errors, failures and warnings fo
 * `./cOMS/tests/test.sh`
 * see [other checks](#other-checks) below
 
-Alternatively you can simply run the helper script in the Build repository, which executes all the above mentioned checks:
+Alternatively you can simply run the helper script in the Build repository, which executes a few the above mentioned checks:
 
 ```sh
 ./Build/Helper/inspectproject.sh
 ```
+
+An overview of all tests and statistics can be found at https://dev.jingga.app.
 
 > Manual tests and inspections may reveal further issues during the review process requiring additional code changes
 
