@@ -119,6 +119,7 @@ Tools used for the code inspection are:
 * PHPStan
 * Jasmine
 * PHPCS
+* Rector
 * Custom scripts/tools
 
 These tools are all installed by running the `setup.sh` script from the Build repository.
