@@ -1,6 +1,6 @@
 # Application Sample
 
-The following application is a minimal sample in order to show how it's possible to set it up. Please note that for simplicity purposes many framework features and architectural aspects are omitted.
+The following application is a minimal sample in order to show how it's possible to set up a standalone application with the `phpOMS` framework. Please note that for simplicity purposes many framework features, docblocks and architectural aspects are omitted.
 
 ## .htaccess
 
@@ -24,7 +24,8 @@ The .htaccess file can be used to enable URL rewriting, file compression for css
 In the index file the application gets initialized and executed. 
 
 ```php
-<?php declare(strict_types=1);
+<?php 
+declare(strict_types=1);
 
 // index.php
 // initialize application and output response (entry point for the app)
@@ -46,7 +47,8 @@ We use output buffering `\ob_start()` and `\ob_end_flush()` which allows the app
 The application file is responsible for initializing the application resources, handling the request and response population (see Router and Dispatcher) as well as rendering the main view. Another task which is often performed in this file is the user authentication.
 
 ```php
-<?php declare(strict_types=1);
+<?php 
+declare(strict_types=1);
 
 // app/Application.php
 // Application where the framework components are initialized
@@ -91,7 +93,7 @@ class Application extends ApplicationAbstract
         $dispatch = $this->dispatcher->dispatch(
             $this->router->route(
                 $request->uri->getRoute(),
-                $request->getData('CSRF'), // optional: only required if csrf tokens are used otherwise use null
+                $request->getDataString('CSRF'), // optional: only required if csrf tokens are used otherwise use null
                 $request->getRouteVerb() // e.g. get, post, put ...
             ),
             $request, // this is passed to the endpoint
@@ -158,7 +160,8 @@ class Application extends ApplicationAbstract
 The routes file contains the routing information. which is responsible for matching URLs to application end-points.
 
 ```php
-<?php declare(strict_types=1);
+<?php 
+declare(strict_types=1);
 
 // app/Routes.php
 // Routes for the application
@@ -203,14 +206,14 @@ The index template is the main template which is used to render all frontend res
 <!-- app/tpl/index.tpl.php Main template -->
 <html>
     <head>
-        <title><?= $this->getData('title'); ?></title>
+        <title><?= $this->getDataString('title') ?? ''; ?></title>
     </head>
     <body>
         <div>This is the main template....</div>
         <div>What follows next comes from the dispatcher results:</div>
         <main>
         <?php
-            $dispatch = $this->getData('dispatch'); // get data bound to the view with the key "dispatch"
+            $dispatch = $this->getDataArray('dispatch') ?? []; // get data bound to the view with the key "dispatch"
             foreach($dispatch as $view) echo $view->render(); // in this case it has a 'render()' method which is called
         ?>
         </main>
@@ -225,7 +228,8 @@ The `$dispatch` date is populated in the `Application.php` an can be used in thi
 A controller file defines the end-point functionality. In this file the response content is generated incl. the date collection for the response. Usually there are two types of controllers, one is a UI controller which is responsible for generating UI content and the other is a API controller which is used to handle API logic (e.g. handling form data such as creating/updating new models).
 
 ```php
-<?php declare(strict_types=1);
+<?php
+declare(strict_types=1);
 
 // app/controller/TestController.php
 // Sample (UI) controller which is referenced in the routes
@@ -289,7 +293,8 @@ class TestController
 A view is responsible for handling and rendering template data. Some business logic doesn't belong in the controller but rather to a specific view (i.e. how to render a user name).
 
 ```php
-<?php declare(strict_types=1);
+<?php
+declare(strict_types=1);
 
 // app/view/TestView.php
 // Sample view which can hold additional view logic which can be used by the template
@@ -318,7 +323,7 @@ Templates contain the actual content which should get shown/returned to the user
 ```
 
 ```html
-<!-- app/tpl/welcome.tpl.php This is shown in the index.tpl.php -->
+<!-- app/tpl/goodbye.tpl.php This is shown in the index.tpl.php -->
 <div><?= 'Goodbye World!' ?></div>
 ```
 

@@ -1,12 +1,12 @@
 # Code Inspections & Tests
 
-Code inspections are very important in order to maintain the same code quality throughout the application. The `Build` repository and package managers such as `composer` and `npm` contain all essential configuration files for the respective inspection tools. The framework and every module will be evaluated based on the defined code and quality standards. Only code that passes all code, quality and test standards is accepted. Updates and bug fixes also must follow the standards.
+Code inspections are very important in order to maintain the same code quality throughout the application. The `Build` repository and package managers such as `composer` and `npm` contain all essential configuration files for the respective php and javascript inspection tools. The framework and every module will be evaluated based on the defined code and quality standards. Only code that passes all code, quality and test standards is accepted. Updates and bug fixes also must follow these standards.
 
 ## Summary
 
 The following automated tests must pass without errors, failures and warnings for successful code changes:
 
-* `php ./vendor/bin/phpstan analyse --autoload-file=phpOMS/Autoloader.php -l 9 -c Build/Config/phpstan.neon ./`
+* `php ./vendor/bin/phpstan analyse -l 9 -c Build/Config/phpstan.neon ./`
 * `php ./vendor/bin/phpcs --severity=1 ./ --standard="Build/Config/phpcs.xml"`
 * `php ./vendor/bin/phpunit -c tests/phpunit_no_coverage.xml`
 * `php ./vendor/bin/rector process --config Build/Config/rector.php --dry-run ./`
@@ -15,7 +15,7 @@ The following automated tests must pass without errors, failures and warnings fo
 * `./cOMS/tests/test.sh`
 * see [other checks](#other-checks) below
 
-Alternatively you can simply run the helper script in the Build repository, which executes all the above mentioned checks:
+Alternatively you can simply run the helper script in the Build repository, which executes a few of the above mentioned checks:
 
 ```sh
 ./Build/Helper/inspectproject.sh
@@ -48,7 +48,7 @@ When testing it makes sense to test for the happy path/branch of how a method sh
 * C++ framework + tools: cOMS/tests
 * Css framework: cssOMS/tests
 * Configurations for tools: Build/Config
-* Inspection script: Build/Inspection/inspection.sh
+* Inspection script: Build/php.sh or Builde/Helper/Scripts/inspectproject.sh
 
 ### Unit tests
 
@@ -69,7 +69,7 @@ The system tests are the highest level of tests and test the overall functionali
 Every module must implement the following tests if applicable:
 
 * general module tests (e.g. install, update, delete, status change)
-* admin tests (`use \Modules\tests\ModuleTestTrait;`)
+* admin tests (`use \tests\Modules\ModuleTestTrait;`)
 * model tests (unit tests)
 * controller tests (e.g. ApiController tests)
 * view tests
@@ -119,6 +119,7 @@ Tools used for the code inspection are:
 * PHPStan
 * Jasmine
 * PHPCS
+* Rector
 * Custom scripts/tools
 
 These tools are all installed by running the `setup.sh` script from the Build repository.
@@ -136,19 +137,31 @@ php vendor/bin/phpunit -c tests/PHPUnit/phpunit_no_coverage.xml
 In order to also create a code coverage report run:
 
 ```sh
-php -dxdebug.remote_enable=1 -dxdebug.mode=coverage,develop vendor/bin/phpunit -c tests/phpunit_default.xml
+php -dxdebug.remote_enable=1 -dxdebug.mode=coverage,develop vendor/bin/phpunit -c tests/phpunit_default.xml --log-junit Build/test/junit_php.xml --coverage-html Build/coverage
 ```
+
+A visualization of the coverage can be found at http://127.0.0.1/Build/coverage
 
 #### Modules
 
 Every module needs to have a `Admin` directory containing a class called `AdminTest.php` which is used for testing the installation, activation, deactivation, uninstall and remove of the module. Tests that install, update, remove etc. a module need to have a group called `admin`. After running the `AdminTest.php` test the final state of the module should be installed and active, only this way it's possible to further test the controller and models. A code coverage of at least 90% is mandatory for every module for integration.
+
+### PHPmetrics
+
+While phpmetrics doesn't provide additional tests it is useful to visualize dependencies and potentially critical code. Including the junit report `junit_php.xml` in the command below requires you to run the PHPUnit tests first.
+
+```sh
+php vendor/bin/phpmetrics --config=Build/Config/phpmetrics.json --junit=Build/test/junit_php.xml --report-html=Build/test/metrics
+```
+
+A visualization of the metrics can be found at http://127.0.0.1/Build/test/metrics
 
 ### PHPStan
 
 With phpstan the code base is statically analyzed based on its configuration. This will help you to follow some of the "best" practices we enforce.
 
 ```sh
-php vendor/bin/phpstan analyse --autoload-file=phpOMS/Autoloader.php -l 9 -c Build/Config/phpstan.neon --error-format=prettyJson ./ > Build/test/phpstan.json
+php vendor/bin/phpstan analyse -l 9 -c Build/Config/phpstan.neon --error-format=prettyJson ./ > Build/test/phpstan.json
 ```
 
 ### PHP CS
@@ -160,6 +173,12 @@ php vendor/bin/phpcs --severity=1 ./ --standard="Build/Config/phpcs.xml" -s --re
 ```
 
 > Many IDEs allow to integrate phpcs rules/configuration files for automatic checks in the editor
+
+### Rector
+
+```sh
+php vendor/bin/rector process --dry-run --config Build/Config/rector.php ./
+```
 
 ### Jasmine
 

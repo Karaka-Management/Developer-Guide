@@ -9,9 +9,15 @@ The following directory structure should roughly visualize how modules are struc
             * db.json
             * Navigation.install.json
             * Navigation.php
+            * ... more providing scripts similar to Navigation.*
+        * Hooks
+            * Web
+                * Api.php
         * Routes
+            * Cli.php
             * Web
                 * Backend.php
+                * Api.php
         * Update
             * yourUpdateFiles.???
         * Activate.php
@@ -19,10 +25,27 @@ The following directory structure should roughly visualize how modules are struc
         * Installer.php
         * Uninstall.php
         * Update.php
+    * Controller
+        * BackendController.php
+        * ApiController.php
+        * Controller.php
+        * Controller.js
+    * Docs
+        * Dev
+            * en
+                * SUMMARY.md
+                * ...
+        * Help
+            * en
+                * SUMMARY.md
+                * ...
     * Img
         * modulePreviewImage.jpg
     * Models
-        * YourPhPModels.php
+        * YourPHPModel.php
+        * NullYourPHPModel.php
+        * YourPHPModelMapper.php
+        * ... more models/mappers/enums
         * YourJavaScriptModels.js
     * Theme
         * Backend
@@ -38,9 +61,8 @@ The following directory structure should roughly visualize how modules are struc
     * Views
         * YourPhpViews.php
         * YourJavaScriptViews.js
-    * Controller.php
-    * Controller.js
     * info.json
+    * README.md
 ```
 
 All modules are located inside the `/Modules` directory and their directory name has to be the module name itself without whitespace.
@@ -150,11 +172,7 @@ final class Installer extends InstallerAbstract
     {
         parent::install($path, $dbPool, $info);
 
-        switch ($dbPool->get('core')->getType()) {
-            case DatabaseType::MYSQL:
-                /* Your database setup goes here */
-                break;
-        }
+        /* Your module specific setup goes here */
     }
 }
 ```
@@ -164,16 +182,16 @@ If your application doesn't need to implement any database tables for itself the
 ```php
 public static function installExternal(Pool $dbPool, array $data) : array
 {
-    /* What do you want to do with the data provided by $data? */
+    /* What do you want to do with the data provided by $data (coming from other modules)? */
 }
 ```
 
-Other modules have to create a Navigation.php file inside the install directory with the following method:
+Install navigation elements: Modules have to create a Navigation.php file inside the install directory with the following method:
 
 ```php
 public static function install(string $path, Pool $dbPool)
 {
-    $navData = json_decode(file_get_contents(__DIR__ . '/Navigation.install.json'), true);
+    $navData = \json_decode(file_get_contents(__DIR__ . '/Navigation.install.json'), true);
 
     $class = '\\Modules\\Navigation\\Admin\\Installer';
     $class::installExternal($dbPool, $navData);
