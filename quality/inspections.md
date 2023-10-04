@@ -21,6 +21,8 @@ Alternatively you can simply run the helper script in the Build repository, whic
 ./Build/Helper/inspectproject.sh
 ```
 
+An overview of all tests and statistics can be found at https://dev.jingga.app. Navigate to the ./src directory and then open the ./src/**/build directory of the respective repository.
+
 > Manual tests and inspections may reveal further issues during the review process requiring additional code changes
 
 ## How and what to test?
