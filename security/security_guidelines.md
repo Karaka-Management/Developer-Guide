@@ -51,18 +51,29 @@ The following headers must be set for every web application. By default they are
 
 ### Content-Security-Policy
 
-Scripts and frames must be provided by the own server or google. This is important in order to prevent the injection of other scripts and clickjacking. Inline javascript is prohibited and may only be defined in the application and not in any modules.
+Scripts and frames must be provided by the own server. This is important in order to prevent the injection of other scripts and clickjacking. Inline javascript is prohibited and may only be defined in the application and not in any modules.
 
 The default CSP looks like the following:
 
 ```php
-$response->header->set('content-security-policy', 'script-src \'self\'; frame-src \'self\'', true);
+$scriptSrc = \bin2hex(\random_bytes(32));
+$this->app->appSettings->setOption('script-nonce', $scriptSrc);
+$response->header->set('content-security-policy',
+    'base-uri \'self\';'
+    . 'object-src \'none\';'
+    . 'script-src \'nonce-' . $scriptSrc . '\' \'strict-dynamic\';'
+    . 'worker-src \'self\';'
+);
 ```
 
-In order to whitelist inline javascript you can use the following logic. This however requires you to know the inline script beforehand `$script`. After setting the CSP header they automatically get locked so that further changes are not possible. This is a security measure in order to prevent any malicious adjustments.
+Javascript can now be included like this:
 
 ```php
-$response->header->set('content-security-policy', 'script-src \'self\' \'sha256-' . base64_encode(hash('sha256', $script, true)) . '\'; frame-src \'self\'', true);
+$head  = $response->data['Content']->head;
+$nonce = $this->app->appSettings->getOption('script-nonce');
+
+$head->addAsset(AssetType::JSLATE, 'Resources/chartjs/Chartjs/chart.js', ['nonce' => $nonce]);
+$head->addAsset(AssetType::JSLATE, 'Modules/ItemManagement/Controller.js', ['nonce' => $nonce, 'type' => 'module']);
 ```
 
 ### X-XSS-Protection
@@ -107,7 +118,7 @@ Input validation can be implemented on multiple levels.
 1. Regex validation in html/javascript by using the `pattern=""` attribute
 2. Type hints for method parameters wherever possible.
 3. Making use of the `Validation` classes as much as possible
-4. **Don't** sanitize! Accept or dismiss!
+4. **Do not** sanitize! Accept or dismiss!
 
 ## Inclusion and file paths
 
@@ -118,12 +129,12 @@ Be vigilant of where and how the path for the following scenarios comes from:
 3. `\file_get_contents('../relative/path/to/' . $path);`
 4. `\mkdir($path);`
 
-These are just a few examples but it is very important to make sure, that these paths only have access to wherever the programmer intended them for. At first it is always a good idea to get the `$path = \realpath($path)` of a path in order to make sure the path exists and for further validation.
-
-Example usage:
+These are just a few examples but it is very important to make sure, that these paths only have access to wherever the programmer intended them for. If a file path is provided or influenced by a user you can make sure that it is within a trusted subdirectory:
 
 ```php
-if(($pathNew = \realpath($path)) === false) {
-    throw new PathException($path);
+if (!Guard::isSafePath($outputDir, __DIR__ . '/../../../')) {
+    return;
 }
 ```
+
+Using this guard ensures that a file path is within the provided path.

@@ -108,7 +108,21 @@ $arr = [1, 2, 3];
 
 ### file_exists
 
-Instead of using `\file_exists()` the functions `\is_dir()` or `\is_file()` should be used.
+Instead of using `\file_exists()` the functions `\is_dir()` or `\is_file()` should be used. `\file_exists()` should be only used if the programmer doesn't know if the provided path is a file or directory.
+
+### String starts with / ends with
+
+Instead of using `\stripos() === 0` to check if a string starts with a certain string use `\str_starts_with()`. Similarly use `\str_ends_with()`
+
+### str_replace
+
+Whenever possible instead of using `\str_replace()` use the function `\strtr()`. 
+
+> Careful, \strtr() **DOES NOT** support deleting a character = replace it with an empty string!
+
+### json_encode
+
+For simple static arrays `\json_encode()` should be avoided and a manual json string generation should be used.
 
 ## Enum
 

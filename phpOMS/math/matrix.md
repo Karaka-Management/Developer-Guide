@@ -8,7 +8,7 @@ $matrix->setMatrix([
     [1, 2, 3],
     [4, 5, 6],
     [7, 8, 9],
-);
+]);
 ```
 
 The implementation implements `ArrayAccess` for direct access and an `Iterator` for iteration.
