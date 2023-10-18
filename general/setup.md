@@ -70,6 +70,7 @@ Additional tools and settings coming with the VM:
 3. Trace visualization `http://vm_ip:81`
    1. Download the latest trace from `http://vm_ip:82/Logs`
    2. Drag and drop that downloaded `*.xt` file in the trace visualizer
+4. sitespeed.io `http://vm_ip:83`
 
 ### Option 2: Demo Application
 
