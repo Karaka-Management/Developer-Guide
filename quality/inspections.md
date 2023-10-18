@@ -17,6 +17,8 @@ The following automated tests must pass without errors, failures and warnings fo
 * `./cOMS/tests/test.sh`
 * see [other checks](#other-checks) below
 
+<img width="150px" src="./img/webgrind.jpg"> <img width="150px" src="./img/trace_visualizer.jpg"> <img width="150px" src="./img/sitespeed.jpg"> <img width="150px" src="./img/codecoverage.jpg"> <img width="150px" src="./img/coverage_analysis.jpg"> <img width="150px" src="./img/metrics.jpg">
+
 Alternatively you can simply run the helper script in the Build repository, which executes a few of the above mentioned checks:
 
 ```sh
