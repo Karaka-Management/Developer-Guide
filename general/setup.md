@@ -67,10 +67,13 @@ Additional tools and settings coming with the VM:
 
 1. Automatic trace and benchmark generation with every web request in `/var/www/html/webgrind/Logs`
 2. Webgrind view `http://vm_ip:82`
+   ![webgrind](./img/webgrind.jpg)
 3. Trace visualization `http://vm_ip:81`
    1. Download the latest trace from `http://vm_ip:82/Logs`
    2. Drag and drop that downloaded `*.xt` file in the trace visualizer
+   ![trace visualizer](./img/trace_visualizer.jpg)
 4. sitespeed.io `http://vm_ip:83`
+   ![sitespeed](./img/sitespeed.jpg)
 
 ### Option 2: Demo Application
 
