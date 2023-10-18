@@ -72,7 +72,7 @@ Additional tools and settings coming with the VM:
    2. Drag and drop that downloaded `*.xt` file in the trace visualizer
 4. sitespeed.io `http://vm_ip:83`
 
-![webgrind](./img/webgrind.jpg) ![trace visualizer](./img/trace_visualizer.jpg) ![sitespeed](./img/sitespeed.jpg) ![code coverage](./img/codecoverage.jpg) ![coverage analysis](./img/coverage_analysis.jpg) ![metrics](./img/metrics.jpg)
+<img width="150px" src="./img/webgrind.jpg"> <img width="150px" src="./img/trace_visualizer.jpg"> <img width="150px" src="./img/sitespeed.jpg"> <img width="150px" src="./img/codecoverage.jpg"> <img width="150px" src="./img/coverage_analysis.jpg"> <img width="150px" src="./img/metrics.jpg">
 
 ### Option 2: Demo Application
 
