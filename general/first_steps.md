@@ -26,10 +26,12 @@ All tests need to have the following docblocks:
 
 ##### Class
 
+```php
 /**
  * @testdox phpOMS\tests\Image\SkewTest: Image skew
  * @internal
  */
+```
 
 * @testdox Is a one-line test description which is included in a test report for customers. The **FQN is very important**, it must be present.
 
