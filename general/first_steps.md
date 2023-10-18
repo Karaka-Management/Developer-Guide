@@ -1,6 +1,6 @@
 # First steps
 
-After you installed the application and configured your development environment you are ready to make your first code contributions.
+After you [installed]({%}?page=general/setup.md) the application and configured your development environment you are ready to make your first code contributions.
 
 Please note that besides the general development guide the organization also provides various other organizational documents which help to understand the processes, development status and decisions made.
 
