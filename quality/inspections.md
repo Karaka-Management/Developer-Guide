@@ -220,6 +220,14 @@ npx eslint ./ -c Build/Config/.eslintrc.json
 
 > Many IDEs allow to integrate eslint rules/configuration files for automatic checks in the editor
 
+### Sitespeed
+
+You can perform sitespeed checks by using sitespeed.io. Example:
+
+```sh
+sitespeed.io http://192.168.178.38 -b chrome --outputFolder /var/www/html/sitespeed
+```
+
 ### Custom scripts
 
 #### C++ tests
