@@ -142,3 +142,7 @@ After the installation you'll have access to the following content:
 If you are interest on working on the c++ code base you will in addition need the following tools and libraries:
 
 * [OpenCV](https://docs.opencv.org/3.4/d7/d9f/tutorial_linux_install.html)
+
+## References
+
+[Installation](https://github.com/Karaka-Management/User-Guide/blob/develop/setup/install.md)
