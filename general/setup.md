@@ -70,6 +70,9 @@ Additional tools and settings coming with the VM:
 3. Trace visualization `http://vm_ip:81`
    1. Download the latest trace from `http://vm_ip:82/Logs`
    2. Drag and drop that downloaded `*.xt` file in the trace visualizer
+4. sitespeed.io `http://vm_ip:83`
+
+<img width="150px" src="./img/webgrind.jpg"> <img width="150px" src="./img/trace_visualizer.jpg"> <img width="150px" src="./img/sitespeed.jpg"> <img width="150px" src="./img/codecoverage.jpg"> <img width="150px" src="./img/coverage_analysis.jpg"> <img width="150px" src="./img/metrics.jpg">
 
 ### Option 2: Demo Application
 
@@ -139,3 +142,7 @@ After the installation you'll have access to the following content:
 If you are interest on working on the c++ code base you will in addition need the following tools and libraries:
 
 * [OpenCV](https://docs.opencv.org/3.4/d7/d9f/tutorial_linux_install.html)
+
+## References
+
+[Installation](https://github.com/Karaka-Management/User-Guide/blob/develop/setup/install.md)

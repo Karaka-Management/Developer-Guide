@@ -7,6 +7,8 @@ Code inspections are very important in order to maintain the same code quality t
 The following automated tests must pass without errors, failures and warnings for successful code changes:
 
 * `php ./vendor/bin/phpstan analyse -l 9 -c Build/Config/phpstan.neon ./`
+* `php vendor/bin/php-cs-fixer fix ./ --config=Build/Config/.php-cs-fixer.php --allow-risky=yes`
+* `php vendor/bin/phpcbf --standard=Build/Config/phpcs.xml ./`
 * `php ./vendor/bin/phpcs --severity=1 ./ --standard="Build/Config/phpcs.xml"`
 * `php ./vendor/bin/phpunit -c tests/phpunit_no_coverage.xml`
 * `php ./vendor/bin/rector process --config Build/Config/rector.php --dry-run ./`
@@ -14,6 +16,8 @@ The following automated tests must pass without errors, failures and warnings fo
 * `npx jasmine-node ./`
 * `./cOMS/tests/test.sh`
 * see [other checks](#other-checks) below
+
+<img width="150px" src="./img/webgrind.jpg"> <img width="150px" src="./img/trace_visualizer.jpg"> <img width="150px" src="./img/sitespeed.jpg"> <img width="150px" src="./img/codecoverage.jpg"> <img width="150px" src="./img/coverage_analysis.jpg"> <img width="150px" src="./img/metrics.jpg"> <img width="150px" src="./img/phpunit_html.jpg"> <img width="150px" src="./img/phpcs.jpg"> <img width="150px" src="./img/phpstan.jpg"> <img width="150px" src="./img/rector.jpg">
 
 Alternatively you can simply run the helper script in the Build repository, which executes a few of the above mentioned checks:
 
@@ -121,10 +125,10 @@ Tools used for the code inspection are:
 * PHPStan
 * Jasmine
 * PHPCS
+* PHP CS Fixer
+* PHP CBF
 * Rector
 * Custom scripts/tools
-
-These tools are all installed by running the `setup.sh` script from the Build repository.
 
 ### PHPUnit
 
@@ -176,6 +180,22 @@ php vendor/bin/phpcs --severity=1 ./ --standard="Build/Config/phpcs.xml" -s --re
 
 > Many IDEs allow to integrate phpcs rules/configuration files for automatic checks in the editor
 
+### PHP CS Fixer
+
+The php code base has a defined code style standard. The following command automatically fixes some of the violations
+
+```sh
+php vendor/bin/php-cs-fixer fix ./ --config=Build/Config/.php-cs-fixer.php --allow-risky=yes
+```
+
+### PHP CBF
+
+The php code base has a defined code style standard. The following command automatically fixes some of the violations
+
+```sh
+php vendor/bin/phpcbf --standard=Build/Config/phpcs.xml ./
+```
+
 ### Rector
 
 ```sh
@@ -199,6 +219,14 @@ npx eslint ./ -c Build/Config/.eslintrc.json
 ```
 
 > Many IDEs allow to integrate eslint rules/configuration files for automatic checks in the editor
+
+### Sitespeed
+
+You can perform sitespeed checks by using sitespeed.io. Example:
+
+```sh
+sitespeed.io http://192.168.178.38 -b chrome --outputFolder /var/www/html/sitespeed
+```
 
 ### Custom scripts
 
