@@ -143,10 +143,17 @@ php vendor/bin/phpunit -c tests/PHPUnit/phpunit_no_coverage.xml
 In order to also create a code coverage report run:
 
 ```sh
-php -dxdebug.remote_enable=1 -dxdebug.mode=coverage,develop vendor/bin/phpunit -c tests/phpunit_default.xml --log-junit Build/test/junit_php.xml --coverage-html Build/coverage
+php -dxdebug.mode=coverage,develop vendor/bin/phpunit -c tests/phpunit_default.xml --log-junit Build/test/junit_php.xml --coverage-html Build/coverage
 ```
 
 A visualization of the coverage can be found at http://127.0.0.1/Build/coverage
+
+If you would like to run a individual test suit run:
+
+```sh
+php -dxdebug.remote_enable=1 -dxdebug.start_with_request=yes -dxdebug.mode=coverage,develop vendor/bin/phpunit tests/MyTest.php
+
+```
 
 #### Modules
 
