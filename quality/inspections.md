@@ -17,7 +17,9 @@ The following automated tests must pass without errors, failures and warnings fo
 * `./cOMS/tests/test.sh`
 * see [other checks](#other-checks) below
 
-<img width="150px" src="./img/webgrind.jpg"> <img width="150px" src="./img/trace_visualizer.jpg"> <img width="150px" src="./img/sitespeed.jpg"> <img width="150px" src="./img/sitespeed_waterfall.jpg"> <img width="150px" src="./img/codecoverage.jpg"> <img width="150px" src="./img/coverage_analysis.jpg"> <img width="150px" src="./img/metrics.jpg"> <img width="150px" src="./img/phpunit_html.jpg"> <img width="150px" src="./img/phpcs.jpg"> <img width="150px" src="./img/phpstan.jpg"> <img width="150px" src="./img/rector.jpg">
+<p class="centerText">
+<img width="150px" tabindex="0" src="./Developer-Guide/quality/img/webgrind.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/quality/img/trace_visualizer.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/quality/img/sitespeed.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/quality/img/sitespeed_waterfall.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/quality/img/codecoverage.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/quality/img/coverage_analysis.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/quality/img/metrics.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/quality/img/phpunit_html.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/quality/img/phpcs.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/quality/img/phpstan.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/quality/img/rector.jpg">
+</p>
 
 Alternatively you can simply run the helper script in the Build repository, which executes a few of the above mentioned checks:
 
