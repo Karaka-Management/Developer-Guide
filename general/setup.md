@@ -2,9 +2,9 @@
 
 In order to setup the application for development for the first time please see the following instructions and recommendations.
 
-* [Dev-Environment Requirements](#dev-environment-requirements)
-* [Application install options](#application-install-options)
-* [cOMS](#coms)
+* [Dev-Environment Requirements]({%}#dev-environment-requirements)
+* [Application install options]({%}#application-install-options)
+* [cOMS]({%}#coms)
 
 ## Dev-Environment Requirements
 
@@ -72,7 +72,9 @@ Additional tools and settings coming with the VM:
    2. Drag and drop that downloaded `*.xt` file in the trace visualizer
 4. sitespeed.io `http://vm_ip:83`
 
-<img width="150px" src="./img/webgrind.jpg"> <img width="150px" src="./img/trace_visualizer.jpg"> <img width="150px" src="./img/sitespeed.jpg"> <img width="150px" src="./img/codecoverage.jpg"> <img width="150px" src="./img/coverage_analysis.jpg"> <img width="150px" src="./img/metrics.jpg">
+<p class="centerText">
+<img width="150px" tabindex="0" src="./Developer-Guide/general/img/webgrind.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/general/img/trace_visualizer.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/general/img/sitespeed.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/general/img/codecoverage.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/general/img/coverage_analysis.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/general/img/metrics.jpg">
+</p>
 
 ### Option 2: Demo Application
 
