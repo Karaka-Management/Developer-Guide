@@ -35,11 +35,13 @@ Don't use C++ templates.
 
 Use C allocation methods for heap allocation.
 
-## C++ function
+## Functions
+
+### C++ function
 
 Don't use C++ standard functions or C++ functions provided by other C++ header files unless you have to work with C++ types which is often required when working with third party libraries.
 
-## Modifying vs. returning
+### Parameters
 
 Generally, functions that thake pointers to non-scalar types should modify the data instead of allocating new memory **IF** reasonable. This forces programmers to consciously create copies before passing data **IF** they need the original data. To indicate that a reference/pointer is not modified by a function define them as const!
 
