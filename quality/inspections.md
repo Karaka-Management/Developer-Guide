@@ -15,7 +15,6 @@ The following automated tests must pass without errors, failures and warnings fo
 * `npx eslint ./ -c Build/Config/.eslintrc.json`
 * `npx jasmine-node ./`
 * `./cOMS/tests/test.sh`
-* `sitespeed.io ./Build/Helper/Scripts/sitespeedDemoUrls.txt -b chrome --outputFolder /var/www/html/sitespeed`
 * see [other checks](#other-checks) below
 
 <p class="centerText">
