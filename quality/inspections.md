@@ -15,6 +15,7 @@ The following automated tests must pass without errors, failures and warnings fo
 * `npx eslint ./ -c Build/Config/.eslintrc.json`
 * `npx jasmine-node ./`
 * `./cOMS/tests/test.sh`
+* sitespeed.io ./Build/Helper/Scripts/sitespeedDemoUrls.txt -b chrome --outputFolder /var/www/html/sitespeed
 * see [other checks](#other-checks) below
 
 <p class="centerText">
@@ -234,7 +235,7 @@ npx eslint ./ -c Build/Config/.eslintrc.json
 You can perform sitespeed checks by using sitespeed.io. Example:
 
 ```sh
-sitespeed.io http://192.168.178.38 -b chrome --outputFolder /var/www/html/sitespeed
+sitespeed.io ./Build/Helper/Scripts/sitespeedDemoUrls.txt -b chrome --outputFolder /var/www/html/sitespeed
 ```
 
 ### Custom scripts
