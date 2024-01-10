@@ -88,7 +88,7 @@ This will only setup the application including some dummy data and also perform 
 6. Run `npm install` inside `Karaka`
 7. Create the database `omd` in your database management software
 8. Adjust the `demoSetup/config.php` file according to your settings (e.g. database user name + password)
-9. Run `php demoSetup/setup.php` inside `Karaka` (takes a long time: > 1h)
+9. Run `php demoSetup/setup.php` inside `Karaka` (takes a long time: > 2h)
 
 After the installation you'll have access to the following content:
 
