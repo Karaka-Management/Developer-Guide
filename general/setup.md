@@ -42,11 +42,11 @@ Which IDE or editor a developer uses is up to the individual developer. From exp
 
 ## Application install options
 
-Option 1 and 2 require you to install the dev tools in advance!
+Option 2 and 3 require you to install the dev tools in advance!
 
 1. Option: Use the virtual machine we provide for devs which has everything setup and configured to start almost instantly after download **Most Recommended**
 2. Option: Installs the application (with a lot of dummy data, this may take a long time). **Recommended (slow but a lot of useful data)**
-3. Option: Installs the application (with or without performing tests). **Recommended (slow and much less useful data)**
+3. Option: Installs the application (with or without performing tests). **(slow and much less useful data)**
 
 ### Option 1: VM
 
@@ -88,7 +88,7 @@ This will only setup the application including some dummy data and also perform 
 6. Run `npm install` inside `Karaka`
 7. Create the database `omd` in your database management software
 8. Adjust the `demoSetup/config.php` file according to your settings (e.g. database user name + password)
-9. Run `php demoSetup/setup.php` inside `Karaka` (takes a long time: > 1h)
+9. Run `php demoSetup/setup.php` inside `Karaka` (takes a long time: > 2h)
 
 After the installation you'll have access to the following content:
 

@@ -234,8 +234,16 @@ npx eslint ./ -c Build/Config/.eslintrc.json
 You can perform sitespeed checks by using sitespeed.io. Example:
 
 ```sh
-sitespeed.io http://192.168.178.38 -b chrome --outputFolder /var/www/html/sitespeed
+sitespeed.io ./Build/Helper/Scripts/sitespeedDemoUrls.txt -b chrome --outputFolder /var/www/html/sitespeed
 ```
+
+### Profiles & trace views
+
+1. Automatic trace and benchmark generation with every web request in `/var/www/html/webgrind/Logs`
+2. Webgrind view `http://vm_ip:82`
+3. Trace visualization `http://vm_ip:81`
+   1. Download the latest trace from `http://vm_ip:82/Logs`
+   2. Drag and drop that downloaded `*.xt` file in the trace visualizer
 
 ### Custom scripts
 
