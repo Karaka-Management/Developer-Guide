@@ -7,8 +7,8 @@ Code inspections are very important in order to maintain the same code quality t
 The following automated tests must pass without errors, failures and warnings for successful code changes:
 
 * `php ./vendor/bin/phpstan analyse -l 9 -c Build/Config/phpstan.neon ./`
-* `php vendor/bin/php-cs-fixer fix ./ --config=Build/Config/.php-cs-fixer.php --allow-risky=yes`
-* `php vendor/bin/phpcbf --standard=Build/Config/phpcs.xml ./`
+* `php ./vendor/bin/php-cs-fixer fix ./ --config=Build/Config/.php-cs-fixer.php --allow-risky=yes`
+* `php ./vendor/bin/phpcbf --standard=Build/Config/phpcs.xml ./`
 * `php ./vendor/bin/phpcs --severity=1 ./ --standard="Build/Config/phpcs.xml"`
 * `php ./vendor/bin/phpunit -c tests/phpunit_no_coverage.xml`
 * `php ./vendor/bin/rector process --config Build/Config/rector.php --dry-run ./`
