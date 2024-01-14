@@ -245,6 +245,15 @@ sitespeed.io ./Build/Helper/Scripts/sitespeedDemoUrls.txt -b chrome --outputFold
    1. Download the latest trace from `http://vm_ip:82/Logs`
    2. Drag and drop that downloaded `*.xt` file in the trace visualizer
 
+### SQL performance
+
+With query profiling enabled you can inspect slow running queries that may need optimization. The threashold for slow running queries is defined at 0.5s.
+
+```sh
+mysqldumpslow -t 10 /var/log/mysql/mysql-slow.log
+mysqldumpslow -t 10 -s l /var/log/mysql/mysql-slow.log
+```
+
 ### Custom scripts
 
 #### C++ tests
