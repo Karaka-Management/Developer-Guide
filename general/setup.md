@@ -16,7 +16,7 @@ The following dev tools are highly recommended and the documentation assumes you
 
 ```sh
 # For php/html/javascript developers
-sudo apt-get install git poppler-utils mariadb-server mariadb-client postgresql postgresql-contrib vsftpd tesseract-ocr wget curl grep sed composer nodejs npm software-properties-common php8.1 php8.1-dev php8.1-cli php8.1-common php8.1-mysql php8.1-pgsql php8.1-xdebug php8.1-opcache php8.1-pdo php8.1-sqlite php8.1-mbstring php8.1-curl php8.1-imap php8.1-bcmath php8.1-zip php8.1-dom php8.1-xml php8.1-phar php8.1-gd php-pear apache2 redis redis-server memcached sqlite3 wkhtmltopdf
+sudo apt-get install git poppler-utils mariadb-server mariadb-client postgresql postgresql-contrib vsftpd tesseract-ocr wget curl grep sed composer nodejs npm software-properties-common php8.1 php8.1-dev php8.1-cli php8.1-common php8.1-mysql php8.1-pgsql php8.1-xdebug php8.1-opcache php8.1-pdo php8.1-sqlite php8.1-mbstring php8.1-curl php8.1-imap php8.1-bcmath php8.1-zip php8.1-dom php8.1-xml php8.1-phar php8.1-gd php-pear apache2 redis redis-server memcached sqlite3 wkhtmltopdf imagemagick
 
 sudo systemctl enable apache2
 sudo mysql_secure_installation
