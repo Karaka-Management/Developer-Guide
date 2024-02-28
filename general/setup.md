@@ -74,7 +74,7 @@ Additional tools and settings coming with the VM:
 5. `sitespeed.io ./Build/Helper/Scripts/sitespeedDemoUrls.txt -b chrome --outputFolder /var/www/html/sitespeed`
 6. Slow sql query threashold is defined as 0.5s.
 
-<p class="centerText">
+<p class="cT">
 <img width="150px" tabindex="0" src="./Developer-Guide/general/img/webgrind.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/general/img/trace_visualizer.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/general/img/sitespeed.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/general/img/codecoverage.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/general/img/coverage_analysis.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/general/img/metrics.jpg">
 </p>
 

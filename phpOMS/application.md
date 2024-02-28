@@ -21,10 +21,10 @@ The .htaccess file can be used to enable URL rewriting, file compression for css
 
 ## index.php
 
-In the index file the application gets initialized and executed. 
+In the index file the application gets initialized and executed.
 
 ```php
-<?php 
+<?php
 declare(strict_types=1);
 
 // index.php
@@ -40,14 +40,14 @@ echo $App->run(); // outputs the application response
 \ob_end_flush();
 ```
 
-We use output buffering `\ob_start()` and `\ob_end_flush()` which allows the application to internally modify the response before it gets returned to the user. 
+We use output buffering `\ob_start()` and `\ob_end_flush()` which allows the application to internally modify the response before it gets returned to the user.
 
 ## Application.php
 
 The application file is responsible for initializing the application resources, handling the request and response population (see Router and Dispatcher) as well as rendering the main view. Another task which is often performed in this file is the user authentication.
 
 ```php
-<?php 
+<?php
 declare(strict_types=1);
 
 // app/Application.php
@@ -160,7 +160,7 @@ class Application extends ApplicationAbstract
 The routes file contains the routing information. which is responsible for matching URLs to application end-points.
 
 ```php
-<?php 
+<?php
 declare(strict_types=1);
 
 // app/Routes.php
