@@ -3,11 +3,13 @@
 The following directory structure shows how a update/patch package has to be structured.The purpose of the different files will be
 covered afterwards.
 
+```
 * {UniquePackageName.tar.gz}
     * signature.cert
     * Files
         * package.json
         * {other_files_or_subdirectories}
+```
 
 ## Package Name
 

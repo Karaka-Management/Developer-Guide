@@ -37,7 +37,6 @@ data-update-tpl
 data-tpl-text-path : remote path for the text
 data-tpl-value-path : remote path for the text
 
-
 ## Todos
 
 ### General

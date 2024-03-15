@@ -180,17 +180,27 @@ Todos should be documented in the [todo list](https://github.com/orgs/Karaka-Man
 In code todos can be created like this
 
 ```php
-// @todo: Single line todo
+// @todo Single line todo
+// @bug Single line bug
+// @security Single line security
 ```
 
 ```php
 /**
- * @todo: Multi line todo
- *  This way developers can see todos directly in the code without going to an external source.
- *  Todos must not have empty lines in their descriptions.
- *  If the external ressources have empty lines they must be removed in the todo comment.
- *      1. list item 1
- *      2. list item 2
+ * @todo Multi line todo
+ *      This way developers can see todos directly in the code without going to an external source.
+ *      Todos must not have empty lines in their descriptions.
+ *      If the external resources have empty lines they must be removed in the todo comment.
+ *          1. list item 1
+ *          2. list item 2
  */
 ```
 
+We support and recognize the following todo tags:
+
+* @security For todos which have a strong security impact
+* @bug For bugs
+* @feature For features that should be implemented
+* @performance For ideas/concerns regarding performance
+* @todo General todos
+* @question Ideas and concerns that need further investigation

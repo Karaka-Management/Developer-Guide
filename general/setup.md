@@ -2,9 +2,9 @@
 
 In order to setup the application for development for the first time please see the following instructions and recommendations.
 
-* [Dev-Environment Requirements](#dev-environment-requirements)
-* [Application install options](#application-install-options)
-* [cOMS](#coms)
+* [Dev-Environment Requirements]({%}#dev-environment-requirements)
+* [Application install options]({%}#application-install-options)
+* [cOMS]({%}#coms)
 
 ## Dev-Environment Requirements
 
@@ -16,7 +16,7 @@ The following dev tools are highly recommended and the documentation assumes you
 
 ```sh
 # For php/html/javascript developers
-sudo apt-get install git poppler-utils mariadb-server mariadb-client postgresql postgresql-contrib vsftpd tesseract-ocr wget curl grep sed composer nodejs npm software-properties-common php8.1 php8.1-dev php8.1-cli php8.1-common php8.1-mysql php8.1-pgsql php8.1-xdebug php8.1-opcache php8.1-pdo php8.1-sqlite php8.1-mbstring php8.1-curl php8.1-imap php8.1-bcmath php8.1-zip php8.1-dom php8.1-xml php8.1-phar php8.1-gd php-pear apache2 redis redis-server memcached sqlite3 wkhtmltopdf
+sudo apt-get install git poppler-utils mariadb-server mariadb-client postgresql postgresql-contrib vsftpd tesseract-ocr wget curl grep sed composer nodejs npm software-properties-common php8.1 php8.1-dev php8.1-cli php8.1-common php8.1-mysql php8.1-pgsql php8.1-xdebug php8.1-opcache php8.1-pdo php8.1-sqlite php8.1-mbstring php8.1-curl php8.1-imap php8.1-bcmath php8.1-zip php8.1-dom php8.1-xml php8.1-phar php8.1-gd php-pear apache2 redis redis-server memcached sqlite3 wkhtmltopdf imagemagick
 
 sudo systemctl enable apache2
 sudo mysql_secure_installation
@@ -42,11 +42,11 @@ Which IDE or editor a developer uses is up to the individual developer. From exp
 
 ## Application install options
 
-Option 1 and 2 require you to install the dev tools in advance!
+Option 2 and 3 require you to install the dev tools in advance!
 
 1. Option: Use the virtual machine we provide for devs which has everything setup and configured to start almost instantly after download **Most Recommended**
 2. Option: Installs the application (with a lot of dummy data, this may take a long time). **Recommended (slow but a lot of useful data)**
-3. Option: Installs the application (with or without performing tests). **Recommended (slow and much less useful data)**
+3. Option: Installs the application (with or without performing tests). **(slow and much less useful data)**
 
 ### Option 1: VM
 
@@ -65,11 +65,18 @@ Please contact us if you would like to use our VM, we will send you a download l
 
 Additional tools and settings coming with the VM:
 
-1. Automatic trace and benchmark generation with every web request in `/var/www/html/webgrind/Logs`
-2. Webgrind view `http://vm_ip:82`
-3. Trace visualization `http://vm_ip:81`
+1. composer & npm already installed incl. the respective developer tools
+2. Automatic trace and benchmark generation with every web request in `/var/www/html/webgrind/Logs`
+3. Webgrind view `http://vm_ip:82`
+4. Trace visualization `http://vm_ip:81`
    1. Download the latest trace from `http://vm_ip:82/Logs`
    2. Drag and drop that downloaded `*.xt` file in the trace visualizer
+5. `sitespeed.io ./Build/Helper/Scripts/sitespeedDemoUrls.txt -b chrome --outputFolder /var/www/html/sitespeed`
+6. Slow sql query threashold is defined as 0.5s.
+
+<p class="cT">
+<img width="150px" tabindex="0" src="./Developer-Guide/general/img/webgrind.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/general/img/trace_visualizer.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/general/img/sitespeed.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/general/img/codecoverage.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/general/img/coverage_analysis.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/general/img/metrics.jpg">
+</p>
 
 ### Option 2: Demo Application
 
@@ -83,7 +90,7 @@ This will only setup the application including some dummy data and also perform 
 6. Run `npm install` inside `Karaka`
 7. Create the database `omd` in your database management software
 8. Adjust the `demoSetup/config.php` file according to your settings (e.g. database user name + password)
-9. Run `php demoSetup/setup.php` inside `Karaka` (takes a long time: > 1h)
+9. Run `php demoSetup/setup.php` inside `Karaka` (takes a long time: > 2h)
 
 After the installation you'll have access to the following content:
 
@@ -139,3 +146,7 @@ After the installation you'll have access to the following content:
 If you are interest on working on the c++ code base you will in addition need the following tools and libraries:
 
 * [OpenCV](https://docs.opencv.org/3.4/d7/d9f/tutorial_linux_install.html)
+
+## References
+
+[Installation](https://github.com/Karaka-Management/User-Guide/blob/develop/setup/install.md)

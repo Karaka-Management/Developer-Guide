@@ -4,7 +4,9 @@ The user request gets passed through the entire application to all modules. The 
 
 The routes usually reference endpoints in the module `controllers` which collects the model data through the model `mapper` and creates a partial response `view` with an assigned `template` and the collected model data.
 
-![Application Flow](Developer-Guide/general/app_flow.drawio.svg)
+<p class="cT">
+    <img alt="Application Flow" src="./Developer-Guide/general/app_flow.drawio.svg">
+</p>
 
 In the following only the WebApplication and Application are mentioned as the other components are explained in detail in their respective documentation.
 
@@ -33,4 +35,6 @@ Furthermore the Application also performs a `CSRF` check, defines the `CSP`, aut
 
 A short extract of the database structure can be seen below. Please note that this only contains the very basic tables from a fresh install with very few modules and even then we only included the key tables for simplicity reasons.
 
-![Application Flow](Developer-Guide/general/base_uml.drawio.svg)
+<p class="cT">
+    <img alt="Application UML" src="./Developer-Guide/general/base_uml.drawio.svg">
+</p>

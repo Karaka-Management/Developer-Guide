@@ -7,6 +7,8 @@ Code inspections are very important in order to maintain the same code quality t
 The following automated tests must pass without errors, failures and warnings for successful code changes:
 
 * `php ./vendor/bin/phpstan analyse -l 9 -c Build/Config/phpstan.neon ./`
+* `php ./vendor/bin/php-cs-fixer fix ./ --config=Build/Config/.php-cs-fixer.php --allow-risky=yes`
+* `php ./vendor/bin/phpcbf --standard=Build/Config/phpcs.xml ./`
 * `php ./vendor/bin/phpcs --severity=1 ./ --standard="Build/Config/phpcs.xml"`
 * `php ./vendor/bin/phpunit -c tests/phpunit_no_coverage.xml`
 * `php ./vendor/bin/rector process --config Build/Config/rector.php --dry-run ./`
@@ -14,6 +16,10 @@ The following automated tests must pass without errors, failures and warnings fo
 * `npx jasmine-node ./`
 * `./cOMS/tests/test.sh`
 * see [other checks](#other-checks) below
+
+<p class="cT">
+<img width="150px" tabindex="0" src="./Developer-Guide/quality/img/webgrind.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/quality/img/trace_visualizer.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/quality/img/sitespeed.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/quality/img/sitespeed_waterfall.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/quality/img/codecoverage.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/quality/img/coverage_analysis.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/quality/img/metrics.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/quality/img/phpunit_html.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/quality/img/phpcs.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/quality/img/phpstan.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/quality/img/rector.jpg">
+</p>
 
 Alternatively you can simply run the helper script in the Build repository, which executes a few of the above mentioned checks:
 
@@ -121,10 +127,10 @@ Tools used for the code inspection are:
 * PHPStan
 * Jasmine
 * PHPCS
+* PHP CS Fixer
+* PHP CBF
 * Rector
 * Custom scripts/tools
-
-These tools are all installed by running the `setup.sh` script from the Build repository.
 
 ### PHPUnit
 
@@ -139,10 +145,17 @@ php vendor/bin/phpunit -c tests/PHPUnit/phpunit_no_coverage.xml
 In order to also create a code coverage report run:
 
 ```sh
-php -dxdebug.remote_enable=1 -dxdebug.mode=coverage,develop vendor/bin/phpunit -c tests/phpunit_default.xml --log-junit Build/test/junit_php.xml --coverage-html Build/coverage
+php -dxdebug.mode=coverage,develop,debug vendor/bin/phpunit -c tests/phpunit_default.xml --log-junit Build/test/junit_php.xml --coverage-html Build/coverage
 ```
 
 A visualization of the coverage can be found at http://127.0.0.1/Build/coverage
+
+If you would like to run a individual test suit run:
+
+```sh
+php -dxdebug.remote_enable=1 -dxdebug.start_with_request=yes -dxdebug.mode=coverage,develop,debug vendor/bin/phpunit tests/MyTest.php
+
+```
 
 #### Modules
 
@@ -176,6 +189,22 @@ php vendor/bin/phpcs --severity=1 ./ --standard="Build/Config/phpcs.xml" -s --re
 
 > Many IDEs allow to integrate phpcs rules/configuration files for automatic checks in the editor
 
+### PHP CS Fixer
+
+The php code base has a defined code style standard. The following command automatically fixes some of the violations
+
+```sh
+php vendor/bin/php-cs-fixer fix ./ --config=Build/Config/.php-cs-fixer.php --allow-risky=yes
+```
+
+### PHP CBF
+
+The php code base has a defined code style standard. The following command automatically fixes some of the violations
+
+```sh
+php vendor/bin/phpcbf --standard=Build/Config/phpcs.xml ./
+```
+
 ### Rector
 
 ```sh
@@ -199,6 +228,31 @@ npx eslint ./ -c Build/Config/.eslintrc.json
 ```
 
 > Many IDEs allow to integrate eslint rules/configuration files for automatic checks in the editor
+
+### Sitespeed
+
+You can perform sitespeed checks by using sitespeed.io. Example:
+
+```sh
+sitespeed.io ./Build/Helper/Scripts/sitespeedDemoUrls.txt -b chrome --outputFolder /var/www/html/sitespeed
+```
+
+### Profiles & trace views
+
+1. Automatic trace and benchmark generation with every web request in `/var/www/html/webgrind/Logs`
+2. Webgrind view `http://vm_ip:82`
+3. Trace visualization `http://vm_ip:81`
+   1. Download the latest trace from `http://vm_ip:82/Logs`
+   2. Drag and drop that downloaded `*.xt` file in the trace visualizer
+
+### SQL performance
+
+With query profiling enabled you can inspect slow running queries that may need optimization. The threashold for slow running queries is defined at 0.5s.
+
+```sh
+mysqldumpslow -t 10 /var/log/mysql/mysql-slow.log
+mysqldumpslow -t 10 -s l /var/log/mysql/mysql-slow.log
+```
 
 ### Custom scripts
 
@@ -253,4 +307,4 @@ The following checks should also be performed. If you use the git hooks from the
 
 ## References
 
-[Development process](https://github.com/Karaka-Management/Organization-Guide/blob/master/Processes/Development.md)
+[Development process](https://github.com/Karaka-Management/Organization-Guide/blob/master/Processes/01_Development.md)

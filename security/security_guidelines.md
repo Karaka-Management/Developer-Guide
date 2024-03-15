@@ -72,8 +72,8 @@ Javascript can now be included like this:
 $head  = $response->data['Content']->head;
 $nonce = $this->app->appSettings->getOption('script-nonce');
 
-$head->addAsset(AssetType::JSLATE, 'Resources/chartjs/Chartjs/chart.js', ['nonce' => $nonce]);
-$head->addAsset(AssetType::JSLATE, 'Modules/ItemManagement/Controller.js', ['nonce' => $nonce, 'type' => 'module']);
+$head->addAsset(AssetType::JSLATE, 'Resources/chartjs/Chartjs/chart.js?v=' . $this->app->version, ['nonce' => $nonce]);
+$head->addAsset(AssetType::JSLATE, 'Modules/ItemManagement/Controller.js?v=' . self::VERSION, ['nonce' => $nonce, 'type' => 'module']);
 ```
 
 ### X-XSS-Protection

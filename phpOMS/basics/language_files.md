@@ -13,7 +13,7 @@ The content of the language files is very simple. All you need is the module nam
 ```php
 <?php
 /**
- * Karaka
+ * Jingga
  *
  * PHP Version 8.1
  *
