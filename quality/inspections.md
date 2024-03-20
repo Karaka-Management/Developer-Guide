@@ -304,6 +304,10 @@ The following checks should also be performed. If you use the git hooks from the
 * Php files without strict_types
 * Has logs
 * Has whitespace at line end
+  
+##### Other manual checks
+
+By adding the `?debug=1` query parameter to a url a css file gets loaded that can help finding missing html attributes (e.g. alt="", for="", ...) by drawing a red border around the element that possibly needs improving.
 
 ## References
 
