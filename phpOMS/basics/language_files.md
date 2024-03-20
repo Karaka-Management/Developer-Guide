@@ -15,7 +15,7 @@ The content of the language files is very simple. All you need is the module nam
 /**
  * Jingga
  *
- * PHP Version 8.1
+ * PHP Version 8.2
  *
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
