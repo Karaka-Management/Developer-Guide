@@ -130,7 +130,7 @@ This will only setup the application including some dummy data and also perform 
 3. Run `git submodule foreach git checkout develop`
 4. Run `composer install` inside `Karaka`
 5. Run `npm install` inside `Karaka`
-6. Create the database `oms` in your database management software
+6. Create the database `omt` in your database management software
 7. Adjust the `tests/Bootstrap.php` file according to your settings (e.g. database user name + password)
 8. Run `php -dxdebug.mode=develop,debug,profile,coverage -dxdebug.start_with_request=yes vendor/bin/phpunit --configuration tests/phpunit_default.xml` inside `Karaka` or open `http://127.0.0.1/Install` for a web install without dummy data.
 
