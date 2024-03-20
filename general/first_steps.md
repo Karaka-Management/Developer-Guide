@@ -41,7 +41,7 @@ All tests need to have the following docblocks:
 /**
  * @testdox A image can be automatically unskewed
  * @group framework
- * @covers phpOMS\Image\Skew
+ * @covers \phpOMS\Image\Skew
  */
 ```
 
