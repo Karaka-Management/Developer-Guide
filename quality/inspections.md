@@ -1,6 +1,6 @@
 # Code Inspections & Tests
 
-Code inspections are very important in order to maintain the same code quality throughout the application. The `Build` repository and package managers such as `composer` and `npm` contain all essential configuration files for the respective php and javascript inspection tools. The framework and every module will be evaluated based on the defined code and quality standards. Only code that passes all code, quality and test standards is accepted. Updates and bug fixes also must follow these standards.
+Code inspections are very important in order to maintain the same code quality throughout the application. The [Build](https://github.com/Karaka-Management/Build) repository and package managers such as `composer` and `npm` contain all essential configuration files for the respective php and javascript inspection tools. The framework and every module will be evaluated based on the defined code and quality standards. Only code that passes all code, quality and test standards is accepted. Updates and bug fixes also must follow these standards.
 
 ## Summary
 
@@ -27,7 +27,7 @@ Alternatively you can simply run the helper script in the Build repository, whic
 ./Build/Helper/inspectproject.sh
 ```
 
-An overview of all tests and statistics can be found at https://dev.jingga.app. Navigate to the ./src directory and then open the ./src/**/build directory of the respective repository.
+An overview of all tests and statistics can be found at https://dev.jingga.app. Navigate to the `./src` directory and then open the `./src/**/build` directory of the respective repository.
 
 > Manual tests and inspections may reveal further issues during the review process requiring additional code changes
 
@@ -49,14 +49,14 @@ When testing it makes sense to test for the happy path/branch of how a method sh
 
 ### Test locations
 
-* Application: tests
-* Php framework: phpOMS/tests
-* Modules: Modules/**/tests
-* Js framework: jsOMS/tests
-* C++ framework + tools: cOMS/tests
-* Css framework: cssOMS/tests
-* Configurations for tools: Build/Config
-* Inspection script: Build/php.sh or Builde/Helper/Scripts/inspectproject.sh
+* Application: `tests`
+* Php framework: `phpOMS/tests`
+* Modules: `Modules/**/tests`
+* Js framework: `jsOMS/tests`
+* C++ framework + tools: `cOMS/tests`
+* Css framework: `cssOMS/tests`
+* Configurations for tools: `Build/Config`
+* Inspection script: `Build/php.sh` or `Builde/Helper/Scripts/inspectproject.sh`
 
 ### Unit tests
 
@@ -76,7 +76,7 @@ The system tests are the highest level of tests and test the overall functionali
 
 Every module must implement the following tests if applicable:
 
-* general module tests (e.g. install, update, delete, status change)
+* general module tests (e.g. `AdminTest.php`, install, update, delete, status change)
 * admin tests (`use \tests\Modules\ModuleTestTrait;`)
 * model tests (unit tests)
 * controller tests (e.g. ApiController tests)
@@ -96,9 +96,9 @@ The following command will create a demo application:
 php demoSetup/setup.php
 ```
 
-> You might want to call the setup script as a different user to ensure the same permissions `sudo -u wwww-data php demoSetup/setup.php`
+> You might want to call the setup script as a different user to ensure the same permissions `sudo -u wwww-demo php demoSetup/setup.php` or `sudo -u wwww-data php demoSetup/setup.php`
 
-In some cases code changes may require changes to the demo setup script (e.g. changes in the api, new modules). Since the demo setup script tries to simulate user generated data it takes some time to run. You may speed up the runtime by parallelizing the execution. However, this may use up 100% of your CPU and storage performance.
+In some cases code changes may require changes to the demo setup script (e.g. changes in the api, new modules). Since the demo setup script tries to simulate user generated data it takes some time to run. You may speed up the runtime by parallelizing the execution. However, this may use up 100% of your CPU and storage performance:
 
 ```sh
 php demoSetup/setup.php -a 0
@@ -116,8 +116,8 @@ In the demo application it is possible to highlight html and css warnings (e.g. 
 
 * every test must have a short test description
 * every test and description must be added to the test report
-* every test needs a test category (e.g. framework, module etc.)
-* every test should have a @covers annotation to specify which class it covers
+* every test needs a test category (for PHPUnit tests) (e.g. framework, module etc.)
+* every test should have a covers attribute (for PHPUnit tests) to specify which class it covers
 
 ## Tools
 
@@ -304,6 +304,10 @@ The following checks should also be performed. If you use the git hooks from the
 * Php files without strict_types
 * Has logs
 * Has whitespace at line end
+  
+##### Other manual checks
+
+By adding the `?debug=1` query parameter to a url a css file gets loaded that can help finding missing html attributes (e.g. alt="", for="", ...) by drawing a red border around the element that possibly needs improving.
 
 ## References
 
