@@ -13,7 +13,7 @@ The following automated tests must pass without errors, failures and warnings fo
 * `php ./vendor/bin/phpunit -c tests/phpunit_no_coverage.xml`
 * `php ./vendor/bin/rector process --config Build/Config/rector.php --dry-run ./`
 * `npx eslint ./ -c Build/Config/.eslintrc.json`
-* `npx jasmine-node ./`
+* `./Build/Config/jasmine_build.sh && npx jasmine --config=Build/Config/jasmine.json`
 * `./cOMS/tests/test.sh`
 
 <p class="cT">
@@ -224,7 +224,7 @@ php vendor/bin/rector process --dry-run --config Build/Config/rector.php ./
 The javascript testing is done with jasmine. The javascript testing directory is structured the same way as the `Framework`. Unit tests for specific classes need to be named in the same manner as the testing class.
 
 ```sh
-npx jasmine-node ./
+./Build/Config/jasmine_build.sh && npx jasmine --config=Build/Config/jasmine.json
 ```
 
 Alternatively you can open `http://127.0.0.1/jsOMS/tests/SpecRunner.html` to run the tests in your browser.
