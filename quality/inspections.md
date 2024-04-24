@@ -1,6 +1,6 @@
 # Code Inspections & Tests
 
-Code inspections are very important in order to maintain the same code quality throughout the application. The `Build` repository and package managers such as `composer` and `npm` contain all essential configuration files for the respective php and javascript inspection tools. The framework and every module will be evaluated based on the defined code and quality standards. Only code that passes all code, quality and test standards is accepted. Updates and bug fixes also must follow these standards.
+Code inspections are very important in order to maintain the same code quality throughout the application. The [Build](https://github.com/Karaka-Management/Build) repository and package managers such as `composer` and `npm` contain all essential configuration files for the respective php and javascript inspection tools. The framework and every module will be evaluated based on the defined code and quality standards. Only code that passes all code, quality and test standards is accepted. Updates and bug fixes also must follow these standards.
 
 ## Summary
 
@@ -13,9 +13,8 @@ The following automated tests must pass without errors, failures and warnings fo
 * `php ./vendor/bin/phpunit -c tests/phpunit_no_coverage.xml`
 * `php ./vendor/bin/rector process --config Build/Config/rector.php --dry-run ./`
 * `npx eslint ./ -c Build/Config/.eslintrc.json`
-* `npx jasmine-node ./`
+* `./Build/Config/jasmine_build.sh && npx jasmine --config=Build/Config/jasmine.json`
 * `./cOMS/tests/test.sh`
-* see [other checks](#other-checks) below
 
 <p class="cT">
 <img width="150px" tabindex="0" src="./Developer-Guide/quality/img/webgrind.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/quality/img/trace_visualizer.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/quality/img/sitespeed.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/quality/img/sitespeed_waterfall.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/quality/img/codecoverage.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/quality/img/coverage_analysis.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/quality/img/metrics.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/quality/img/phpunit_html.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/quality/img/phpcs.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/quality/img/phpstan.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/quality/img/rector.jpg">
@@ -27,7 +26,7 @@ Alternatively you can simply run the helper script in the Build repository, whic
 ./Build/Helper/inspectproject.sh
 ```
 
-An overview of all tests and statistics can be found at https://dev.jingga.app. Navigate to the ./src directory and then open the ./src/**/build directory of the respective repository.
+An overview of all tests and statistics can be found at https://dev.jingga.app. Navigate to the `./src` directory and then open the `./src/**/build` directory of the respective repository.
 
 > Manual tests and inspections may reveal further issues during the review process requiring additional code changes
 
@@ -49,14 +48,15 @@ When testing it makes sense to test for the happy path/branch of how a method sh
 
 ### Test locations
 
-* Application: tests
-* Php framework: phpOMS/tests
-* Modules: Modules/**/tests
-* Js framework: jsOMS/tests
-* C++ framework + tools: cOMS/tests
-* Css framework: cssOMS/tests
-* Configurations for tools: Build/Config
-* Inspection script: Build/php.sh or Builde/Helper/Scripts/inspectproject.sh
+* Application: `tests`
+* Php framework: `phpOMS/tests`
+* Modules: `Modules/**/tests`
+* Js framework: `jsOMS/tests`
+* C++ framework + tools: `cOMS/tests`
+* Css framework: `cssOMS/tests`
+* Configurations for tools: `Build/Config`
+* Inspection script: `Build/php.sh` or `Build/Helper/Scripts/inspectproject.sh`
+* End-to-End: `tests/Web`
 
 ### Unit tests
 
@@ -68,15 +68,15 @@ Integration tests are the second level or middle level of tests. These types of 
 
 For large controllers it can make sense to define a `*ControllerTest` which uses `Traits` in order to categorize different suits of tests. For example in the `Admin` ApiControllerTest we implemented different traits for group, account and module tests.
 
-### System tests
+### User/End-To-End
 
-The system tests are the highest level of tests and test the overall functionality and if the implementation fulfills the specifications.
+The User/End-To-End tests are the highest level of tests and test the overall functionality and if the implementation fulfills the specifications.
 
 ### Modules
 
 Every module must implement the following tests if applicable:
 
-* general module tests (e.g. install, update, delete, status change)
+* general module tests (e.g. `AdminTest.php`, install, update, delete, status change)
 * admin tests (`use \tests\Modules\ModuleTestTrait;`)
 * model tests (unit tests)
 * controller tests (e.g. ApiController tests)
@@ -96,12 +96,20 @@ The following command will create a demo application:
 php demoSetup/setup.php
 ```
 
-> You might want to call the setup script as a different user to ensure the same permissions `sudo -u wwww-data php demoSetup/setup.php`
+> You might want to call the setup script as a different user to ensure the same permissions `sudo -u wwww-demo php demoSetup/setup.php` or `sudo -u wwww-data php demoSetup/setup.php`
 
-In some cases code changes may require changes to the demo setup script (e.g. changes in the api, new modules). Since the demo setup script tries to simulate user generated data it takes some time to run. You may speed up the runtime by parallelizing the execution. However, this may use up 100% of your CPU and storage performance.
+In some cases code changes may require changes to the demo setup script (e.g. changes in the api, new modules). Since the demo setup script tries to simulate user generated data it takes some time to run. You may speed up the runtime by parallelizing the execution. However, this may use up 100% of your CPU and storage performance:
 
 ```sh
 php demoSetup/setup.php -a 0
+```
+
+### End-To-End tests
+
+End-To-End tests simulate the user interaction with the application in the browser. These tests can be found in `tests/Web` and can only be run on a machine with `Chrome` and a window manager installed (these tests don't run in a pure CLI environment).
+
+```sh
+node test/Web/Backend/Install.js
 ```
 
 ### UI tests
@@ -116,8 +124,8 @@ In the demo application it is possible to highlight html and css warnings (e.g. 
 
 * every test must have a short test description
 * every test and description must be added to the test report
-* every test needs a test category (e.g. framework, module etc.)
-* every test should have a @covers annotation to specify which class it covers
+* every test needs a test category (for PHPUnit tests) (e.g. framework, module etc.)
+* every test should have a covers attribute (for PHPUnit tests) to specify which class it covers
 
 ## Tools
 
@@ -216,8 +224,10 @@ php vendor/bin/rector process --dry-run --config Build/Config/rector.php ./
 The javascript testing is done with jasmine. The javascript testing directory is structured the same way as the `Framework`. Unit tests for specific classes need to be named in the same manner as the testing class.
 
 ```sh
-npx jasmine-node ./
+./Build/Config/jasmine_build.sh && npx jasmine --config=Build/Config/jasmine.json
 ```
+
+Alternatively you can open `http://127.0.0.1/jsOMS/tests/SpecRunner.html` to run the tests in your browser.
 
 ### JS Eslint
 
@@ -247,7 +257,7 @@ sitespeed.io ./Build/Helper/Scripts/sitespeedDemoUrls.txt -b chrome --outputFold
 
 ### SQL performance
 
-With query profiling enabled you can inspect slow running queries that may need optimization. The threashold for slow running queries is defined at 0.5s.
+With query profiling enabled you can inspect slow running queries that may need optimization. The threshold for slow running queries is defined at 0.5s.
 
 ```sh
 mysqldumpslow -t 10 /var/log/mysql/mysql-slow.log
@@ -304,6 +314,26 @@ The following checks should also be performed. If you use the git hooks from the
 * Php files without strict_types
 * Has logs
 * Has whitespace at line end
+
+## Classification
+
+```mermaid
+quadrantChart;
+    x-axis Low Level --> High Level;
+    y-axis Low Importance --> High Importance;
+    PHPStan: [0.2, 0.5];
+    *UI tests: [0.8, 0.05];
+    PHPCS/CBF/Fixer/Rector/eslint: [0.1, 0.1];
+    PHPUnit: [0.5, 0.75];
+    cOMS/tests.sh: [0.2, 0.2];
+    Jasmine: [0.3, 0.5];
+    *Selenium: [0.9, 0.9];
+    *Sitespeed: [0.75, 0.25];
+    *Demo: [0.95, 0.95];
+    *Other: [0.3, 0.05];
+```
+
+\* Optional and/or manual
 
 ## References
 

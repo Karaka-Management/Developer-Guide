@@ -20,8 +20,8 @@ Url parameters:
   * `n` means that elements to the **right/below** of `id` should be shown
 * `sort_by` defines the column which is used to sort the data
 * `sort_order` defines what **left/above** and **right/below** mean
-  * `ASC` means ascending and therfore defines **left/above** as smaller elements and **right/below** as larger elements
-  * `DESC` means descending and therfore defines **left/above** as larger elements and **right/below** as smaller elements
+  * `ASC` means ascending and therefore defines **left/above** as smaller elements and **right/below** as larger elements
+  * `DESC` means descending and therefore defines **left/above** as larger elements and **right/below** as smaller elements
 * `subid` defines the id of the `sort_by` column IFF `sort_by` is not the primary field.
 
 > The maximum amount of elements returned depend on the defined limit.

@@ -16,7 +16,7 @@ The following dev tools are highly recommended and the documentation assumes you
 
 ```sh
 # For php/html/javascript developers
-sudo apt-get install git poppler-utils mariadb-server mariadb-client postgresql postgresql-contrib vsftpd tesseract-ocr wget curl grep sed composer nodejs npm software-properties-common php8.1 php8.1-dev php8.1-cli php8.1-common php8.1-mysql php8.1-pgsql php8.1-xdebug php8.1-opcache php8.1-pdo php8.1-sqlite php8.1-mbstring php8.1-curl php8.1-imap php8.1-bcmath php8.1-zip php8.1-dom php8.1-xml php8.1-phar php8.1-gd php-pear apache2 redis redis-server memcached sqlite3 wkhtmltopdf imagemagick
+sudo apt-get install git poppler-utils mariadb-server mariadb-client postgresql postgresql-contrib vsftpd tesseract-ocr wget curl grep sed composer nodejs npm software-properties-common php8.2 php8.2-dev php8.2-cli php8.2-common php8.2-intl php8.2-mysql php8.2-pgsql php8.2-xdebug php8.2-opcache php8.2-pdo php8.2-sqlite php8.2-mbstring php8.2-curl php8.2-imap php8.2-bcmath php8.2-zip php8.2-dom php8.2-xml php8.2-phar php8.2-gd php-pear apache2 redis redis-server memcached sqlite3 wkhtmltopdf imagemagick
 
 sudo systemctl enable apache2
 sudo mysql_secure_installation
@@ -72,7 +72,7 @@ Additional tools and settings coming with the VM:
    1. Download the latest trace from `http://vm_ip:82/Logs`
    2. Drag and drop that downloaded `*.xt` file in the trace visualizer
 5. `sitespeed.io ./Build/Helper/Scripts/sitespeedDemoUrls.txt -b chrome --outputFolder /var/www/html/sitespeed`
-6. Slow sql query threashold is defined as 0.5s.
+6. Slow sql query threshold is defined as 0.5s.
 
 <p class="cT">
 <img width="150px" tabindex="0" src="./Developer-Guide/general/img/webgrind.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/general/img/trace_visualizer.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/general/img/sitespeed.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/general/img/codecoverage.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/general/img/coverage_analysis.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/general/img/metrics.jpg">
@@ -89,14 +89,14 @@ This will only setup the application including some dummy data and also perform 
 5. Run `composer install` inside `Karaka`
 6. Run `npm install` inside `Karaka`
 7. Create the database `omd` in your database management software
-8. Adjust the `demoSetup/config.php` file according to your settings (e.g. database user name + password)
+8. Adjust the `demoSetup/config.php` file according to your settings (e.g. database user + password)
 9. Run `php demoSetup/setup.php` inside `Karaka` (takes a long time: > 2h)
 
 After the installation you'll have access to the following content:
 
 * Application: `http://127.0.0.1`
 
-Instead of calling `php demoSetup/setup.php` which only uses a single thread you may also run `php demoSetup/setup.php -a 0` which will execute the install script in multiple threads leading to most likely 100% CPU and storage usage but therfore significantly reduce the execution time.
+Instead of calling `php demoSetup/setup.php` which only uses a single thread you may also run `php demoSetup/setup.php -a 0` which will execute the install script in multiple threads leading to most likely 100% CPU and storage usage but therefore significantly reduce the execution time.
 
 > You may want to call the setup script as a different user to ensure the same permissions `sudo -u wwww-data php demoSetup/setup.php`
 
@@ -130,14 +130,15 @@ This will only setup the application including some dummy data and also perform 
 3. Run `git submodule foreach git checkout develop`
 4. Run `composer install` inside `Karaka`
 5. Run `npm install` inside `Karaka`
-6. Create the database `oms` in your database management software
-7. Adjust the `tests/Bootstrap.php` file according to your settings (e.g. database user name + password)
-8. Run `php -dxdebug.mode=develop,debug,profile,coverage -dxdebug.start_with_request=yes vendor/bin/phpunit --configuration tests/phpunit_default.xml` inside `Karaka` or open `http://127.0.0.1/Install` for a web install without dummy data.
+6. Create the database `omt` in your database management software
+7. Create the database user `test` with the password `orange`
+8. Adjust the `tests/Bootstrap.php` file according to your settings (e.g. database user name + password)
+9. Run `php -dxdebug.mode=develop,debug,profile,coverage -dxdebug.start_with_request=yes vendor/bin/phpunit --configuration tests/phpunit_default.xml` inside `Karaka` or open `http://127.0.0.1/Install` for a web install without dummy data.
 
 After the installation you'll have access to the following content:
 
 * Application: `http://127.0.0.1`
-* Code Coverager: `http://127.0.0.1/tests/coverage/`
+* Code Coverage: `http://127.0.0.1/tests/coverage/`
 
 > During this process the database automatically gets dropped (if it exists) and re-created. If you don't have `xdebug` installed but `phpdbg` you can replace `php phpunit ...` with `phpdbg -qrr phpunit.phar ...` or use `pcov` for much faster code coverage generation.
 

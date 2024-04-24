@@ -1,6 +1,6 @@
 # Cache
 
-For caching the `CacheManager` provides access to the caching systems in place. Out of the box the CacheManager supports and automatically initializes either Redis or Memcached depending on the client configuration. The caching is not mandatory and therefor shouldn't be misused as in-memory database. It is not necessary to check if Redis or Memcached are available the CacheManager automatically handles the caching based on their existence.
+For caching the `CacheManager` provides access to the caching systems in place. Out of the box the CacheManager supports and automatically initializes either Redis or Memcached depending on the client configuration. The caching is not mandatory and therefore shouldn't be misused as in-memory database. It is not necessary to check if Redis or Memcached are available the CacheManager automatically handles the caching based on their existence.
 
 ## HTTP Cache
 

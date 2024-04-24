@@ -43,7 +43,7 @@ Don't use C++ standard functions or C++ functions provided by other C++ header f
 
 ### Parameters
 
-Generally, functions that thake pointers to non-scalar types should modify the data instead of allocating new memory **IF** reasonable. This forces programmers to consciously create copies before passing data **IF** they need the original data. To indicate that a reference/pointer is not modified by a function define them as const!
+Generally, functions that take pointers to non-scalar types should modify the data instead of allocating new memory **IF** reasonable. This forces programmers to consciously create copies before passing data **IF** they need the original data. To indicate that a reference/pointer is not modified by a function define them as const!
 
 We believe this approach provides a framework for better memory management and better performance in general.
 

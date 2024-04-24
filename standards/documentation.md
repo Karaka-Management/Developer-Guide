@@ -32,7 +32,7 @@ Every module that has a database table must implement a UML diagram illustrating
 
 ## Php
 
-The php documentation is based on PhpDocumentor, therefore only valid PhpDocumentor comments are valid for files, classes, functions/methods and (member) variables.
+The php documentation is based on PhpDocumentor, therefore  only valid PhpDocumentor comments are valid for files, classes, functions/methods and (member) variables.
 
 ### File
 
@@ -111,7 +111,7 @@ Example:
 
 ## JavaScript
 
-The javascript documentation is based on JsDoc, therefore only valid JsDoc comments are valid for all js files.
+The javascript documentation is based on JsDoc, therefore  only valid JsDoc comments are valid for all js files.
 
 ### File
 

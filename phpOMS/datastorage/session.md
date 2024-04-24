@@ -8,4 +8,4 @@ The Http session will be saved automatically, there is no need to access the sup
 
 ## Socket & Console
 
-The session will be stored and associated with the logged in user in memory. A disconnect or quit is considered as a logout and therefor results in the destruction of the session object of this user and will be empty for the next login.
+The session will be stored and associated with the logged in user in memory. A disconnect or quit is considered as a logout and therefore results in the destruction of the session object of this user and will be empty for the next login.

@@ -32,7 +32,7 @@ Getters and setters for member variables should be kept at a absolute minimum an
 
 ### Why are we using public so much?
 
-* Private/protected adds a huge amount of unneccessary typing without gaining much/anything
+* Private/protected adds a huge amount of unnecessary typing without gaining much/anything
 * Getters/setters may hide unsuspecting side effects
 * Adding additional functionality afterwards if it becomes necessary is easy by changing the member to private and letting the static code inspection tools find the callers
 * Performance overhead (function calls, data mappers)
