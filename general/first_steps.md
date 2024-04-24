@@ -51,7 +51,7 @@ All tests need to have the following docblocks:
 
 #### Module documentation
 
-Modules have a `Help` and a `Dev` documentation both are insifficient for most modules. Feel free to add some documentation. Consider to use images wherever helpful. Consider to add the used images to https://github.com/Karaka-Management/Build/blob/master/Js/createImages.js which will automatically create new images even if the style changes or minor layout changes are made.
+Modules have a `Help` and a `Dev` documentation both are insufficient for most modules. Feel free to add some documentation. Consider to use images wherever helpful. Consider to add the used images to https://github.com/Karaka-Management/Build/blob/master/Js/createImages.js which will automatically create new images even if the style changes or minor layout changes are made.
 
 ```js
 ...

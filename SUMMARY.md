@@ -21,11 +21,3 @@
 * [Application Sample]({%}?page=phpOMS/application)
 * [Modules]({%}?page=application/module)
 * [Packages]({%}?page=application/packages)
-
-## phpOMS
-
-## jsOMS
-
-## cssOMS
-
-## cOMS

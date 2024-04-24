@@ -72,7 +72,7 @@ Additional tools and settings coming with the VM:
    1. Download the latest trace from `http://vm_ip:82/Logs`
    2. Drag and drop that downloaded `*.xt` file in the trace visualizer
 5. `sitespeed.io ./Build/Helper/Scripts/sitespeedDemoUrls.txt -b chrome --outputFolder /var/www/html/sitespeed`
-6. Slow sql query threashold is defined as 0.5s.
+6. Slow sql query threshold is defined as 0.5s.
 
 <p class="cT">
 <img width="150px" tabindex="0" src="./Developer-Guide/general/img/webgrind.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/general/img/trace_visualizer.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/general/img/sitespeed.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/general/img/codecoverage.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/general/img/coverage_analysis.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/general/img/metrics.jpg">
@@ -96,7 +96,7 @@ After the installation you'll have access to the following content:
 
 * Application: `http://127.0.0.1`
 
-Instead of calling `php demoSetup/setup.php` which only uses a single thread you may also run `php demoSetup/setup.php -a 0` which will execute the install script in multiple threads leading to most likely 100% CPU and storage usage but therfore significantly reduce the execution time.
+Instead of calling `php demoSetup/setup.php` which only uses a single thread you may also run `php demoSetup/setup.php -a 0` which will execute the install script in multiple threads leading to most likely 100% CPU and storage usage but therefore significantly reduce the execution time.
 
 > You may want to call the setup script as a different user to ensure the same permissions `sudo -u wwww-data php demoSetup/setup.php`
 
@@ -138,7 +138,7 @@ This will only setup the application including some dummy data and also perform 
 After the installation you'll have access to the following content:
 
 * Application: `http://127.0.0.1`
-* Code Coverager: `http://127.0.0.1/tests/coverage/`
+* Code Coverage: `http://127.0.0.1/tests/coverage/`
 
 > During this process the database automatically gets dropped (if it exists) and re-created. If you don't have `xdebug` installed but `phpdbg` you can replace `php phpunit ...` with `phpdbg -qrr phpunit.phar ...` or use `pcov` for much faster code coverage generation.
 

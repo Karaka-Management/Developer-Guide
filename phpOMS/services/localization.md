@@ -16,7 +16,7 @@ or indirectly by calling the `getText()` in the view context.
 $this->getText({TEXT})
 ```
 
-The language that should be used for a response should always be depending on the requested language and therefore never be hard coded.
+The language that should be used for a response should always be depending on the requested language and therefore  never be hard coded.
 
 The language code of the localization object is the 2 character ISO639 code. The corresponding enums are located in the localization directory and labeled with `ISO639`.
 
@@ -58,7 +58,7 @@ $money->getCurrency(2, ',', '.', '$', 0);
 
 ### DateTime
 
-The date/time is versatile and can have multiple formats. By default the localization object stores 5 different date/time formats depending on the degree of accuracy required. 
+The date/time is versatile and can have multiple formats. By default the localization object stores 5 different date/time formats depending on the degree of accuracy required.
 
 * very_short
 * short

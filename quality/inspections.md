@@ -15,7 +15,6 @@ The following automated tests must pass without errors, failures and warnings fo
 * `npx eslint ./ -c Build/Config/.eslintrc.json`
 * `npx jasmine-node ./`
 * `./cOMS/tests/test.sh`
-* see [other checks](#other-checks) below
 
 <p class="cT">
 <img width="150px" tabindex="0" src="./Developer-Guide/quality/img/webgrind.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/quality/img/trace_visualizer.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/quality/img/sitespeed.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/quality/img/sitespeed_waterfall.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/quality/img/codecoverage.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/quality/img/coverage_analysis.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/quality/img/metrics.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/quality/img/phpunit_html.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/quality/img/phpcs.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/quality/img/phpstan.jpg"> <img width="150px" tabindex="0" src="./Developer-Guide/quality/img/rector.jpg">
@@ -56,7 +55,8 @@ When testing it makes sense to test for the happy path/branch of how a method sh
 * C++ framework + tools: `cOMS/tests`
 * Css framework: `cssOMS/tests`
 * Configurations for tools: `Build/Config`
-* Inspection script: `Build/php.sh` or `Builde/Helper/Scripts/inspectproject.sh`
+* Inspection script: `Build/php.sh` or `Build/Helper/Scripts/inspectproject.sh`
+* End-to-End: `tests/Web`
 
 ### Unit tests
 
@@ -68,9 +68,9 @@ Integration tests are the second level or middle level of tests. These types of 
 
 For large controllers it can make sense to define a `*ControllerTest` which uses `Traits` in order to categorize different suits of tests. For example in the `Admin` ApiControllerTest we implemented different traits for group, account and module tests.
 
-### System tests
+### User/End-To-End
 
-The system tests are the highest level of tests and test the overall functionality and if the implementation fulfills the specifications.
+The User/End-To-End tests are the highest level of tests and test the overall functionality and if the implementation fulfills the specifications.
 
 ### Modules
 
@@ -102,6 +102,14 @@ In some cases code changes may require changes to the demo setup script (e.g. ch
 
 ```sh
 php demoSetup/setup.php -a 0
+```
+
+### End-To-End tests
+
+End-To-End tests simulate the user interaction with the application in the browser. These tests can be found in `tests/Web` and can only be run on a machine with `Chrome` and a window manager installed (these tests don't run in a pure CLI environment).
+
+```sh
+node test/Web/Backend/Install.js
 ```
 
 ### UI tests
@@ -219,6 +227,8 @@ The javascript testing is done with jasmine. The javascript testing directory is
 npx jasmine-node ./
 ```
 
+Alternatively you can open `http://127.0.0.1/jsOMS/tests/SpecRunner.html` to run the tests in your browser.
+
 ### JS Eslint
 
 The js code base has a defined code style standard. The easiest way to check for most rules is to run eslint.
@@ -247,7 +257,7 @@ sitespeed.io ./Build/Helper/Scripts/sitespeedDemoUrls.txt -b chrome --outputFold
 
 ### SQL performance
 
-With query profiling enabled you can inspect slow running queries that may need optimization. The threashold for slow running queries is defined at 0.5s.
+With query profiling enabled you can inspect slow running queries that may need optimization. The threshold for slow running queries is defined at 0.5s.
 
 ```sh
 mysqldumpslow -t 10 /var/log/mysql/mysql-slow.log
@@ -304,10 +314,26 @@ The following checks should also be performed. If you use the git hooks from the
 * Php files without strict_types
 * Has logs
 * Has whitespace at line end
-  
-##### Other manual checks
 
-By adding the `?debug=1` query parameter to a url a css file gets loaded that can help finding missing html attributes (e.g. alt="", for="", ...) by drawing a red border around the element that possibly needs improving.
+## Classification
+
+```mermaid
+quadrantChart;
+    x-axis Low Level --> High Level;
+    y-axis Low Importance --> High Importance;
+    PHPStan: [0.2, 0.5];
+    *UI tests: [0.8, 0.05];
+    PHPCS/CBF/Fixer/Rector/eslint: [0.1, 0.1];
+    PHPUnit: [0.5, 0.75];
+    cOMS/tests.sh: [0.2, 0.2];
+    Jasmine: [0.3, 0.5];
+    *Selenium: [0.9, 0.9];
+    *Sitespeed: [0.75, 0.25];
+    *Demo: [0.95, 0.95];
+    *Other: [0.3, 0.05];
+```
+
+\* Optional and/or manual
 
 ## References
 
