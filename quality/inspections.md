@@ -10,9 +10,10 @@ The following automated tests must pass without errors, failures and warnings fo
 * `php ./vendor/bin/php-cs-fixer fix ./ --config=Build/Config/.php-cs-fixer.php --allow-risky=yes`
 * `php ./vendor/bin/phpcbf --standard=Build/Config/phpcs.xml ./`
 * `php ./vendor/bin/phpcs --severity=1 ./ --standard="Build/Config/phpcs.xml"`
-* `php ./vendor/bin/phpunit -c tests/phpunit_no_coverage.xml`
 * `php ./vendor/bin/rector process --config Build/Config/rector.php --dry-run ./`
 * `npx eslint ./ -c Build/Config/.eslintrc.json`
+* `find . -regex '.*\.\(cpp\|h\)' -exec clang-format -style=file:Build/Config/.clang-format -i {} \;`
+* `php ./vendor/bin/phpunit -c tests/phpunit_no_coverage.xml`
 * `./Build/Config/jasmine_build.sh && npx jasmine --config=Build/Config/jasmine.json`
 * `./cOMS/tests/test.sh`
 
@@ -138,6 +139,7 @@ Tools used for the code inspection are:
 * PHP CS Fixer
 * PHP CBF
 * Rector
+* Clang-Format
 * Custom scripts/tools
 
 ### PHPUnit
@@ -217,6 +219,14 @@ php vendor/bin/phpcbf --standard=Build/Config/phpcs.xml ./
 
 ```sh
 php vendor/bin/rector process --dry-run --config Build/Config/rector.php ./
+```
+
+### Clang-Format
+
+The c/c++ code base has a defined code style standard. The following command automatically fixes some of the violations
+
+```sh
+find . -regex '.*\.\(cpp\|h\)' -exec clang-format -style=file:Build/Config/.clang-format -i {} \;
 ```
 
 ### Jasmine
@@ -323,7 +333,7 @@ quadrantChart;
     y-axis Low Importance --> High Importance;
     PHPStan: [0.2, 0.5];
     *UI tests: [0.8, 0.05];
-    PHPCS/CBF/Fixer/Rector/eslint: [0.1, 0.1];
+    Code Style: [0.1, 0.1];
     PHPUnit: [0.5, 0.75];
     cOMS/tests.sh: [0.2, 0.2];
     Jasmine: [0.3, 0.5];
