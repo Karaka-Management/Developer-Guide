@@ -239,6 +239,8 @@ The javascript testing is done with jasmine. The javascript testing directory is
 
 Alternatively you can open `http://127.0.0.1/jsOMS/tests/SpecRunner.html` to run the tests in your browser.
 
+> Some tests require the browser context to work
+
 ### JS Eslint
 
 The js code base has a defined code style standard. The easiest way to check for most rules is to run eslint.
