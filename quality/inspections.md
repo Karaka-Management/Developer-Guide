@@ -121,6 +121,17 @@ While UI tests can be part of unit, integration or system tests the `cssOMS` rep
 
 In the demo application it is possible to highlight html and css warnings (e.g. missing attributes, deprecated tags, inline styles, ...). In order to activate the live debugging add `&debug=true` to the end of your url.
 
+#### HTML debugging
+
+In the demo application it is possible to generate a list of html and css warnings by running a script which automatically traverses the application and searches for potentially bad html or css.
+
+1. Open the website in your browser
+2. Log into the (demo) application
+3. Copy the entire content of `tests/Web/Backend/Debug.js`
+4. Paste the content into the console in your browser and press enter
+5. Wait until the browser is done loading all the pages (see limit pageLimit)
+6. At the end of the console output you should find a table with stats regarding potentially problematic html/css
+
 ## Test documentation
 
 * every test must have a short test description
