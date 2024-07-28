@@ -28,6 +28,10 @@ When writing code keep the following topics in mind:
 * Array of Structs vs Struct of Arrays
 * SIMD
 * Choosing correct data types
+  * Data Type Sizes (e.g. 32 bit vs 64 bit)
+  * Containers (e.g. arrays vs vectors)
+  * Signed vs unsigned
+* Threading
 
 ## Namespace
 
