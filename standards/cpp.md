@@ -27,6 +27,22 @@ Be careful when you use unsigned and signed integers. When using unsigned intege
 
 Make sure structs don't have too much overhead due to alignment padding. Re-ordering struct members can fix a lot of padding overhead.
 
+```c++
+struct Bad {
+  bool a;
+  int b;
+  bool c;
+};
+```
+
+```c++
+struct Good {
+  int b;
+  bool a;
+  bool c;
+};
+```
+
 ## Templates
 
 Don't use C++ templates.
