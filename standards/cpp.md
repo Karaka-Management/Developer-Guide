@@ -11,6 +11,24 @@ The reason for the strong focus on C is that we **personally** believe that C is
 
 C/C++ solutions should be valid on Windows 10+ and Linux.
 
+## Performance
+
+When writing code keep the following topics in mind:
+
+* Branching / Branchless programming
+* Instruction tables and their latency / throughput
+* Cache Sizes
+* Cache Line Size
+* Cache Locality
+* Cache Associativity
+* Memory Bandwidth
+* Memory Latency
+* Prefetching
+* Alignment / Packing
+* Array of Structs vs Struct of Arrays
+* SIMD
+* Choosing correct data types
+
 ## Namespace
 
 ### use
@@ -22,28 +40,6 @@ Namespaces must never be globally used. This means for example `use namespace st
 ### Unsigned Integer
 
 Be careful when you use unsigned and signed integers. When using unsigned integers the compiler may create additional instructions depending on the situation since it must support integer wrapping.
-
-## Structs
-
-Make sure structs don't have too much overhead due to alignment padding. Re-ordering struct members can fix a lot of padding overhead.
-
-```c++
-// sizeof == 12
-struct Bad {
-  bool a;
-  int b;
-  bool c;
-};
-```
-
-```c++
-// sizeof == 8
-struct Good {
-  int b;
-  bool a;
-  bool c;
-};
-```
 
 ## Templates
 
