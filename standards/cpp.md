@@ -40,12 +40,6 @@ When writing code keep the following topics in mind:
 
 Namespaces must never be globally used. This means for example `use namespace std;` is prohibited and functions from the standard namespace should be prefixed instead `std::`
 
-## Data types
-
-### Unsigned Integer
-
-Be careful when you use unsigned and signed integers. When using unsigned integers the compiler may create additional instructions depending on the situation since it must support integer wrapping.
-
 ## Templates
 
 Don't use C++ templates.
