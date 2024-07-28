@@ -2,14 +2,14 @@
 
 The C/C++ code should focus on using simplicity over "modern solutions". This may often mean to heavily restrict the code. The following rule of thumb applies:
 
-1. C24 should be used where reasonable (large parts of the cOMS framework)
+1. C99 and C++11 should be used where reasonable
 2. C++ may be used in places where external libraries basically require C++
 
 The reason for the strong focus on C is that we **personally** believe that C is simpler and easier to understand than the various abstractions provided by C++.
 
 ## Operating system support
 
-C/C++ solutions must be valid on Windows 10+ and Linux.
+C/C++ solutions should be valid on Windows 10+ and Linux.
 
 ## Namespace
 
@@ -17,15 +17,15 @@ C/C++ solutions must be valid on Windows 10+ and Linux.
 
 Namespaces must never be globally used. This means for example `use namespace std;` is prohibited and functions from the standard namespace should be prefixed instead `std::`
 
-### Code structuring
+## Data types
 
-It is encouraged to use C++ namespaces to structure code. In C programmers often use prefixes to more or less re-create namespaces. We consider this a hack and advocate for C++ namespaces.
+### Unsigned Integer
 
-```cpp
-namespace Your::Name::Space {
+Be careful when you use unsigned and signed integers. When using unsigned integers the compiler may create additional instructions depending on the situation since it must support integer wrapping.
 
-}
-```
+## Structs
+
+Make sure structs don't have too much overhead due to alignment padding. Re-ordering struct members can fix a lot of padding overhead.
 
 ## Templates
 
