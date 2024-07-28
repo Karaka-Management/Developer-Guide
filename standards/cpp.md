@@ -33,13 +33,15 @@ Don't use C++ templates.
 
 ## Allocation
 
-Use C allocation methods for heap allocation.
+Use memory arenas instead of over and over manually allocating memory.
+
+However, if neccessary use C allocation methods for heap allocation.
 
 ## Functions
 
 ### C++ function
 
-Don't use C++ standard functions or C++ functions provided by other C++ header files unless you have to work with C++ types which is often required when working with third party libraries.
+Don't use C++ standard library functions or C++ functions provided by other C++ header files unless you have to work with C++ types which is often required when working with third party libraries.
 
 ### Parameters
 
