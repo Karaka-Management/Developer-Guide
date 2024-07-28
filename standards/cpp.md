@@ -28,6 +28,7 @@ Be careful when you use unsigned and signed integers. When using unsigned intege
 Make sure structs don't have too much overhead due to alignment padding. Re-ordering struct members can fix a lot of padding overhead.
 
 ```c++
+// sizeof == 12
 struct Bad {
   bool a;
   int b;
@@ -36,6 +37,7 @@ struct Bad {
 ```
 
 ```c++
+// sizeof == 8
 struct Good {
   int b;
   bool a;
