@@ -32,6 +32,7 @@ When writing code keep the following topics in mind:
   * Containers (e.g. arrays vs vectors)
   * Signed vs unsigned
 * Threading
+* Cost of abstractions
 
 ## Namespace
 
