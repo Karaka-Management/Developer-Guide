@@ -68,7 +68,7 @@ b += (a < 50) * a;
 
 https://www.agner.org/optimize/instruction_tables.pdf
 
-### Cache sizes
+### CPU stats
 
 | CPU Category | Stat |
 |--------------|---------|
