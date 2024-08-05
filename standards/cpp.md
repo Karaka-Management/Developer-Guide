@@ -33,7 +33,7 @@ When writing code keep the following topics in mind:
   * Signed vs unsigned
 * Threading
 * Cost of abstractions
-* atomics vs locking
+* atomics vs locking (mutex)
 
 ## Namespace
 
