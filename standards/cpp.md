@@ -42,9 +42,9 @@ Branched code
 
 ```c++
 for (int i = 0; i < N; i++)
- if (a[i] < 50) {
-  s += a[i];
- }
+    if (a[i] < 50) {
+        s += a[i];
+    }
 }
 ```
 
@@ -53,7 +53,7 @@ Branchless code
 
 ```c++
 for (int i = 0; i < N; i++)
- s += (a[i] < 50) * a[i];
+    s += (a[i] < 50) * a[i];
 }
 ```
 
