@@ -128,6 +128,37 @@ struct Data {
 };
 ```
 
+### SIMD
+
+Performs every addition one after another:
+
+```c++
+void add_arrays(float* a, float* b, float* result, size_t size) {
+    for (size_t i = 0; i < size; ++i) {
+        result[i] = a[i] + b[i];
+    }
+}
+```
+
+> The code above may actually get optimized by the compiler because it is very simple
+
+Performs 8 additions at the same time:
+
+```c++
+void add_arrays(float* a, float* b, float* result, size_t size) {
+    size_t i = 0;
+    for (; i < size - (size % 8); i += 8) {  // Process 8 elements at a time
+        __m256 va = _mm256_loadu_ps(&a[i]);
+        __m256 vb = _mm256_loadu_ps(&b[i]);
+        __m256 vr = _mm256_add_ps(va, vb);
+        _mm256_storeu_ps(&result[i], vr);
+    }
+    for (; i < size; ++i) {  // Handle the remainder
+        result[i] = a[i] + b[i];
+    }
+}
+```
+
 ### Cache line sharing between CPU cores
 
 When working with multi-threading you may choose to use atomic variables and atomic operations to reduce the locking in your application. You may think that a variable value `a[0]` used by thread 1 on core 1 and a variable value `a[1]` used by thread 2 on core 2 will have no performance impact. However, this is wrong. Core 1 and core 2 both have different L1 and L2 caches BUT the CPU doesn't just load individual variables, it loads entire cache lines (e.g. 64 bytes). This means that if you define `int a[2]`, it has a high chance of being on the same cache line and therfore thread 1 and thread 2 both have to wait on each other when doing atomic writes.
