@@ -182,7 +182,7 @@ Lockless version
 atomic_int counter = 0;
 
 void increment_counter() {
-    atomic_fetch_add(&counter, 1);  // Atomic operation, no locking needed
+    atomic_fetch_add(&counter, 1);
 }
 ```
 
