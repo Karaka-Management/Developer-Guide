@@ -48,7 +48,6 @@ for (int i = 0; i < N; i++)
 }
 ```
 
-
 Branchless code
 
 ```c++
@@ -56,6 +55,22 @@ for (int i = 0; i < N; i++)
     s += (a[i] < 50) * a[i];
 }
 ```
+
+### Instruction table latency
+
+| Instruction | Latency | RThroughput |
+|-------------|---------|:------------|
+| `jmp`       | -       | 2           |
+| `mov r, r`  | -       | 1/4         |
+| `mov r, m`  | 4       | 1/2         |
+| `mov m, r`  | 3       | 1           |
+| `add`       | 1       | 1/3         |
+| `cmp`       | 1       | 1/4         |
+| `popcnt`    | 1       | 1/4         |
+| `mul`       | 3       | 1           |
+| `div`       | 13-28   | 13-28       |
+
+https://www.agner.org/optimize/instruction_tables.pdf
 
 ### Cache line sharing between CPU cores
 
