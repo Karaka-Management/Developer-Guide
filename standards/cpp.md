@@ -34,6 +34,7 @@ When writing code keep the following topics in mind:
 * Threading
 * Cost of abstractions
 * atomics vs locking (mutex)
+* Cache line sharing between CPU cores
 
 ## Namespace
 
