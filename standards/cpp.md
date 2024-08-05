@@ -41,19 +41,15 @@ When writing code keep the following topics in mind:
 Branched code
 
 ```c++
-for (int i = 0; i < N; i++)
-    if (a[i] < 50) {
-        s += a[i];
-    }
+if (a < 50) {
+    b += a;
 }
 ```
 
 Branchless code
 
 ```c++
-for (int i = 0; i < N; i++)
-    s += (a[i] < 50) * a[i];
-}
+b += (a < 50) * a;
 ```
 
 ### Instruction table latency
@@ -71,6 +67,18 @@ for (int i = 0; i < N; i++)
 | `div`       | 13-28   | 13-28       |
 
 https://www.agner.org/optimize/instruction_tables.pdf
+
+### Cache sizes
+
+| CPU Category | Stat |
+|--------------|---------|
+| L1 Cache | 32 - 48 KB |
+| L2 Cache | 2 - 4 MB |
+| L3 Cache | 8 - 36 MB |
+| L4 Cache | 0 - 128 MB |
+| Clock speed | 3.5 - 6.2 Ghz  |
+| Cache Line | 64 B |
+| Page Size | 4 KB |
 
 ### Cache line sharing between CPU cores
 
