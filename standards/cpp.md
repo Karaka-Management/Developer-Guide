@@ -147,13 +147,15 @@ Performs 8 additions at the same time:
 ```c++
 void add_arrays(float* a, float* b, float* result, size_t size) {
     size_t i = 0;
-    for (; i < size - (size % 8); i += 8) {  // Process 8 elements at a time
+    for (; i < size - (size % 8); i += 8) {
         __m256 va = _mm256_loadu_ps(&a[i]);
         __m256 vb = _mm256_loadu_ps(&b[i]);
         __m256 vr = _mm256_add_ps(va, vb);
         _mm256_storeu_ps(&result[i], vr);
     }
-    for (; i < size; ++i) {  // Handle the remainder
+
+    // Handle the remainder if size is not dividable by 8
+    for (; i < size; ++i) {
         result[i] = a[i] + b[i];
     }
 }
