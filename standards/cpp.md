@@ -36,6 +36,10 @@ When writing code keep the following topics in mind:
 * atomics vs locking (mutex)
 * Cache line sharing between CPU cores
 
+### Cache line sharing between CPU cores
+
+When working with multi-threading you may choose to use atomic variables and atomic operations to reduce the locking in your application. You may think that a variable value `a[0]` used by thread 1 on core 1 and a variable value `a[1]` used by thread 2 on core 2 will have no performance impact. However, this is wrong. Core 1 and core 2 both have different L1 and L2 caches BUT the CPU doesn't just load individual variables, it loads entire cache lines (e.g. 64 bytes). This means that if you define `int a[2]`, it has a high chance of being on the same cache line and therfore thread 1 and thread 2 both have to wait on each other when doing atomic writes.
+
 ## Namespace
 
 ### use
