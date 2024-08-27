@@ -33,7 +33,7 @@ When writing code keep the following topics in mind:
   * Signed vs unsigned
 * Threading
 * Cost of abstractions
-* atomics vs locking (mutex)
+* atomics vs locking (mutex) vs producer/consumer
 * Cache line sharing between CPU cores
 
 ### Branching / Branchless programming
