@@ -109,9 +109,9 @@ Example:
 /** @var TestObject[] $myArray */
 ```
 
-## JavaScript
+## JS
 
-The javascript documentation is based on JsDoc, therefore  only valid JsDoc comments are valid for all js files.
+The JS documentation is based on JsDoc, therefore  only valid JsDoc comments are valid for all js files.
 
 ### File
 

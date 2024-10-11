@@ -48,4 +48,4 @@ $result = Rest::request($request);
 
 ## Websocket Requests
 
-## JavaScript Requests
+## JS Requests

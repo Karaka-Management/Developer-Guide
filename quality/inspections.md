@@ -1,6 +1,6 @@
 # Code Inspections & Tests
 
-Code inspections are very important in order to maintain the same code quality throughout the application. The [Build](https://github.com/Karaka-Management/Build) repository and package managers such as `composer` and `npm` contain all essential configuration files for the respective php and javascript inspection tools. The framework and every module will be evaluated based on the defined code and quality standards. Only code that passes all code, quality and test standards is accepted. Updates and bug fixes also must follow these standards.
+Code inspections are very important in order to maintain the same code quality throughout the application. The [Build](https://github.com/Karaka-Management/Build) repository and package managers such as `composer` and `npm` contain all essential configuration files for the respective php and JS inspection tools. The framework and every module will be evaluated based on the defined code and quality standards. Only code that passes all code, quality and test standards is accepted. Updates and bug fixes also must follow these standards.
 
 ## Summary
 
@@ -166,7 +166,7 @@ php vendor/bin/phpunit -c tests/PHPUnit/phpunit_no_coverage.xml
 In order to also create a code coverage report run:
 
 ```sh
-php -dxdebug.mode=coverage,develop,debug vendor/bin/phpunit -c tests/phpunit_default.xml --log-junit Build/test/junit_php.xml --coverage-html Build/coverage
+php -dxdebug.remote_enable=1 -dxdebug.start_with_request=yes -dxdebug.mode=coverage,develop,debug vendor/bin/phpunit -c tests/phpunit_default.xml --log-junit Build/test/junit_php.xml --coverage-html Build/coverage
 ```
 
 A visualization of the coverage can be found at http://127.0.0.1/Build/coverage
@@ -242,7 +242,7 @@ find . -regex '.*\.\(cpp\|h\)' -exec clang-format -style=file:Build/Config/.clan
 
 ### Jasmine
 
-The javascript testing is done with jasmine. The javascript testing directory is structured the same way as the `Framework`. Unit tests for specific classes need to be named in the same manner as the testing class.
+The JS testing is done with jasmine. The JS testing directory is structured the same way as the `Framework`. Unit tests for specific classes need to be named in the same manner as the testing class.
 
 ```sh
 ./Build/Config/jasmine_build.sh && npx jasmine --config=Build/Config/jasmine.json

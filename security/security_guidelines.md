@@ -51,7 +51,7 @@ The following headers must be set for every web application. By default they are
 
 ### Content-Security-Policy
 
-Scripts and frames must be provided by the own server. This is important in order to prevent the injection of other scripts and clickjacking. Inline javascript is prohibited and may only be defined in the application and not in any modules.
+Scripts and frames must be provided by the own server. This is important in order to prevent the injection of other scripts and clickjacking. Inline JS is prohibited and may only be defined in the application and not in any modules.
 
 The default CSP looks like the following:
 
@@ -66,7 +66,7 @@ $response->header->set('content-security-policy',
 );
 ```
 
-Javascript can now be included like this:
+JS can now be included like this:
 
 ```php
 $head  = $response->data['Content']->head;
@@ -115,7 +115,7 @@ In some cases superglobals will even be overwritten by values from these classes
 
 Input validation can be implemented on multiple levels.
 
-1. Regex validation in html/javascript by using the `pattern=""` attribute
+1. Regex validation in html/js by using the `pattern=""` attribute
 2. Type hints for method parameters wherever possible.
 3. Making use of the `Validation` classes as much as possible
 4. **Do not** sanitize! Accept or dismiss!

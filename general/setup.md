@@ -15,7 +15,7 @@ The following dev tools are highly recommended and the documentation assumes you
 ### Quick software overview
 
 ```sh
-# For php/html/javascript developers
+# For php/html/js developers
 sudo apt-get install git poppler-utils mariadb-server mariadb-client postgresql postgresql-contrib vsftpd tesseract-ocr wget curl grep sed composer nodejs npm software-properties-common php8.3 php8.3-dev php8.3-cli php8.3-common php8.3-intl php8.3-mysql php8.3-pgsql php8.3-xdebug php8.3-opcache php8.3-pdo php8.3-sqlite php8.3-mbstring php8.3-curl php8.3-imap php8.3-bcmath php8.3-zip php8.3-dom php8.3-xml php8.3-phar php8.3-gd php-pear apache2 redis redis-server memcached sqlite3 wkhtmltopdf imagemagick
 
 sudo systemctl enable apache2

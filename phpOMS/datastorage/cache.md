@@ -4,7 +4,7 @@ For caching the `CacheManager` provides access to the caching systems in place. 
 
 ## HTTP Cache
 
-By default only stylesheets, javascript and layout images as well as module images are cached. Everything else is considered volatile and not cached. If a response specific response should be cached feel free to use the response header:
+By default only stylesheets, js and layout images as well as module images are cached. Everything else is considered volatile and not cached. If a response specific response should be cached feel free to use the response header:
 
 Example usage for 30 days caching:
 
@@ -12,7 +12,7 @@ Example usage for 30 days caching:
 $response->setHeader('Cache-Control', 'Cache-Control: max-age=2592000');
 ```
 
-In order to trigger a re-cache of stylesheets or javascript files make sure to update the version in the `Controller.php` file. This way version updates will result in a new virtual file uri and result in a re-cache.
+In order to trigger a re-cache of stylesheets or js files make sure to update the version in the `Controller.php` file. This way version updates will result in a new virtual file uri and result in a re-cache.
 
 Example usage:
 

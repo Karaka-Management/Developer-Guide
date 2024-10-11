@@ -46,7 +46,7 @@ The following directory structure should roughly visualize how modules are struc
         * NullYourPHPModel.php
         * YourPHPModelMapper.php
         * ... more models/mappers/enums
-        * YourJavaScriptModels.js
+        * YourJSModels.js
     * Theme
         * Backend
             * Css
@@ -60,7 +60,7 @@ The following directory structure should roughly visualize how modules are struc
             * your_template_files.tpl.php
     * Views
         * YourPhpViews.php
-        * YourJavaScriptViews.js
+        * YourJSViews.js
     * info.json
     * README.md
 ```
@@ -249,7 +249,7 @@ All module specific images (not theme specific images). E.g. Module preview imag
 
 ## Models
 
-All models and data mapper classes should be stored in here (PHP & JS). How to create a data mapper for a model is described in the data mapper chapter. All JavaScript files need to be provided un-optimized (not minified or concatenated).
+All models and data mapper classes should be stored in here (PHP & JS). How to create a data mapper for a model is described in the data mapper chapter. All JS files need to be provided un-optimized (not minified or concatenated).
 
 ## Theme
 
